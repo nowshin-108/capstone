@@ -14,22 +14,21 @@ app.use(cors({
   origin: 'http://localhost:5174',
   credentials: true
 }));
-app.use(express.json()); // Middleware for parsing JSON bodies from HTTP requests
-// app.use(morgan());
+app.use(express.json());
+
 app.use(morgan('dev'));
 
 // Session middleware
-// Note: You may need to switch to a different session store that doesn't rely on Sequelize
+
 app.use(
   session({
     secret: 'your-secret-key',
     resave: false,
     saveUninitialized: false,
     cookie: {
-      // sameSite: false,
       httpOnly: false,
       secure: false,
-      expires: new Date(Date.now() + (365 * 24 * 60 * 60 * 1000)) // 1 year in milliseconds
+      expires: new Date(Date.now() + (365 * 24 * 60 * 60 * 1000))
     }
   })
 );
@@ -53,18 +52,18 @@ app.get('/posts', async (req, res) => {
 // Route to create a new post
 app.post('/posts', async (req, res) => {
   try {
-    // Check if user is logged in
+
     if (!req.session.user) {
       return res.status(401).json({ error: 'Unauthorized' });
     }
 
-    // Retrieve the current user from the session
+
     const currentUser = req.session.user;
 
-    // Create the post with the current user ID
+
     const post = await prisma.post.create({
       data: {
-        title: req.body.title,    // Explicitly specify the fields
+        title: req.body.title,
         content: req.body.content,
         userId: currentUser.id
       },
@@ -73,7 +72,7 @@ app.post('/posts', async (req, res) => {
 
     res.status(201).json(post);
   } catch (err) {
-    console.log(err);  // Log the error for debugging
+    console.log(err); 
     res.status(500).json({ message: err.message });
   }
 });

@@ -1,4 +1,3 @@
-// import React from 'react';
 import './Upcoming.css';
 import TripTimeline from './PageParts/TripTimeline';
 import ManageSection from './PageParts/ManageSection';
