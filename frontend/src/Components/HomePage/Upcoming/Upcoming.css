@@ -1,0 +1,146 @@
+/* Main content styles */
+.main-content {
+flex-grow: 1;
+padding: 20px;
+display: flex;
+flex-direction: column;
+overflow-y: auto;
+box-sizing: border-box;
+}
+
+header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 20px;
+}
+
+header h1 {
+margin: 0;
+}
+
+
+/* Trip timeline styles */
+.trip-timeline {
+display: flex;
+justify-content: space-between;
+margin-bottom: 20px;
+background-color: white;
+padding: 20px;
+border-radius: 10px;
+box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.timeline-item {
+text-align: center;
+flex: 30%;
+position: relative;
+border: 1px solid #ccc;
+border-radius: 10px;
+background: linear-gradient(to right, #FAD4E4, #D0E8D5);
+padding: 70px;
+margin: 20px;
+}
+
+.timeline-item:not(:last-child):after {
+content: '';
+position: absolute;
+top: 25px;
+right: -50%;
+width: 100%;
+/* height: 2px;
+background-color: #e0e0e0; */
+}
+
+.timeline-item h3 {
+margin-bottom: 5px;
+}
+
+.timeline-item p {
+margin: 0;
+font-size: 0.9em;
+color: #666;
+}
+
+/* Manage section styles */
+.manage-section {
+background-color: white;
+padding: 20px;
+border-radius: 10px;
+box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.manage-section h2 {
+margin-top: 0;
+margin-bottom: 15px;
+}
+
+.manage-section ul {
+list-style-type: none;
+padding: 0;
+margin: 0;
+}
+
+.manage-section li {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 15px 0;
+border-bottom: 1px solid #e0e0e0;
+}
+
+.manage-section li:last-child {
+border-bottom: none;
+}
+
+.manage-section .item-info {
+display: flex;
+flex-direction: column;
+}
+
+.manage-section .item-title {
+font-weight: bold;
+}
+
+.manage-section .item-subtitle {
+font-size: 0.9em;
+color: #666;
+}
+
+.manage-section .icons {
+display: flex;
+}
+
+.manage-section .icons span {
+margin-left: 15px;
+cursor: pointer;
+width: 20px;
+height: 20px;
+display: flex;
+align-items: center;
+justify-content: center;
+border-radius: 50%;
+}
+
+.manage-section .icons .check {
+background-color: #52c41a;
+color: white;
+}
+
+.manage-section .icons .edit {
+border: 1px solid #d9d9d9;
+}
+
+@media (max-width: 1160px) {
+.trip-timeline {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+}
+

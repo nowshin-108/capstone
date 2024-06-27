@@ -1,0 +1,35 @@
+/* Sidebar styles */
+.sidebar {
+width: 25%;
+background-color: white;
+padding: 20px;
+display: flex;
+flex-direction: column;
+border-right: 1px solid #e0e0e0;
+box-sizing: border-box;
+}
+
+
+.sidebar h2 {
+margin-top: 0;
+margin-bottom: 20px;
+}
+
+.sidebar button {
+margin-bottom: 10px;
+padding: 10px;
+border: 1px solid #e0e0e0;
+background-color: white;
+cursor: pointer;
+text-align: left;
+border-radius: 5px;
+}
+
+.sidebar button.active {
+background-color: #e6f7ff;
+border-color: #91d5ff;
+}
+
+.sidebar .logout {
+margin-top: auto;
+}
