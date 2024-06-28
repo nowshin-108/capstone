@@ -12,12 +12,10 @@ const postData = JSON.parse(fs.readFileSync(path.resolve(__dirname, './seeders/p
 
 const seedDatabase = async () => {
   try {
-    // Seed the User data
     await prisma.user.createMany({
       data: userData,
       skipDuplicates: true,
     });
-    console.log('User data has been seeded!');
 
   } catch (error) {
     console.error('Error seeding data:', error);

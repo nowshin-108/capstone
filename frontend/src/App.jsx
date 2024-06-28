@@ -8,7 +8,6 @@ import SignupForm from './Components/SignupForm/SignupForm';
 
 function App() {
   const [user, setUser] = useState(() => {
-    // Retrieve the user data from storage or set it to null if not found
     const storedUser = localStorage.getItem('user');
     return storedUser ? JSON.parse(storedUser) : null;
   });
@@ -18,7 +17,6 @@ function App() {
   };
 
   useEffect(() => {
-    // Save the user data to storage whenever the user state changes
     localStorage.setItem('user', JSON.stringify(user));
   }, [user]);
 
@@ -27,7 +25,6 @@ function App() {
       <UserContext.Provider value={{ user, updateUser }}>
         <BrowserRouter>
           <Routes>
-            {/* <Route path="/" element={ <Main /> } /> */}
             <Route path="/" element={user ? <HomePage /> : <LoginForm />} />
             <Route path="/login" element={<LoginForm />} />
             <Route path="/signup" element={<SignupForm />} />

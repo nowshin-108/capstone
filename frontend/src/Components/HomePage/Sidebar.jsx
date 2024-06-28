@@ -1,20 +1,25 @@
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { UserContext } from "../../UserContext.js";
 
 function Sidebar() {
     const navigate = useNavigate();
+    const { updateUser } = useContext(UserContext);
     const handleLogout = async () => {
         await fetch('http://localhost:3000/users/logout', {
             method: 'POST',
             credentials: 'include'
         });
-
-        // updateUser(null);
+        updateUser(null);
 
         navigate('/login');
         };  
     return (
         <div className="sidebar">
-            <h2>Halim</h2>
+            <div className="sidebar-header">
+                <img src="../flight-svgrepo-com.svg" alt="flight icon" width="55" height="55"/>
+                <h2>Halim</h2>
+            </div>
             <button>+ Add Trip</button>
             <button className="active">Upcoming Trip</button>
             <button>Trip History</button>
