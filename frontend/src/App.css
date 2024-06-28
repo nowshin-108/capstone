@@ -1,4 +1,6 @@
 .app {
   display: flex;
   justify-content: center;
+  background: linear-gradient(to right, #FAD4E4, #D0E8D5);
+  padding: 20px;
 }
