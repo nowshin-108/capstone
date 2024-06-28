@@ -1,14 +1,17 @@
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { UserContext } from "../../UserContext.js";
 
 function Sidebar() {
     const navigate = useNavigate();
+    const { updateUser } = useContext(UserContext);
     const handleLogout = async () => {
         await fetch('http://localhost:3000/users/logout', {
             method: 'POST',
             credentials: 'include'
         });
-
-        // updateUser(null);
+        console.log("Logout req sent")
+        updateUser(null);
 
         navigate('/login');
         };  
