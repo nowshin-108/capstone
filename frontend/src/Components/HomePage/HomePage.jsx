@@ -1,13 +1,11 @@
 import './HomePage.css';
 import Sidebar from './Sidebar';
-import Upcoming from './Upcoming/Upcoming';
+import Upcoming from './UpcomingTrips/Upcoming';
+
 
 function HomePage() {
     return (
-    <>
-        <Sidebar />
-        <Upcoming/>
-    </>
+        <><Sidebar/> <Upcoming/></>
     );
 }
 

@@ -14,7 +14,19 @@ function Sidebar() {
         updateUser(null);
 
         navigate('/login');
-        };  
+        }; 
+        
+    const goToAddTrips = () => {
+        navigate('/add-trips');
+    }
+
+    const goToUpcomingTrips = () => {
+        navigate('/');
+    }
+
+    const goToPastTrips = () => {
+        navigate('/past-trips');
+    }
     return (
         <div className="sidebar">
             <div className="sidebar-header">
@@ -22,9 +34,9 @@ function Sidebar() {
                 <h2>Halim</h2>
             </div>
             <h4> Hi {user.username}!</h4>
-            <button>+ Add Trip</button>
-            <button className="active">Upcoming Trip</button>
-            <button>Trip History</button>
+            <button onClick={goToAddTrips}>+ Add Trip</button>
+            <button onClick={goToUpcomingTrips}>Upcoming Trip</button>
+            <button onClick={goToPastTrips}>Trip History</button>
             <button className="logout" onClick={handleLogout}>Log out</button>
         </div>
     );

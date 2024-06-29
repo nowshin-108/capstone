@@ -5,6 +5,10 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import HomePage from './Components/HomePage/HomePage';
 import LoginForm from './Components/LoginForm/LoginForm';
 import SignupForm from './Components/SignupForm/SignupForm';
+import AddTrip from './Components/HomePage/AddTrip/AddTrip';
+import Sidebar from './Components/HomePage/Sidebar';
+import PastTrips from './Components/HomePage/PastTrips/PastTrips';
+
 
 function App() {
 
@@ -27,9 +31,11 @@ function App() {
       <UserContext.Provider value={{ user, updateUser }}>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={user ? <HomePage /> : <LoginForm />} />
+            <Route path="/" element={user ? <HomePage/>: <LoginForm />} />
             <Route path="/login" element={<LoginForm />} />
             <Route path="/signup" element={<SignupForm />} />
+            <Route path="/add-trips" element={ <><Sidebar/> <AddTrip/></>} />
+            <Route path="/past-trips" element={<><Sidebar/> <PastTrips/></>} />
           </Routes>
         </BrowserRouter>
       </UserContext.Provider>
