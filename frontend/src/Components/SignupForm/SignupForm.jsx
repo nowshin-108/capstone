@@ -1,5 +1,6 @@
 import { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { API_BASE_URL } from '../../config.js';
 import './SignupForm.css'
 import { UserContext } from '../../UserContext.js';
 
@@ -7,38 +8,54 @@ const SignupForm = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
+
 
   const { updateUser } = useContext(UserContext);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
+    setError(null);
+
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 10000);
 
     try {
-      const response = await fetch(`http://localhost:3000/users`, {
+      const response = await fetch(`${API_BASE_URL}/users`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ username, email, password }),
-        credentials: 'include'
+        credentials: 'include',
+        signal: controller.signal
       });
 
+      clearTimeout(timeoutId);
+      const data = await response.json();
+
       if (response.ok) {
-        const data = await response.json();
-        const loggedInUser = data.user;
+        updateUser(data.user);
+        navigate('/');
 
         setUsername('');
         setEmail('');
         setPassword('');
 
-        updateUser(loggedInUser);
-        navigate('/');
       } else {
-        alert('Signup failed');
+        setError(data.message || 'Signup failed. Please try again.');
       }
     } catch (error) {
-      alert('Signup failed: ' + error);
+        if (error.name === 'AbortError') {
+          setError('Signup request timed out. Please try again.');
+        } else {
+          setError('An error occurred during signup. Please try again later.');
+        }
+    }finally {
+      setIsLoading(false);
     }
   };
 
@@ -76,7 +93,11 @@ const SignupForm = () => {
             required
           />
         </div>
-        <button type="submit">Sign Up</button>
+        {error && <p className="error-message">{error}</p>}
+        <button type="submit" disabled={isLoading}>
+          {isLoading ? 'Signing up...' : 'Sign Up'}
+        </button>
+        {isLoading && <div className="loader"></div>}
         <p>
           Already have an account? <Link to="/login">Log In</Link>
         </p>

@@ -1,0 +1,49 @@
+.flight-details {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 20px;
+    margin-top: 20px;
+    }
+
+.flight-details h2 {
+    margin-top: 0;
+    text-align: center;
+    color: #333;
+    }
+
+.flight-info {
+    text-align: center;
+    margin-bottom: 5px;
+    }
+
+.route-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    }
+
+.departure, .arrival {
+    flex: 1;
+    }
+
+.additional-info {
+    text-align: center;
+    margin-bottom: 5px;
+    }
+
+.add-flight-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    }
+
+.add-flight-btn:hover {
+    background-color: #45a049;
+    }

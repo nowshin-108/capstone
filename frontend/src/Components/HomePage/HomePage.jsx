@@ -5,7 +5,10 @@ import Upcoming from './UpcomingTrips/Upcoming';
 
 function HomePage() {
     return (
-        <><Sidebar/> <Upcoming/></>
+        <>
+        <Sidebar/> 
+        <Upcoming/>
+        </>
     );
 }
 
