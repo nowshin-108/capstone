@@ -24,6 +24,7 @@ https://excalidraw.com/#json=4K56539uyJ3a_koNy8d4_,gbaqGStjmNZTIGcYq-nFtw
     - Day 2: Met Maddy, completed add trip functionality
                 - Added Amadeus API integration in backend
                 - Developed flight search and result display in frontend
+                - Stored flight search results in session storage for better user experience
                 - Implemented trip addition to database
                 - Enhanced error handling with single error state
                 - Added loading states to all components
