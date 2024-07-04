@@ -31,6 +31,20 @@ https://excalidraw.com/#json=4K56539uyJ3a_koNy8d4_,gbaqGStjmNZTIGcYq-nFtw
                 - Refactored for improved code quality and maintainability
 
               BREAKING CHANGE: New API endpoints for flight search and trip addition
-    - Day 3: Will meet Abe and Alan and complete upcoming trips page
+    - Day 3: Met Alan, Maddy, Abe, Murray made the following changes:
+                - Backend middleware:
+                        - Added authenticateUser function to check session validity
+                        - Protecting API routes by verifying user session before allowing access
+                        - Returning 401 status if session is invalid or missing
+                - Session-based auth:
+                        - Storing user info in server-side sessions
+                        - Using secure, HTTP-only cookies to maintain session across requests
+                - API protection:
+                        - Each protected route first passes through authenticateUser middleware
+                        - Ensures only authenticated users can access sensitive endpoints
+                - Frontend integration:
+                        - Sends credentials with each request using withCredentials: true
+                        - Handles 401 responses by redirecting to login page
+
 
 

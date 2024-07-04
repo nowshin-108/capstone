@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { UserContext } from "../../UserContext.js";
 import { API_BASE_URL } from '../../config.js';
-import { useLoading } from "../../Loading/LoadingContext.jsx";
+import { useLoading } from "../Loading/LoadingContext.jsx";
 
 
 function Sidebar() {

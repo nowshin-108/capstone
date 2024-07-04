@@ -10,16 +10,12 @@ const LoginForm = () => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const { updateUser } = useContext(UserContext);
-
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
     setError(null);
     setIsLoading(true);
-
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 10000);
 
     try {
       const response = await fetch(`${API_BASE_URL}/users/login`, {
@@ -29,10 +25,7 @@ const LoginForm = () => {
         },
         body: JSON.stringify({ username, password }),
         credentials: 'include',
-        signal: controller.signal
       });
-
-      clearTimeout(timeoutId);
 
       if (response.ok) {
         const data = await response.json();

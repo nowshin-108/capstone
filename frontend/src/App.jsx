@@ -1,7 +1,7 @@
 import './App.css';
 import { useState, useEffect } from 'react';
 import { UserContext } from './UserContext';
-import { LoadingProvider } from './Loading/LoadingContext';
+import { LoadingProvider } from './Components/Loading/LoadingContext';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import HomePage from './Components/HomePage/HomePage';
 import LoginForm from './Components/LoginForm/LoginForm';
@@ -9,24 +9,42 @@ import SignupForm from './Components/SignupForm/SignupForm';
 import AddTrip from './Components/HomePage/AddTrip/AddTripPage';
 import Sidebar from './Components/HomePage/Sidebar';
 import PastTrips from './Components/HomePage/PastTrips/PastTrips';
+import { API_BASE_URL } from './config.js';
 
 
 function App() {
-
-  //storing user data in local storage for further usage in authentication 
-  const [user, setUser] = useState(() => {
-    const storedUser = localStorage.getItem('user');
-    return storedUser ? JSON.parse(storedUser) : null;
-  });
+  const [user, setUser] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   const updateUser = (newUser) => {
     setUser(newUser);
   };
 
   useEffect(() => {
-    localStorage.setItem('user', JSON.stringify(user));
-  }, [user]);
+    //making a call to backend middleware API to check the authentication status of user
+    const checkAuth = async () => {
+      try {
+        const response = await fetch(`${API_BASE_URL}/users/auth-check`, {
+          credentials: 'include'
+        });
+        if (response.ok) {
+          const data = await response.json();
+          setUser(data.user);
+        }
+      } catch (error) {
+        console.error('Auth check failed:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    checkAuth();
+  }, []);
 
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  
   return (
     <div className="app">
       <UserContext.Provider value={{ user, updateUser }}>

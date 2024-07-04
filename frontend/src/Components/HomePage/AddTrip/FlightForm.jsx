@@ -1,15 +1,17 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './FlightForm.css'
 import FlightResults from './FlightResults';
 import { API_BASE_URL } from '../../../config.js';
+import { UserContext } from '../../../UserContext';
 
 
 
 const FlightForm= () => {
 
     const navigate = useNavigate();
+    const { user } = useContext(UserContext);
     const [flightNumber, setFlightNumber] = useState(() => sessionStorage.getItem('flightNumber') || '');
     const [departureDate, setDepartureDate] = useState(() => sessionStorage.getItem('departureDate') || '');
     const [carrierCode, setCarrierCode] = useState(() => sessionStorage.getItem('carrierCode') || '');
@@ -52,10 +54,6 @@ const FlightForm= () => {
         setError(null);
         setIsLoading(true);
         setFlightAdded(false);  
-        
-        const timeoutDuration = 60000;
-        const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), timeoutDuration);
     
         try {
             const response = await axios.get(`${API_BASE_URL}/flight-status`, {
@@ -63,9 +61,10 @@ const FlightForm= () => {
                 carrierCode: carrierCode,
                 flightNumber: flightNumber,
                 scheduledDepartureDate: departureDate
-            }
+            },
+            withCredentials: true
+
             });
-            clearTimeout(timeoutId);
             
             if (response.data && response.data.data && response.data.data.length > 0) {
                 setFlightStatus(response.data);
@@ -74,8 +73,9 @@ const FlightForm= () => {
             }
         
         } catch (err) {
-            clearTimeout(timeoutId);
-            if (err.name === 'AbortError') {
+            if (err.response && err.response.status === 401) {
+                setError("You are not authenticated. Please log in.");
+            } else if (err.name === 'AbortError') {
                 setError("Request timed out. Please try again.");
             } else if (err.response) {
                 setError(`Error: ${err.response.data.message || 'Failed to fetch flight status'}`);
@@ -104,35 +104,17 @@ const FlightForm= () => {
 
     const handleAddFlight = async () => {
 
+        if (!user) {
+            setError("You must be logged in to add a flight.");
+            return;
+        }
+        
         if (!flightStatus || !flightStatus.data || flightStatus.data.length === 0) {
             setError("No flight data available to add.");
             return;
         }      
             
         const flight = flightStatus.data[0];
-        const userString = localStorage.getItem('user');
-        
-        
-        if (!userString) {
-            navigate('/login');
-            return;
-        }
-        
-        const user = JSON.parse(userString);
-        
-        if (!user || !user.userId) {
-            setError("User information is invalid. Please log in again.");
-            navigate('/login');
-            return;
-        }
-        
-        const userId = parseInt(user.userId); 
-        
-        if (isNaN(userId)) {
-            setError("Invalid user ID. Please log in again.");
-            navigate('/login');
-            return;
-        }
 
         setIsAddingFlight(true);
         setFlightAdded(false);
@@ -141,17 +123,19 @@ const FlightForm= () => {
         
         try {
             await axios.post(`${API_BASE_URL}/add-trip`, {
-                userId,
                 carrierCode: flight.flightDesignator.carrierCode,
                 flightNumber: flight.flightDesignator.flightNumber,
                 scheduledDepartureDate: flight.scheduledDepartureDate
-            });
+            },
+            {withCredentials: true});
         
             setFlightAdded(true);
 
         
         } catch (err) {
-            if (err.response) {
+            if (err.response && err.response.status === 401) {
+                setError("You are not authenticated. Please log in.");
+            } else if (err.response) {
                 setError(`Failed to add flight: ${err.response.data.message || 'Unknown error'}`);
             } else if (err.request) {
                 setError("No response received from server. Please check your internet connection.");
@@ -226,10 +210,6 @@ const FlightForm= () => {
 
                 {!flightAdded && ( <button type="submit" disabled={isLoading}> {isLoading ? 'Searching...' : 'Search Flight'} </button> )}
 
-                {(flightAdded) && (
-                    <button type="button" onClick={handleClear}>Clear</button>
-                )}
-
             </form>
 
             {isLoading && <div className="loader"></div>}
@@ -248,6 +228,10 @@ const FlightForm= () => {
                     <button onClick={() => navigate('/')}>See Upcoming Trip</button>
                     </div>
             )}
+
+            {(flightAdded || flightStatus) && (
+                    <button type="button" onClick={handleClear}> Clear</button>
+                )}
 
         </div>
 

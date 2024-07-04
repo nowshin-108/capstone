@@ -10,8 +10,6 @@ const SignupForm = () => {
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-
-
   const { updateUser } = useContext(UserContext);
   const navigate = useNavigate();
 
@@ -20,8 +18,6 @@ const SignupForm = () => {
     setIsLoading(true);
     setError(null);
 
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 10000);
 
     try {
       const response = await fetch(`${API_BASE_URL}/users`, {
@@ -31,10 +27,8 @@ const SignupForm = () => {
         },
         body: JSON.stringify({ username, email, password }),
         credentials: 'include',
-        signal: controller.signal
       });
 
-      clearTimeout(timeoutId);
       const data = await response.json();
 
       if (response.ok) {
@@ -48,12 +42,14 @@ const SignupForm = () => {
       } else {
         setError(data.message || 'Signup failed. Please try again.');
       }
+
     } catch (error) {
         if (error.name === 'AbortError') {
           setError('Signup request timed out. Please try again.');
         } else {
           setError('An error occurred during signup. Please try again later.');
         }
+
     }finally {
       setIsLoading(false);
     }
@@ -93,14 +89,19 @@ const SignupForm = () => {
             required
           />
         </div>
+
         {error && <p className="error-message">{error}</p>}
+
         <button type="submit" disabled={isLoading}>
           {isLoading ? 'Signing up...' : 'Sign Up'}
         </button>
+
         {isLoading && <div className="loader"></div>}
+
         <p>
           Already have an account? <Link to="/login">Log In</Link>
         </p>
+        
       </form>
     </div>
   );
