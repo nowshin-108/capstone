@@ -1,41 +1,49 @@
 import { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { UserContext } from '../../UserContext.js';
+import { API_BASE_URL } from '../../config.js';
 import './LoginForm.css'
 
 const LoginForm = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
   const { updateUser } = useContext(UserContext);
-
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    setError(null);
+    setIsLoading(true);
 
     try {
-      const response = await fetch(`http://localhost:3000/users/login`, {
+      const response = await fetch(`${API_BASE_URL}/users/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ username, password }),
-        credentials: 'include'
+        credentials: 'include',
       });
 
       if (response.ok) {
         const data = await response.json();
-        const loggedInUser = data.user;
-
-
-        updateUser(loggedInUser);
+        updateUser(data.user);
         navigate('/');
       } else {
-        alert('Login failed');
+        setError('Incorrect username or password'); 
       }
-    } catch (error) {
-      alert('Login failed: ' + error);
-    }
+
+      } catch (error) {
+        if (error.name === 'AbortError') {
+          setError('Login request timed out. Please try again.');
+        } else {
+          setError(`${error.message}`);
+        }
+      } finally {
+        setIsLoading(false);
+      }
   };
 
   return (
@@ -62,7 +70,11 @@ const LoginForm = () => {
             required
           />
         </div>
-        <button type="submit">Login</button>
+        {error && <p className="error-message">{error}</p>}
+        <button type="submit" disabled={isLoading}>
+          {isLoading ? 'Logging in...' : 'Login'}
+        </button>
+          {isLoading && <div className="loader"></div>}
         <p>
           New to the app? <Link to="/signup">Sign Up</Link>
         </p>

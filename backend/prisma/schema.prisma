@@ -10,9 +10,22 @@ datasource db {
 }
 
 model User {
-  id       Int    @id @default(autoincrement())
-  username String @unique
-  email    String @unique
-  password String
+  userId    Int    @id @default(autoincrement())
+  username  String @unique
+  email     String @unique
+  password  String
+  trips     Trip[]
 }
+
+model Trip {
+  tripId                Int      @id @default(autoincrement())
+  userId                Int
+  user                  User     @relation(fields: [userId], references: [userId])
+  carrierCode           String
+  flightNumber          Int
+  scheduledDepartureDate String
+  createdAt             DateTime @default(now())
+}
+
+
 

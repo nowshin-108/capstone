@@ -5,12 +5,14 @@ import morgan from 'morgan';
 import pkg from '@prisma/client';
 const { PrismaClient } = pkg;
 import userRoutes from './routes/users.js';
+import flightStatusRoutes from './routes/flightStatus.js';
+import { CORS_ORIGIN } from "./config.js";
 
 const prisma = new PrismaClient();
 const app = express();
 
 app.use(cors({
-  origin: 'http://localhost:3001',
+  origin: `${CORS_ORIGIN}` || 'http://localhost:3001',
   credentials: true
 }));
 app.use(express.json());
@@ -31,6 +33,7 @@ app.use(
 );
 
 app.use(userRoutes);
+app.use(flightStatusRoutes);
 
 const port = 3000;
 app.listen(port, () => {
