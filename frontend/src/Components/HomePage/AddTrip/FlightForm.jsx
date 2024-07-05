@@ -75,6 +75,7 @@ const FlightForm= () => {
         } catch (err) {
             if (err.response && err.response.status === 401) {
                 setError("You are not authenticated. Please log in.");
+                navigate('/login');
             } else if (err.name === 'AbortError') {
                 setError("Request timed out. Please try again.");
             } else if (err.response) {
@@ -135,6 +136,7 @@ const FlightForm= () => {
         } catch (err) {
             if (err.response && err.response.status === 401) {
                 setError("You are not authenticated. Please log in.");
+                navigate('/login');
             } else if (err.response) {
                 setError(`Failed to add flight: ${err.response.data.message || 'Unknown error'}`);
             } else if (err.request) {
