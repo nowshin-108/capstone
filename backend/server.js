@@ -23,9 +23,9 @@ app.use(
   session({
     secret: 'your-secret-key',
     resave: false,
-    saveUninitialized: false,
+    saveUninitialized: true,
     cookie: {
-      httpOnly: false,
+      httpOnly: true,
       secure: false,
       expires: new Date(Date.now() + (365 * 24 * 60 * 60 * 1000))
     }
