@@ -23,9 +23,24 @@ model Trip {
   user                  User     @relation(fields: [userId], references: [userId])
   carrierCode           String
   flightNumber          Int
+  departureAirportCode  String
+  arrivalAirportCode    String
   scheduledDepartureDate String
+  scheduledDepartureTime String
+  scheduledArrivalTime   String
   createdAt             DateTime @default(now())
+  segments              Segment[]
 }
+
+model Segment {
+  segmentId       Int      @id @default(autoincrement())
+  tripId          Int
+  trip            Trip     @relation(fields: [tripId], references: [tripId])
+  boardPointCode  String
+  offPointCode    String
+  scheduledSegmentDuration String
+}
+
 
 
 
