@@ -1,7 +1,10 @@
 import { createContext, useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 
-const LoadingContext = createContext();
+export const LoadingContext = createContext({
+    isLoading: false,
+    setIsLoading: () => {},
+});
 
 export const LoadingProvider = ({ children }) => {
     const [isLoading, setIsLoading] = useState(false);
@@ -17,3 +20,4 @@ LoadingProvider.propTypes = {
     children: PropTypes.node.isRequired,
 }
 export const useLoading = () => useContext(LoadingContext);
+

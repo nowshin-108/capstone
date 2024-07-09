@@ -9,7 +9,7 @@ const LoginForm = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  const { updateUser } = useContext(UserContext);
+  const { updateUser, fetchUserData } = useContext(UserContext);
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
@@ -30,6 +30,7 @@ const LoginForm = () => {
       if (response.ok) {
         const data = await response.json();
         updateUser(data.user);
+        await fetchUserData();
         navigate('/');
       } else {
         setError('Incorrect username or password'); 

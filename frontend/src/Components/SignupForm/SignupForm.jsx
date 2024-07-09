@@ -10,7 +10,7 @@ const SignupForm = () => {
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  const { updateUser } = useContext(UserContext);
+  const { updateUser, fetchUserData } = useContext(UserContext);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -33,12 +33,8 @@ const SignupForm = () => {
 
       if (response.ok) {
         updateUser(data.user);
+        await fetchUserData();
         navigate('/');
-
-        setUsername('');
-        setEmail('');
-        setPassword('');
-
       } else {
         setError(data.message || 'Signup failed. Please try again.');
       }
@@ -101,7 +97,7 @@ const SignupForm = () => {
         <p>
           Already have an account? <Link to="/login">Log In</Link>
         </p>
-        
+
       </form>
     </div>
   );

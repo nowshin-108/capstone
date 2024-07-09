@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './FlightForm.css'
@@ -11,31 +11,10 @@ import { UserContext } from '../../../UserContext';
 const FlightForm= () => {
 
     const navigate = useNavigate();
-    const { user } = useContext(UserContext);
-    const [flightNumber, setFlightNumber] = useState(() => sessionStorage.getItem('flightNumber') || '');
-    const [departureDate, setDepartureDate] = useState(() => sessionStorage.getItem('departureDate') || '');
-    const [carrierCode, setCarrierCode] = useState(() => sessionStorage.getItem('carrierCode') || '');
-    const [flightStatus, setFlightStatus] = useState(() => {
-        const saved = sessionStorage.getItem('flightStatus');
-        return saved ? JSON.parse(saved) : null;
-    });
+    const { user, flightData, updateFlightData } = useContext(UserContext);
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
-    const [flightAdded, setFlightAdded] = useState(() => sessionStorage.getItem('flightAdded') === 'true');
     const [isAddingFlight, setIsAddingFlight] = useState(false);
-
-
-
-    useEffect(() => {
-
-        sessionStorage.setItem('flightNumber', flightNumber);
-        sessionStorage.setItem('departureDate', departureDate);
-        sessionStorage.setItem('carrierCode', carrierCode);
-        sessionStorage.setItem('flightStatus', JSON.stringify(flightStatus));
-        sessionStorage.setItem('flightAdded', flightAdded.toString());
-
-    }, [flightNumber, departureDate, carrierCode, flightStatus, flightAdded]);
-
 
     /**
      * Fetches flight status from the Amadeus API via backend middleware.
@@ -50,24 +29,23 @@ const FlightForm= () => {
     const handleSubmit = async (e) => {
 
         e.preventDefault();
-        setFlightStatus(null);
         setError(null);
         setIsLoading(true);
-        setFlightAdded(false);  
+        updateFlightData({ flightStatus: null, flightAdded: false });  
     
         try {
             const response = await axios.get(`${API_BASE_URL}/flight-status`, {
             params: {
-                carrierCode: carrierCode,
-                flightNumber: flightNumber,
-                scheduledDepartureDate: departureDate
+                carrierCode: flightData.carrierCode,
+                flightNumber: flightData.flightNumber,
+                scheduledDepartureDate: flightData.departureDate
             },
             withCredentials: true
 
             });
             
             if (response.data && response.data.data && response.data.data.length > 0) {
-                setFlightStatus(response.data);
+                updateFlightData({ flightStatus: response.data });
             } else {
                 setError("No flights found. Please check your input and try again.");
             }
@@ -75,6 +53,7 @@ const FlightForm= () => {
         } catch (err) {
             if (err.response && err.response.status === 401) {
                 setError("You are not authenticated. Please log in.");
+                navigate('/login');
             } else if (err.name === 'AbortError') {
                 setError("Request timed out. Please try again.");
             } else if (err.response) {
@@ -109,15 +88,14 @@ const FlightForm= () => {
             return;
         }
         
-        if (!flightStatus || !flightStatus.data || flightStatus.data.length === 0) {
+        if (!flightData === 0) {
             setError("No flight data available to add.");
             return;
         }      
             
-        const flight = flightStatus.data[0];
+        const flight = flightData.flightStatus.data[0];
 
         setIsAddingFlight(true);
-        setFlightAdded(false);
         setError(null);    
 
         
@@ -128,13 +106,13 @@ const FlightForm= () => {
                 scheduledDepartureDate: flight.scheduledDepartureDate
             },
             {withCredentials: true});
-        
-            setFlightAdded(true);
 
+            updateFlightData({ flightAdded: true });
         
         } catch (err) {
             if (err.response && err.response.status === 401) {
                 setError("You are not authenticated. Please log in.");
+                navigate('/login');
             } else if (err.response) {
                 setError(`Failed to add flight: ${err.response.data.message || 'Unknown error'}`);
             } else if (err.request) {
@@ -157,18 +135,13 @@ const FlightForm= () => {
 
 
     const handleClear = () => {
-        setFlightNumber('');
-        setDepartureDate('');
-        setCarrierCode('');
-        setFlightStatus(null);
-        setFlightAdded(false);
-        
-        sessionStorage.removeItem('flightNumber');
-        sessionStorage.removeItem('departureDate');
-        sessionStorage.removeItem('airline');
-        sessionStorage.removeItem('flightStatus');
-        sessionStorage.removeItem('flightAdded');
-        
+        updateFlightData({
+            flightNumber: '',
+            departureDate: '',
+            carrierCode: '',
+            flightStatus: null,
+            flightAdded: false
+        });
         };
             
 
@@ -181,8 +154,8 @@ const FlightForm= () => {
                     <input
                         type="text"
                         id="carrier-code"
-                        value={carrierCode}
-                        onChange={(e) => setCarrierCode(e.target.value)}
+                        value={flightData.carrierCode}
+                        onChange={(e) => updateFlightData({ carrierCode: e.target.value })}
                         required
                     />
                     </div>
@@ -191,8 +164,8 @@ const FlightForm= () => {
                     <input
                         type="text"
                         id="flightNumber"
-                        value={flightNumber}
-                        onChange={(e) => setFlightNumber(e.target.value)}
+                        value={flightData.flightNumber}
+                        onChange={(e) => updateFlightData({ flightNumber: e.target.value })}
                         required
                     />
                     </div>
@@ -201,14 +174,14 @@ const FlightForm= () => {
                     <input
                         type="date"
                         id="departureDate"
-                        value={departureDate}
-                        onChange={(e) => setDepartureDate(e.target.value)}
+                        value={flightData.departureDate}
+                        onChange={(e) => updateFlightData({ departureDate: e.target.value })}
                         required
                     />
                     </div>
                 </div>
 
-                {!flightAdded && ( <button type="submit" disabled={isLoading}> {isLoading ? 'Searching...' : 'Search Flight'} </button> )}
+                {!flightData.flightAdded && ( <button type="submit" disabled={isLoading}> {isLoading ? 'Searching...' : 'Search Flight'} </button> )}
 
             </form>
 
@@ -216,21 +189,21 @@ const FlightForm= () => {
 
             {error && <p className="error">{error}</p>}
             
-            {flightStatus && !flightAdded && (
-                <FlightResults flightStatus={flightStatus} onAddFlight={handleAddFlight} isAddingFlight={isAddingFlight}/>
+            {flightData.flightStatus && !flightData.flightAdded && (
+                <FlightResults flightStatus={flightData.flightStatus} onAddFlight={handleAddFlight} isAddingFlight={isAddingFlight}/>
             )}
 
             {isAddingFlight && <div className="loader">Adding flight...</div>} 
 
-            {flightAdded && (
+            {flightData.flightAdded && (
                     <div className="success-message">
                     <p>Flight has been added to your trips!</p>
                     <button onClick={() => navigate('/')}>See Upcoming Trip</button>
                     </div>
             )}
 
-            {(flightAdded || flightStatus) && (
-                    <button type="button" onClick={handleClear}> Clear</button>
+            {(flightData.flightAdded || flightData.flightStatus) && (
+                    <div><br /><button type="button" onClick={handleClear}> Clear</button></div>
                 )}
 
         </div>
