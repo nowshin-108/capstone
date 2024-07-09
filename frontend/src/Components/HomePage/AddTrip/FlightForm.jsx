@@ -83,10 +83,10 @@ const FlightForm= () => {
 
 
     const handleAddFlight = async () => {
-        if (!user) {
-            setError("You must be logged in to add a flight.");
-            return;
-            }
+            if (!user) {
+                setError("You must be logged in to add a flight.");
+                return;
+                }
         
             if (!flightData === 0) {
             setError("No flight data available to add.");
@@ -134,50 +134,6 @@ const FlightForm= () => {
             }
         };
         
-
-    // const handleAddFlight = async () => {
-
-    //     if (!user) {
-    //         setError("You must be logged in to add a flight.");
-    //         return;
-    //     }
-        
-    //     if (!flightData === 0) {
-    //         setError("No flight data available to add.");
-    //         return;
-    //     }      
-            
-    //     const flight = flightData.flightStatus.data[0];
-
-    //     setIsAddingFlight(true);
-    //     setError(null);    
-
-        
-    //     try {
-    //         await axios.post(`${API_BASE_URL}/add-trip`, {
-    //             carrierCode: flight.flightDesignator.carrierCode,
-    //             flightNumber: flight.flightDesignator.flightNumber,
-    //             scheduledDepartureDate: flight.scheduledDepartureDate
-    //         },
-    //         {withCredentials: true});
-
-    //         updateFlightData({ flightAdded: true });
-        
-    //     } catch (err) {
-    //         if (err.response && err.response.status === 401) {
-    //             setError("You are not authenticated. Please log in.");
-    //             navigate('/login');
-    //         } else if (err.response) {
-    //             setError(`Failed to add flight: ${err.response.data.message || 'Unknown error'}`);
-    //         } else if (err.request) {
-    //             setError("No response received from server. Please check your internet connection.");
-    //         } else {
-    //             setError("An unexpected error occurred while adding the flight. Please try again.");
-    //         }      
-    //     } finally { 
-    //         setIsAddingFlight(false);
-    //     }
-    // }; 
 
     /**
      * Resets the flight search form and clears session storage & associated data.
@@ -252,7 +208,7 @@ const FlightForm= () => {
             {flightData.flightAdded && (
                     <div className="success-message">
                     <p>Flight has been added to your trips!</p>
-                    <button onClick={() => navigate('/')}>See Upcoming Trip</button>
+                    <button onClick={() => navigate('/') }>See Upcoming Trip</button>
                     </div>
             )}
 
