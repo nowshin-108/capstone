@@ -44,41 +44,43 @@ def generate_flight_data(start_date_str):
         for dest in destinations:
             flight_data[airport][dest] = []
             
-            # Generate up to 8 flights for each destination
-            num_flights = random.randint(4, 8)
-            for _ in range(num_flights):
-                # Generate random departure time within 7 days of start_date
-                dep_time = start_date + timedelta(days=random.uniform(0, 7))
-                
-                # Get distance and calculate duration
-                distance = distances.get((airport, dest)) or distances.get((dest, airport), 1000)
-                duration_hours = distance / 500  # Assuming average speed of 500 miles per hour
-                duration = timedelta(hours=duration_hours)
-                arr_time = dep_time + duration
-                
-                # Generate random price between $100 and $1000
-                price = round(random.uniform(100, 1000), 2)
+            num_days = 7
+            num_flights_per_day = 8
 
-                # Select random airline and generate flight number
-                airline = random.choice(airlines)
-                flight_number = random.randint(*airline["flight_range"])
-                
-                flight = {
-                    "departureTime": dep_time.strftime("%d-%m-%Y %H:%M:%S"),
-                    "arrivalTime": arr_time.strftime("%d-%m-%Y %H:%M:%S"),
-                    "airlineCode": airline["code"],
-                    "airlineName": airline["name"],
-                    "flightNumber": f"{airline['code']}{flight_number}",
-                    "price": price,
-                    "duration": f"{duration_hours:.2f}",
-                    "distance": distance
-                }
-                
-                flight_data[airport][dest].append(flight)
+            for day in range(num_days):
+                for _ in range(num_flights_per_day):
+                    # Generate random departure time within the current day
+                    dep_time = start_date + timedelta(days=day, hours=random.uniform(0, 23))
+                    
+                    # Get distance and calculate duration
+                    distance = distances.get((airport, dest)) or distances.get((dest, airport), 1000)
+                    duration_hours = distance / 500  # Assuming average speed of 500 miles per hour
+                    duration = timedelta(hours=duration_hours)
+                    arr_time = dep_time + duration
+                    
+                    # Generate random price between $100 and $1000
+                    price = round(random.uniform(100, 1000), 2)
+
+                    # Select random airline and generate flight number
+                    airline = random.choice(airlines)
+                    flight_number = random.randint(*airline["flight_range"])
+                    
+                    flight = {
+                        "departureTime": dep_time.strftime("%d-%m-%Y %H:%M:%S"),
+                        "arrivalTime": arr_time.strftime("%d-%m-%Y %H:%M:%S"),
+                        "airlineCode": airline["code"],
+                        "airlineName": airline["name"],
+                        "flightNumber": f"{airline['code']}{flight_number}",
+                        "price": price,
+                        "duration": f"{duration_hours:.2f}",
+                        "distance": distance
+                    }
+                    
+                    flight_data[airport][dest].append(flight)
             
             # Sort flights by departure time
             flight_data[airport][dest].sort(key=lambda x: x["departureTime"])
-            
+
     return flight_data
 
 if __name__ == "__main__":
