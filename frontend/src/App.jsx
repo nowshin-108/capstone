@@ -14,6 +14,7 @@ import ProtectedRoute from './Components/ProtectedRoute';
 
 
 function App() {
+  // null: not checked, false: checked but not authenticated, object: authenticated user
   const [user, setUser] = useState(null);
   const [flightData, setFlightData] = useState(initialFlightData);
 
@@ -42,22 +43,22 @@ function App() {
                 </ProtectedRoute>
               } />
               <Route path="/add-trips" element={
-                <>
+                <ProtectedRoute>
                   <Sidebar />
                   <AddTrip />
-                </>
+                </ProtectedRoute>
               } />
               <Route path="/past-trips" element={
-                <>
+                <ProtectedRoute>
                   <Sidebar />
                   <PastTrips />
-                </>
+                </ProtectedRoute>
               } />
               <Route path="/trips/:tripId" element={
-                <>
+                <ProtectedRoute>
                   <Sidebar />
                   <TripDetails />
-                </>
+                </ProtectedRoute>
               } />
             </Routes>
           </BrowserRouter>

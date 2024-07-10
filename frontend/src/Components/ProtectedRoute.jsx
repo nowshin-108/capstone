@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext  } from 'react';
-import { UserContext } from '../UserContext';
+import { UserContext } from '../UserContext/';
 import { Navigate } from 'react-router-dom';
 import { useLoading } from '../Loading/LoadingContext';
 import PropTypes from 'prop-types';
@@ -14,27 +14,27 @@ const [error, setError] = useState(null);
 
 useEffect(() => {
     const checkAuth = async () => {
-    setIsLoading(true);
-    try {
-        const response = await fetch(`${API_BASE_URL}/users/auth-check`, {
-        credentials: 'include'
-        });
-        if (response.ok) {
-            const data = await response.json();
-            updateUser(data.user);
-        } else {
-            updateUser(null);
+        if (user === null){
+            setIsLoading(true);
+            try {
+                const response = await fetch(`${API_BASE_URL}/users/auth-check`, {
+                credentials: 'include'
+                });
+                if (response.ok) {
+                    const data = await response.json();
+                    updateUser(data.user);
+                } else {
+                    updateUser(null);
+                }
+            } catch (error) {
+                setError('Authentication check failed. Please try again.', error);
+                updateUser(null);
+            } finally {
+                setIsLoading(false);
+            }
         }
-    } catch (error) {
-        setError('Authentication check failed. Please try again.', error);
-        updateUser(null);
-    } finally {
-        setIsLoading(false);
-    }
     };
-    if(!user) {
-        checkAuth();
-    }
+    checkAuth();
 }, [user, updateUser, setIsLoading]);
 
 
@@ -45,6 +45,7 @@ if (isLoading) {
     </div>
     );
 }
+
 
 
 if (error) {
