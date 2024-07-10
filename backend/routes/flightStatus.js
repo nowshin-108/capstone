@@ -4,6 +4,7 @@ import express from "express";
 import { PrismaClient } from '@prisma/client';
 import { authenticateUser } from '../auth.js';
 import axios from 'axios';
+import {calculateFlightStatus} from '../utils/flightUtils.js';
 
 const prisma = new PrismaClient();
 const router = express.Router();
@@ -22,7 +23,9 @@ try {
     const response = await amadeus.schedule.flights.get({
         carrierCode, flightNumber, scheduledDepartureDate
     });
-    res.json(JSON.parse(response.body));
+    const flightData = JSON.parse(response.body);
+    const status = calculateFlightStatus(flightData);
+    res.json({ ...flightData, calculatedStatus: status });
 } catch (err) {
     res.status(500).json({ error: 'An error occurred while fetching flight status', details: err.message });
 }
@@ -81,21 +84,40 @@ try {
         orderBy: { scheduledDepartureDate: 'asc' },
     });
 
-    // Transform the data to match the TripCard component structure
-    const tripsData = upcomingTrips.map(trip => ({
+    const flightStatuses = await Promise.all(upcomingTrips.map(async (trip) => {
+        const response = await axios.get(`${API_BASE_URL}/flight-status`, {
+        params: {
+            carrierCode: trip.carrierCode,
+            flightNumber: trip.flightNumber,
+            scheduledDepartureDate: trip.scheduledDepartureDate
+        },
+        withCredentials: true
+        });
+        return {
         tripId: trip.tripId,
-        carrierCode: trip.carrierCode,
-        flightNumber: trip.flightNumber,
-        departureAirportCode: trip.departureAirportCode,
-        arrivalAirportCode: trip.arrivalAirportCode,
-        scheduledDepartureDate: trip.scheduledDepartureDate,
-        scheduledDepartureTime: trip.scheduledDepartureTime,
-        scheduledArrivalTime: trip.scheduledArrivalTime,
-        segments: trip.segments.map(segment => ({
+        status: response.data.calculatedStatus
+        };
+    }));
+
+    // Transform the data to match the TripCard component structure and include status
+    const tripsData = upcomingTrips.map(trip => {
+        const status = flightStatuses.find(s => s.tripId === trip.tripId).status;
+        return {
+            tripId: trip.tripId,
+            carrierCode: trip.carrierCode,
+            flightNumber: trip.flightNumber,
+            departureAirportCode: trip.departureAirportCode,
+            arrivalAirportCode: trip.arrivalAirportCode,
+            scheduledDepartureDate: trip.scheduledDepartureDate,
+            scheduledDepartureTime: trip.scheduledDepartureTime,
+            scheduledArrivalTime: trip.scheduledArrivalTime,
+            segments: trip.segments.map(segment => ({
             boardPointCode: segment.boardPointCode,
             scheduledSegmentDepartureTime: segment.scheduledSegmentDuration,
-        })),
-    }));
+            })),
+            status: status
+        };
+        });
 
     res.json(tripsData);
 } catch (error) {
@@ -242,6 +264,26 @@ try {
 } catch (error) {
     res.status(500).json({ error: 'Error calculating route', details: error.message });
 }
+});
+
+// batch flight status check endpoint for upcoming trip list
+router.post('/batch-flight-status', authenticateUser, async (req, res) => {
+    try {
+    const { flights } = req.body;
+    const statuses = await Promise.all(flights.map(async (flight) => {
+        const response = await axios.get(`${API_BASE_URL}/flight-status`, {
+        params: flight,
+        withCredentials: true
+        });
+        return {
+        tripId: flight.tripId,
+        status: response.data.calculatedStatus
+        };
+    }));
+    res.json(statuses);
+    } catch (error) {
+    res.status(500).json({ error: 'Failed to fetch batch flight statuses' });
+    }
 });
 
 export default router;
