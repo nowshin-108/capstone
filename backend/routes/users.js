@@ -8,14 +8,14 @@ import { authenticateUser } from '../auth.js';
 const prisma = new PrismaClient();
 const router = express.Router();
 
-// Route to fetch user data
+// Fetch user data endpoint
 router.get('/users/data', authenticateUser, (req, res) => {
   const { userId, username } = req.session.user;
   res.json({ userId, username });
 });
 
 
-// Route for user registration - doesn't need authentication
+// User registration endpoint
 router.post('/users', async (req, res) => {
   const { username, password, email } = req.body;
   try {
@@ -37,7 +37,7 @@ router.post('/users', async (req, res) => {
 });
 
 
-// Route for user login - doesn't need authentication
+// User login endpoint
 router.post('/users/login', async (req, res) => {
   const { username, password } = req.body;
   try {
@@ -53,7 +53,7 @@ router.post('/users/login', async (req, res) => {
 });
 
 
-// Route for logout - needs authentication
+// Logout endpoint
 router.post('/users/logout', authenticateUser, (req, res) => {
   req.session.destroy((err) => {
     if (err) {
@@ -65,7 +65,7 @@ router.post('/users/logout', authenticateUser, (req, res) => {
 });
 
 
-// Route for auth check
+// Auth check endpoint for frontend
 router.get('/users/auth-check', authenticateUser, (req, res) => {
   res.json({ isAuthenticated: true, user: { userId: req.session.user.userId, username: req.session.user.username } });
 });

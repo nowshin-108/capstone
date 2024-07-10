@@ -20,8 +20,10 @@ https://excalidraw.com/#json=4K56539uyJ3a_koNy8d4_,gbaqGStjmNZTIGcYq-nFtw
 
 # Week 4 Progress:
 
-    - Day 1: Met Alan, worked on add trip functionality
-    - Day 2: Met Maddy, completed add trip functionality
+        - Day 1 
+                - Met Alan, worked on add trip functionality
+        - Day 2 
+                - Met Maddy, completed add trip functionality
                 - Added Amadeus API integration in backend
                 - Developed flight search and result display in frontend
                 - Stored flight search results in session storage for better user experience
@@ -31,7 +33,8 @@ https://excalidraw.com/#json=4K56539uyJ3a_koNy8d4_,gbaqGStjmNZTIGcYq-nFtw
                 - Refactored for improved code quality and maintainability
 
               BREAKING CHANGE: New API endpoints for flight search and trip addition
-    - Day 3: Met Alan, Maddy, Abe, Murray made the following changes:
+        - Day 3 
+                - Met Alan, Maddy, Abe, Murray made the following changes:
                 - Backend middleware:
                         - Added authenticateUser function to check session validity
                         - Protecting API routes by verifying user session before allowing access
@@ -45,6 +48,22 @@ https://excalidraw.com/#json=4K56539uyJ3a_koNy8d4_,gbaqGStjmNZTIGcYq-nFtw
                 - Frontend integration:
                         - Sends credentials with each request using withCredentials: true
                         - Handles 401 responses by redirecting to login page
+        - Day 5
+                - Met with Alan and his manager Yinuo, Maddy, Abe, and Murray to discuss feedback from the previous pull request.
+                - Implemented updates based on feedback:
+                        - Removed frontend authentication verification and centralized it in the backend for improved security and maintainability.
+                        - Implemented redirect to login page if authentication fails, ensuring seamless user experience.
+                        - Replaced session storage for add trip functionality with useContext to manage state, improving code organization and scalability.
+                        - Created a new route to retrieve user data, laying the groundwork for future features.
 
 
+# Week 5 Progress:
+
+        Day 1
+                - Completed Upcoming Trips list and Individual Trip page:
+                        - Fetched trips from the database and listed them on the Upcoming Trips page, providing users with a clear view of their upcoming travel plans.
+                        - Enhanced each trip list view by adding formatted date, time, departure city, and destination city, making the list more interactive and informative.
+                        - Developed a timeline for each trip, showcasing detailed flight information and a dynamic flight progress bar, keeping users informed about their journey.
+                        - Implemented a feature to recommend when to leave for the airport based on the user's geolocation, airport location, traffic info, and TSA recommendations, ensuring users arrive at the airport on time.
+                        - Added various smaller functionalities to display detailed flight information, further enhancing the user experience.
 

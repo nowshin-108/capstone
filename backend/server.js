@@ -25,7 +25,7 @@ app.use(
     resave: false,
     saveUninitialized: true,
     cookie: {
-      httpOnly: true,
+      httpOnly: false,
       secure: false,
       expires: new Date(Date.now() + (365 * 24 * 60 * 60 * 1000))
     }
