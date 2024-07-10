@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext  } from 'react';
+import { UserContext } from '../UserContext';
 import { Navigate } from 'react-router-dom';
 import { useLoading } from '../Loading/LoadingContext';
 import PropTypes from 'prop-types';
@@ -6,7 +7,7 @@ import { API_BASE_URL } from '../config';
 
 
 const ProtectedRoute = ({ children }) => {
-const [isAuthenticated, setIsAuthenticated] = useState(false);
+const { user, updateUser } = useContext(UserContext);
 const { isLoading, setIsLoading } = useLoading();
 const [error, setError] = useState(null);
 
@@ -19,20 +20,22 @@ useEffect(() => {
         credentials: 'include'
         });
         if (response.ok) {
-        setIsAuthenticated(true);
+            const data = await response.json();
+            updateUser(data.user);
         } else {
-        setIsAuthenticated(false);
+            updateUser(null);
         }
     } catch (error) {
-        console.error('Auth check failed:', error);
-        setError('Authentication check failed. Please try again.');
-        setIsAuthenticated(false);
+        setError('Authentication check failed. Please try again.', error);
+        updateUser(null);
     } finally {
         setIsLoading(false);
     }
     };
-    checkAuth();
-}, [setIsLoading]);
+    if(!user) {
+        checkAuth();
+    }
+}, [user, updateUser, setIsLoading]);
 
 
 if (isLoading) {
@@ -49,7 +52,7 @@ if (error) {
 }
 
 
-return isAuthenticated ? children : <Navigate to="/login" replace />;
+return user ? children : <Navigate to="/login" replace />;
 };
 
 ProtectedRoute.propTypes = {

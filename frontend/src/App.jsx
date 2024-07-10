@@ -42,22 +42,22 @@ function App() {
                 </ProtectedRoute>
               } />
               <Route path="/add-trips" element={
-                <ProtectedRoute>
+                <>
                   <Sidebar />
                   <AddTrip />
-                </ProtectedRoute>
+                </>
               } />
               <Route path="/past-trips" element={
-                <ProtectedRoute>
+                <>
                   <Sidebar />
                   <PastTrips />
-                </ProtectedRoute>
+                </>
               } />
               <Route path="/trips/:tripId" element={
-                <ProtectedRoute>
+                <>
                   <Sidebar />
                   <TripDetails />
-                </ProtectedRoute>
+                </>
               } />
             </Routes>
           </BrowserRouter>
