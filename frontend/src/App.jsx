@@ -14,6 +14,7 @@ import ProtectedRoute from './Components/ProtectedRoute';
 
 
 function App() {
+  // null: not checked, false: checked but not authenticated, object: authenticated user
   const [user, setUser] = useState(null);
   const [flightData, setFlightData] = useState(initialFlightData);
 

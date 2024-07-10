@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext  } from 'react';
+import { UserContext } from '../UserContext/';
 import { Navigate } from 'react-router-dom';
 import { useLoading } from '../Loading/LoadingContext';
 import PropTypes from 'prop-types';
@@ -6,33 +7,35 @@ import { API_BASE_URL } from '../config';
 
 
 const ProtectedRoute = ({ children }) => {
-const [isAuthenticated, setIsAuthenticated] = useState(false);
+const { user, updateUser } = useContext(UserContext);
 const { isLoading, setIsLoading } = useLoading();
 const [error, setError] = useState(null);
 
 
 useEffect(() => {
     const checkAuth = async () => {
-    setIsLoading(true);
-    try {
-        const response = await fetch(`${API_BASE_URL}/users/auth-check`, {
-        credentials: 'include'
-        });
-        if (response.ok) {
-        setIsAuthenticated(true);
-        } else {
-        setIsAuthenticated(false);
+        if (user === null){
+            setIsLoading(true);
+            try {
+                const response = await fetch(`${API_BASE_URL}/users/auth-check`, {
+                credentials: 'include'
+                });
+                if (response.ok) {
+                    const data = await response.json();
+                    updateUser(data.user);
+                } else {
+                    updateUser(null);
+                }
+            } catch (error) {
+                setError('Authentication check failed. Please try again.', error);
+                updateUser(null);
+            } finally {
+                setIsLoading(false);
+            }
         }
-    } catch (error) {
-        console.error('Auth check failed:', error);
-        setError('Authentication check failed. Please try again.');
-        setIsAuthenticated(false);
-    } finally {
-        setIsLoading(false);
-    }
     };
     checkAuth();
-}, [setIsLoading]);
+}, [user, updateUser, setIsLoading]);
 
 
 if (isLoading) {
@@ -44,12 +47,13 @@ if (isLoading) {
 }
 
 
+
 if (error) {
     return <p className="error">{error}</p>;
 }
 
 
-return isAuthenticated ? children : <Navigate to="/login" replace />;
+return user ? children : <Navigate to="/login" replace />;
 };
 
 ProtectedRoute.propTypes = {
