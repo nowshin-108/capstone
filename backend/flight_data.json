@@ -1,0 +1,1876 @@
+{
+  "SFO": {
+    "NYC": [
+      {
+        "departureTime": "15-07-2024 13:24:08",
+        "arrivalTime": "15-07-2024 18:32:47",
+        "airlineCode": "DL",
+        "airlineName": "Delta Air Lines",
+        "flightNumber": "DL2112",
+        "price": 595.8,
+        "duration": "5.14",
+        "distance": 2572
+      },
+      {
+        "departureTime": "15-07-2024 16:04:38",
+        "arrivalTime": "15-07-2024 21:13:17",
+        "airlineCode": "B6",
+        "airlineName": "JetBlue Airways",
+        "flightNumber": "B65904",
+        "price": 755.81,
+        "duration": "5.14",
+        "distance": 2572
+      },
+      {
+        "departureTime": "15-07-2024 16:12:19",
+        "arrivalTime": "15-07-2024 21:20:57",
+        "airlineCode": "AA",
+        "airlineName": "American Airlines",
+        "flightNumber": "AA1847",
+        "price": 473.0,
+        "duration": "5.14",
+        "distance": 2572
+      },
+      {
+        "departureTime": "16-07-2024 11:46:28",
+        "arrivalTime": "16-07-2024 16:55:07",
+        "airlineCode": "F9",
+        "airlineName": "Frontier Airlines",
+        "flightNumber": "F98275",
+        "price": 301.01,
+        "duration": "5.14",
+        "distance": 2572
+      }
+    ],
+    "DFW": [
+      {
+        "departureTime": "11-07-2024 18:15:54",
+        "arrivalTime": "11-07-2024 21:11:34",
+        "airlineCode": "WN",
+        "airlineName": "Southwest Airlines",
+        "flightNumber": "WN4254",
+        "price": 877.4,
+        "duration": "2.93",
+        "distance": 1464
+      },
+      {
+        "departureTime": "12-07-2024 21:35:14",
+        "arrivalTime": "13-07-2024 00:30:55",
+        "airlineCode": "NK",
+        "airlineName": "Spirit Airlines",
+        "flightNumber": "NK7878",
+        "price": 100.3,
+        "duration": "2.93",
+        "distance": 1464
+      },
+      {
+        "departureTime": "13-07-2024 11:25:38",
+        "arrivalTime": "13-07-2024 14:21:19",
+        "airlineCode": "F9",
+        "airlineName": "Frontier Airlines",
+        "flightNumber": "F98679",
+        "price": 586.44,
+        "duration": "2.93",
+        "distance": 1464
+      },
+      {
+        "departureTime": "15-07-2024 01:17:03",
+        "arrivalTime": "15-07-2024 04:12:44",
+        "airlineCode": "B6",
+        "airlineName": "JetBlue Airways",
+        "flightNumber": "B65435",
+        "price": 975.28,
+        "duration": "2.93",
+        "distance": 1464
+      },
+      {
+        "departureTime": "15-07-2024 13:56:35",
+        "arrivalTime": "15-07-2024 16:52:16",
+        "airlineCode": "AA",
+        "airlineName": "American Airlines",
+        "flightNumber": "AA1830",
+        "price": 994.43,
+        "duration": "2.93",
+        "distance": 1464
+      },
+      {
+        "departureTime": "15-07-2024 14:22:48",
+        "arrivalTime": "15-07-2024 17:18:29",
+        "airlineCode": "AA",
+        "airlineName": "American Airlines",
+        "flightNumber": "AA1310",
+        "price": 354.78,
+        "duration": "2.93",
+        "distance": 1464
+      },
+      {
+        "departureTime": "16-07-2024 23:51:20",
+        "arrivalTime": "17-07-2024 02:47:00",
+        "airlineCode": "WN",
+        "airlineName": "Southwest Airlines",
+        "flightNumber": "WN4867",
+        "price": 588.18,
+        "duration": "2.93",
+        "distance": 1464
+      },
+      {
+        "departureTime": "17-07-2024 01:57:10",
+        "arrivalTime": "17-07-2024 04:52:51",
+        "airlineCode": "WN",
+        "airlineName": "Southwest Airlines",
+        "flightNumber": "WN4438",
+        "price": 382.65,
+        "duration": "2.93",
+        "distance": 1464
+      }
+    ],
+    "BOS": [
+      {
+        "departureTime": "11-07-2024 20:29:49",
+        "arrivalTime": "12-07-2024 01:54:18",
+        "airlineCode": "UA",
+        "airlineName": "United Airlines",
+        "flightNumber": "UA3818",
+        "price": 265.81,
+        "duration": "5.41",
+        "distance": 2704
+      },
+      {
+        "departureTime": "12-07-2024 08:06:46",
+        "arrivalTime": "12-07-2024 13:31:15",
+        "airlineCode": "NK",
+        "airlineName": "Spirit Airlines",
+        "flightNumber": "NK7606",
+        "price": 544.87,
+        "duration": "5.41",
+        "distance": 2704
+      },
+      {
+        "departureTime": "13-07-2024 02:01:03",
+        "arrivalTime": "13-07-2024 07:25:31",
+        "airlineCode": "WN",
+        "airlineName": "Southwest Airlines",
+        "flightNumber": "WN4099",
+        "price": 402.92,
+        "duration": "5.41",
+        "distance": 2704
+      },
+      {
+        "departureTime": "15-07-2024 12:17:48",
+        "arrivalTime": "15-07-2024 17:42:17",
+        "airlineCode": "AS",
+        "airlineName": "Alaska Airlines",
+        "flightNumber": "AS6456",
+        "price": 370.73,
+        "duration": "5.41",
+        "distance": 2704
+      },
+      {
+        "departureTime": "16-07-2024 06:43:30",
+        "arrivalTime": "16-07-2024 12:07:59",
+        "airlineCode": "B6",
+        "airlineName": "JetBlue Airways",
+        "flightNumber": "B65938",
+        "price": 191.48,
+        "duration": "5.41",
+        "distance": 2704
+      },
+      {
+        "departureTime": "16-07-2024 10:07:52",
+        "arrivalTime": "16-07-2024 15:32:21",
+        "airlineCode": "WN",
+        "airlineName": "Southwest Airlines",
+        "flightNumber": "WN4966",
+        "price": 612.46,
+        "duration": "5.41",
+        "distance": 2704
+      }
+    ],
+    "LAX": [
+      {
+        "departureTime": "11-07-2024 05:01:10",
+        "arrivalTime": "11-07-2024 05:41:36",
+        "airlineCode": "B6",
+        "airlineName": "JetBlue Airways",
+        "flightNumber": "B65932",
+        "price": 891.57,
+        "duration": "0.67",
+        "distance": 337
+      },
+      {
+        "departureTime": "11-07-2024 15:38:54",
+        "arrivalTime": "11-07-2024 16:19:20",
+        "airlineCode": "F9",
+        "airlineName": "Frontier Airlines",
+        "flightNumber": "F98564",
+        "price": 447.79,
+        "duration": "0.67",
+        "distance": 337
+      },
+      {
+        "departureTime": "12-07-2024 16:23:07",
+        "arrivalTime": "12-07-2024 17:03:33",
+        "airlineCode": "F9",
+        "airlineName": "Frontier Airlines",
+        "flightNumber": "F98760",
+        "price": 933.95,
+        "duration": "0.67",
+        "distance": 337
+      },
+      {
+        "departureTime": "14-07-2024 02:47:50",
+        "arrivalTime": "14-07-2024 03:28:17",
+        "airlineCode": "B6",
+        "airlineName": "JetBlue Airways",
+        "flightNumber": "B65778",
+        "price": 774.14,
+        "duration": "0.67",
+        "distance": 337
+      },
+      {
+        "departureTime": "15-07-2024 23:34:27",
+        "arrivalTime": "16-07-2024 00:14:53",
+        "airlineCode": "AA",
+        "airlineName": "American Airlines",
+        "flightNumber": "AA1373",
+        "price": 707.21,
+        "duration": "0.67",
+        "distance": 337
+      }
+    ]
+  },
+  "LAX": {
+    "NYC": [
+      {
+        "departureTime": "11-07-2024 07:24:12",
+        "arrivalTime": "11-07-2024 12:21:12",
+        "airlineCode": "DL",
+        "airlineName": "Delta Air Lines",
+        "flightNumber": "DL2223",
+        "price": 442.05,
+        "duration": "4.95",
+        "distance": 2475
+      },
+      {
+        "departureTime": "13-07-2024 02:20:05",
+        "arrivalTime": "13-07-2024 07:17:05",
+        "airlineCode": "DL",
+        "airlineName": "Delta Air Lines",
+        "flightNumber": "DL2592",
+        "price": 175.56,
+        "duration": "4.95",
+        "distance": 2475
+      },
+      {
+        "departureTime": "13-07-2024 06:30:38",
+        "arrivalTime": "13-07-2024 11:27:38",
+        "airlineCode": "AS",
+        "airlineName": "Alaska Airlines",
+        "flightNumber": "AS6463",
+        "price": 322.62,
+        "duration": "4.95",
+        "distance": 2475
+      },
+      {
+        "departureTime": "13-07-2024 18:40:40",
+        "arrivalTime": "13-07-2024 23:37:40",
+        "airlineCode": "AS",
+        "airlineName": "Alaska Airlines",
+        "flightNumber": "AS6676",
+        "price": 133.27,
+        "duration": "4.95",
+        "distance": 2475
+      }
+    ],
+    "MIA": [
+      {
+        "departureTime": "12-07-2024 06:35:22",
+        "arrivalTime": "12-07-2024 11:16:25",
+        "airlineCode": "UA",
+        "airlineName": "United Airlines",
+        "flightNumber": "UA3586",
+        "price": 982.75,
+        "duration": "4.68",
+        "distance": 2342
+      },
+      {
+        "departureTime": "13-07-2024 14:37:32",
+        "arrivalTime": "13-07-2024 19:18:34",
+        "airlineCode": "F9",
+        "airlineName": "Frontier Airlines",
+        "flightNumber": "F98095",
+        "price": 231.92,
+        "duration": "4.68",
+        "distance": 2342
+      },
+      {
+        "departureTime": "15-07-2024 01:50:39",
+        "arrivalTime": "15-07-2024 06:31:41",
+        "airlineCode": "AS",
+        "airlineName": "Alaska Airlines",
+        "flightNumber": "AS6377",
+        "price": 789.0,
+        "duration": "4.68",
+        "distance": 2342
+      },
+      {
+        "departureTime": "15-07-2024 16:08:24",
+        "arrivalTime": "15-07-2024 20:49:27",
+        "airlineCode": "NK",
+        "airlineName": "Spirit Airlines",
+        "flightNumber": "NK7520",
+        "price": 600.35,
+        "duration": "4.68",
+        "distance": 2342
+      },
+      {
+        "departureTime": "16-07-2024 11:48:15",
+        "arrivalTime": "16-07-2024 16:29:17",
+        "airlineCode": "WN",
+        "airlineName": "Southwest Airlines",
+        "flightNumber": "WN4546",
+        "price": 907.68,
+        "duration": "4.68",
+        "distance": 2342
+      },
+      {
+        "departureTime": "16-07-2024 13:44:41",
+        "arrivalTime": "16-07-2024 18:25:44",
+        "airlineCode": "AA",
+        "airlineName": "American Airlines",
+        "flightNumber": "AA1216",
+        "price": 264.45,
+        "duration": "4.68",
+        "distance": 2342
+      }
+    ],
+    "SFO": [
+      {
+        "departureTime": "11-07-2024 01:30:15",
+        "arrivalTime": "11-07-2024 02:10:41",
+        "airlineCode": "WN",
+        "airlineName": "Southwest Airlines",
+        "flightNumber": "WN4278",
+        "price": 177.84,
+        "duration": "0.67",
+        "distance": 337
+      },
+      {
+        "departureTime": "13-07-2024 22:25:09",
+        "arrivalTime": "13-07-2024 23:05:35",
+        "airlineCode": "AS",
+        "airlineName": "Alaska Airlines",
+        "flightNumber": "AS6307",
+        "price": 679.76,
+        "duration": "0.67",
+        "distance": 337
+      },
+      {
+        "departureTime": "15-07-2024 16:40:51",
+        "arrivalTime": "15-07-2024 17:21:17",
+        "airlineCode": "NK",
+        "airlineName": "Spirit Airlines",
+        "flightNumber": "NK7550",
+        "price": 267.56,
+        "duration": "0.67",
+        "distance": 337
+      },
+      {
+        "departureTime": "15-07-2024 23:09:18",
+        "arrivalTime": "15-07-2024 23:49:44",
+        "airlineCode": "NK",
+        "airlineName": "Spirit Airlines",
+        "flightNumber": "NK7380",
+        "price": 598.28,
+        "duration": "0.67",
+        "distance": 337
+      },
+      {
+        "departureTime": "16-07-2024 08:47:26",
+        "arrivalTime": "16-07-2024 09:27:52",
+        "airlineCode": "F9",
+        "airlineName": "Frontier Airlines",
+        "flightNumber": "F98550",
+        "price": 952.69,
+        "duration": "0.67",
+        "distance": 337
+      }
+    ]
+  },
+  "NYC": {
+    "LAX": [
+      {
+        "departureTime": "12-07-2024 14:15:34",
+        "arrivalTime": "12-07-2024 19:12:34",
+        "airlineCode": "B6",
+        "airlineName": "JetBlue Airways",
+        "flightNumber": "B65335",
+        "price": 866.15,
+        "duration": "4.95",
+        "distance": 2475
+      },
+      {
+        "departureTime": "12-07-2024 22:10:18",
+        "arrivalTime": "13-07-2024 03:07:18",
+        "airlineCode": "B6",
+        "airlineName": "JetBlue Airways",
+        "flightNumber": "B65804",
+        "price": 278.18,
+        "duration": "4.95",
+        "distance": 2475
+      },
+      {
+        "departureTime": "15-07-2024 03:29:32",
+        "arrivalTime": "15-07-2024 08:26:32",
+        "airlineCode": "AS",
+        "airlineName": "Alaska Airlines",
+        "flightNumber": "AS6756",
+        "price": 613.2,
+        "duration": "4.95",
+        "distance": 2475
+      },
+      {
+        "departureTime": "15-07-2024 10:42:14",
+        "arrivalTime": "15-07-2024 15:39:14",
+        "airlineCode": "WN",
+        "airlineName": "Southwest Airlines",
+        "flightNumber": "WN4189",
+        "price": 932.24,
+        "duration": "4.95",
+        "distance": 2475
+      },
+      {
+        "departureTime": "16-07-2024 03:23:18",
+        "arrivalTime": "16-07-2024 08:20:18",
+        "airlineCode": "NK",
+        "airlineName": "Spirit Airlines",
+        "flightNumber": "NK7341",
+        "price": 810.05,
+        "duration": "4.95",
+        "distance": 2475
+      },
+      {
+        "departureTime": "16-07-2024 06:24:21",
+        "arrivalTime": "16-07-2024 11:21:21",
+        "airlineCode": "WN",
+        "airlineName": "Southwest Airlines",
+        "flightNumber": "WN4865",
+        "price": 330.11,
+        "duration": "4.95",
+        "distance": 2475
+      },
+      {
+        "departureTime": "16-07-2024 12:15:34",
+        "arrivalTime": "16-07-2024 17:12:34",
+        "airlineCode": "UA",
+        "airlineName": "United Airlines",
+        "flightNumber": "UA3449",
+        "price": 658.5,
+        "duration": "4.95",
+        "distance": 2475
+      },
+      {
+        "departureTime": "16-07-2024 19:47:51",
+        "arrivalTime": "17-07-2024 00:44:51",
+        "airlineCode": "AS",
+        "airlineName": "Alaska Airlines",
+        "flightNumber": "AS6098",
+        "price": 247.46,
+        "duration": "4.95",
+        "distance": 2475
+      }
+    ],
+    "SEA": [
+      {
+        "departureTime": "10-07-2024 12:15:25",
+        "arrivalTime": "10-07-2024 17:05:06",
+        "airlineCode": "AA",
+        "airlineName": "American Airlines",
+        "flightNumber": "AA1595",
+        "price": 424.24,
+        "duration": "4.83",
+        "distance": 2414
+      },
+      {
+        "departureTime": "12-07-2024 06:29:07",
+        "arrivalTime": "12-07-2024 11:18:48",
+        "airlineCode": "AS",
+        "airlineName": "Alaska Airlines",
+        "flightNumber": "AS6634",
+        "price": 757.74,
+        "duration": "4.83",
+        "distance": 2414
+      },
+      {
+        "departureTime": "12-07-2024 20:25:10",
+        "arrivalTime": "13-07-2024 01:14:51",
+        "airlineCode": "AS",
+        "airlineName": "Alaska Airlines",
+        "flightNumber": "AS6145",
+        "price": 121.08,
+        "duration": "4.83",
+        "distance": 2414
+      },
+      {
+        "departureTime": "14-07-2024 19:26:19",
+        "arrivalTime": "15-07-2024 00:16:00",
+        "airlineCode": "AS",
+        "airlineName": "Alaska Airlines",
+        "flightNumber": "AS6600",
+        "price": 193.54,
+        "duration": "4.83",
+        "distance": 2414
+      },
+      {
+        "departureTime": "15-07-2024 11:45:25",
+        "arrivalTime": "15-07-2024 16:35:06",
+        "airlineCode": "UA",
+        "airlineName": "United Airlines",
+        "flightNumber": "UA3240",
+        "price": 779.6,
+        "duration": "4.83",
+        "distance": 2414
+      },
+      {
+        "departureTime": "16-07-2024 11:06:40",
+        "arrivalTime": "16-07-2024 15:56:21",
+        "airlineCode": "DL",
+        "airlineName": "Delta Air Lines",
+        "flightNumber": "DL2670",
+        "price": 934.47,
+        "duration": "4.83",
+        "distance": 2414
+      },
+      {
+        "departureTime": "17-07-2024 02:51:56",
+        "arrivalTime": "17-07-2024 07:41:37",
+        "airlineCode": "DL",
+        "airlineName": "Delta Air Lines",
+        "flightNumber": "DL2211",
+        "price": 363.61,
+        "duration": "4.83",
+        "distance": 2414
+      }
+    ],
+    "SFO": [
+      {
+        "departureTime": "12-07-2024 00:09:41",
+        "arrivalTime": "12-07-2024 05:18:20",
+        "airlineCode": "B6",
+        "airlineName": "JetBlue Airways",
+        "flightNumber": "B65668",
+        "price": 918.53,
+        "duration": "5.14",
+        "distance": 2572
+      },
+      {
+        "departureTime": "13-07-2024 05:53:58",
+        "arrivalTime": "13-07-2024 11:02:36",
+        "airlineCode": "F9",
+        "airlineName": "Frontier Airlines",
+        "flightNumber": "F98459",
+        "price": 480.44,
+        "duration": "5.14",
+        "distance": 2572
+      },
+      {
+        "departureTime": "13-07-2024 16:17:39",
+        "arrivalTime": "13-07-2024 21:26:17",
+        "airlineCode": "AA",
+        "airlineName": "American Airlines",
+        "flightNumber": "AA1695",
+        "price": 917.53,
+        "duration": "5.14",
+        "distance": 2572
+      },
+      {
+        "departureTime": "14-07-2024 04:00:47",
+        "arrivalTime": "14-07-2024 09:09:25",
+        "airlineCode": "AA",
+        "airlineName": "American Airlines",
+        "flightNumber": "AA1675",
+        "price": 381.09,
+        "duration": "5.14",
+        "distance": 2572
+      },
+      {
+        "departureTime": "14-07-2024 04:35:18",
+        "arrivalTime": "14-07-2024 09:43:57",
+        "airlineCode": "DL",
+        "airlineName": "Delta Air Lines",
+        "flightNumber": "DL2994",
+        "price": 737.3,
+        "duration": "5.14",
+        "distance": 2572
+      },
+      {
+        "departureTime": "14-07-2024 19:32:47",
+        "arrivalTime": "15-07-2024 00:41:26",
+        "airlineCode": "AA",
+        "airlineName": "American Airlines",
+        "flightNumber": "AA1121",
+        "price": 483.89,
+        "duration": "5.14",
+        "distance": 2572
+      },
+      {
+        "departureTime": "16-07-2024 15:12:05",
+        "arrivalTime": "16-07-2024 20:20:43",
+        "airlineCode": "WN",
+        "airlineName": "Southwest Airlines",
+        "flightNumber": "WN4445",
+        "price": 759.01,
+        "duration": "5.14",
+        "distance": 2572
+      }
+    ]
+  },
+  "CHI": {
+    "BOS": [
+      {
+        "departureTime": "10-07-2024 17:12:52",
+        "arrivalTime": "10-07-2024 18:56:55",
+        "airlineCode": "DL",
+        "airlineName": "Delta Air Lines",
+        "flightNumber": "DL2896",
+        "price": 729.89,
+        "duration": "1.73",
+        "distance": 867
+      },
+      {
+        "departureTime": "13-07-2024 02:06:05",
+        "arrivalTime": "13-07-2024 03:50:08",
+        "airlineCode": "AA",
+        "airlineName": "American Airlines",
+        "flightNumber": "AA1449",
+        "price": 303.31,
+        "duration": "1.73",
+        "distance": 867
+      },
+      {
+        "departureTime": "13-07-2024 18:26:52",
+        "arrivalTime": "13-07-2024 20:10:55",
+        "airlineCode": "DL",
+        "airlineName": "Delta Air Lines",
+        "flightNumber": "DL2393",
+        "price": 348.73,
+        "duration": "1.73",
+        "distance": 867
+      },
+      {
+        "departureTime": "14-07-2024 02:47:56",
+        "arrivalTime": "14-07-2024 04:31:59",
+        "airlineCode": "WN",
+        "airlineName": "Southwest Airlines",
+        "flightNumber": "WN4243",
+        "price": 830.8,
+        "duration": "1.73",
+        "distance": 867
+      },
+      {
+        "departureTime": "14-07-2024 13:49:58",
+        "arrivalTime": "14-07-2024 15:34:01",
+        "airlineCode": "AS",
+        "airlineName": "Alaska Airlines",
+        "flightNumber": "AS6912",
+        "price": 209.15,
+        "duration": "1.73",
+        "distance": 867
+      },
+      {
+        "departureTime": "17-07-2024 02:14:04",
+        "arrivalTime": "17-07-2024 03:58:07",
+        "airlineCode": "F9",
+        "airlineName": "Frontier Airlines",
+        "flightNumber": "F98664",
+        "price": 689.7,
+        "duration": "1.73",
+        "distance": 867
+      }
+    ],
+    "SFO": [
+      {
+        "departureTime": "10-07-2024 21:32:40",
+        "arrivalTime": "11-07-2024 01:14:18",
+        "airlineCode": "DL",
+        "airlineName": "Delta Air Lines",
+        "flightNumber": "DL2758",
+        "price": 587.38,
+        "duration": "3.69",
+        "distance": 1847
+      },
+      {
+        "departureTime": "12-07-2024 06:45:28",
+        "arrivalTime": "12-07-2024 10:27:06",
+        "airlineCode": "AA",
+        "airlineName": "American Airlines",
+        "flightNumber": "AA1011",
+        "price": 149.99,
+        "duration": "3.69",
+        "distance": 1847
+      },
+      {
+        "departureTime": "13-07-2024 14:04:57",
+        "arrivalTime": "13-07-2024 17:46:36",
+        "airlineCode": "AA",
+        "airlineName": "American Airlines",
+        "flightNumber": "AA1658",
+        "price": 228.93,
+        "duration": "3.69",
+        "distance": 1847
+      },
+      {
+        "departureTime": "15-07-2024 05:21:21",
+        "arrivalTime": "15-07-2024 09:03:00",
+        "airlineCode": "DL",
+        "airlineName": "Delta Air Lines",
+        "flightNumber": "DL2928",
+        "price": 924.35,
+        "duration": "3.69",
+        "distance": 1847
+      },
+      {
+        "departureTime": "16-07-2024 00:42:12",
+        "arrivalTime": "16-07-2024 04:23:50",
+        "airlineCode": "F9",
+        "airlineName": "Frontier Airlines",
+        "flightNumber": "F98648",
+        "price": 792.73,
+        "duration": "3.69",
+        "distance": 1847
+      }
+    ],
+    "SEA": [
+      {
+        "departureTime": "10-07-2024 23:30:13",
+        "arrivalTime": "11-07-2024 02:56:45",
+        "airlineCode": "UA",
+        "airlineName": "United Airlines",
+        "flightNumber": "UA3379",
+        "price": 881.39,
+        "duration": "3.44",
+        "distance": 1721
+      },
+      {
+        "departureTime": "11-07-2024 17:35:53",
+        "arrivalTime": "11-07-2024 21:02:24",
+        "airlineCode": "NK",
+        "airlineName": "Spirit Airlines",
+        "flightNumber": "NK7286",
+        "price": 869.98,
+        "duration": "3.44",
+        "distance": 1721
+      },
+      {
+        "departureTime": "12-07-2024 10:03:00",
+        "arrivalTime": "12-07-2024 13:29:32",
+        "airlineCode": "UA",
+        "airlineName": "United Airlines",
+        "flightNumber": "UA3338",
+        "price": 842.71,
+        "duration": "3.44",
+        "distance": 1721
+      },
+      {
+        "departureTime": "12-07-2024 14:04:58",
+        "arrivalTime": "12-07-2024 17:31:29",
+        "airlineCode": "DL",
+        "airlineName": "Delta Air Lines",
+        "flightNumber": "DL2450",
+        "price": 926.92,
+        "duration": "3.44",
+        "distance": 1721
+      },
+      {
+        "departureTime": "15-07-2024 06:23:54",
+        "arrivalTime": "15-07-2024 09:50:25",
+        "airlineCode": "AA",
+        "airlineName": "American Airlines",
+        "flightNumber": "AA1378",
+        "price": 845.84,
+        "duration": "3.44",
+        "distance": 1721
+      },
+      {
+        "departureTime": "15-07-2024 08:27:15",
+        "arrivalTime": "15-07-2024 11:53:47",
+        "airlineCode": "B6",
+        "airlineName": "JetBlue Airways",
+        "flightNumber": "B65770",
+        "price": 658.15,
+        "duration": "3.44",
+        "distance": 1721
+      },
+      {
+        "departureTime": "15-07-2024 11:18:41",
+        "arrivalTime": "15-07-2024 14:45:12",
+        "airlineCode": "DL",
+        "airlineName": "Delta Air Lines",
+        "flightNumber": "DL2755",
+        "price": 460.68,
+        "duration": "3.44",
+        "distance": 1721
+      },
+      {
+        "departureTime": "16-07-2024 21:45:00",
+        "arrivalTime": "17-07-2024 01:11:31",
+        "airlineCode": "NK",
+        "airlineName": "Spirit Airlines",
+        "flightNumber": "NK7578",
+        "price": 570.82,
+        "duration": "3.44",
+        "distance": 1721
+      }
+    ],
+    "NYC": [
+      {
+        "departureTime": "12-07-2024 00:00:32",
+        "arrivalTime": "12-07-2024 01:29:20",
+        "airlineCode": "UA",
+        "airlineName": "United Airlines",
+        "flightNumber": "UA3162",
+        "price": 428.29,
+        "duration": "1.48",
+        "distance": 740
+      },
+      {
+        "departureTime": "13-07-2024 12:41:40",
+        "arrivalTime": "13-07-2024 14:10:28",
+        "airlineCode": "F9",
+        "airlineName": "Frontier Airlines",
+        "flightNumber": "F98983",
+        "price": 507.32,
+        "duration": "1.48",
+        "distance": 740
+      },
+      {
+        "departureTime": "14-07-2024 02:13:55",
+        "arrivalTime": "14-07-2024 03:42:43",
+        "airlineCode": "AA",
+        "airlineName": "American Airlines",
+        "flightNumber": "AA1748",
+        "price": 798.07,
+        "duration": "1.48",
+        "distance": 740
+      },
+      {
+        "departureTime": "15-07-2024 12:00:29",
+        "arrivalTime": "15-07-2024 13:29:17",
+        "airlineCode": "B6",
+        "airlineName": "JetBlue Airways",
+        "flightNumber": "B65851",
+        "price": 467.64,
+        "duration": "1.48",
+        "distance": 740
+      },
+      {
+        "departureTime": "15-07-2024 22:17:07",
+        "arrivalTime": "15-07-2024 23:45:55",
+        "airlineCode": "DL",
+        "airlineName": "Delta Air Lines",
+        "flightNumber": "DL2532",
+        "price": 277.93,
+        "duration": "1.48",
+        "distance": 740
+      },
+      {
+        "departureTime": "16-07-2024 04:16:14",
+        "arrivalTime": "16-07-2024 05:45:02",
+        "airlineCode": "DL",
+        "airlineName": "Delta Air Lines",
+        "flightNumber": "DL2558",
+        "price": 554.31,
+        "duration": "1.48",
+        "distance": 740
+      },
+      {
+        "departureTime": "16-07-2024 19:58:11",
+        "arrivalTime": "16-07-2024 21:26:59",
+        "airlineCode": "WN",
+        "airlineName": "Southwest Airlines",
+        "flightNumber": "WN4411",
+        "price": 394.04,
+        "duration": "1.48",
+        "distance": 740
+      }
+    ]
+  },
+  "MIA": {
+    "NYC": [
+      {
+        "departureTime": "10-07-2024 15:33:36",
+        "arrivalTime": "10-07-2024 17:44:24",
+        "airlineCode": "AA",
+        "airlineName": "American Airlines",
+        "flightNumber": "AA1856",
+        "price": 514.84,
+        "duration": "2.18",
+        "distance": 1090
+      },
+      {
+        "departureTime": "12-07-2024 04:40:15",
+        "arrivalTime": "12-07-2024 06:51:03",
+        "airlineCode": "WN",
+        "airlineName": "Southwest Airlines",
+        "flightNumber": "WN4794",
+        "price": 165.05,
+        "duration": "2.18",
+        "distance": 1090
+      },
+      {
+        "departureTime": "12-07-2024 06:27:19",
+        "arrivalTime": "12-07-2024 08:38:07",
+        "airlineCode": "DL",
+        "airlineName": "Delta Air Lines",
+        "flightNumber": "DL2559",
+        "price": 363.0,
+        "duration": "2.18",
+        "distance": 1090
+      },
+      {
+        "departureTime": "13-07-2024 00:44:30",
+        "arrivalTime": "13-07-2024 02:55:18",
+        "airlineCode": "F9",
+        "airlineName": "Frontier Airlines",
+        "flightNumber": "F98698",
+        "price": 517.37,
+        "duration": "2.18",
+        "distance": 1090
+      },
+      {
+        "departureTime": "14-07-2024 05:20:06",
+        "arrivalTime": "14-07-2024 07:30:54",
+        "airlineCode": "UA",
+        "airlineName": "United Airlines",
+        "flightNumber": "UA3715",
+        "price": 593.44,
+        "duration": "2.18",
+        "distance": 1090
+      },
+      {
+        "departureTime": "14-07-2024 20:20:50",
+        "arrivalTime": "14-07-2024 22:31:38",
+        "airlineCode": "AA",
+        "airlineName": "American Airlines",
+        "flightNumber": "AA1431",
+        "price": 455.85,
+        "duration": "2.18",
+        "distance": 1090
+      },
+      {
+        "departureTime": "15-07-2024 14:06:38",
+        "arrivalTime": "15-07-2024 16:17:26",
+        "airlineCode": "AS",
+        "airlineName": "Alaska Airlines",
+        "flightNumber": "AS6980",
+        "price": 147.03,
+        "duration": "2.18",
+        "distance": 1090
+      },
+      {
+        "departureTime": "15-07-2024 19:44:25",
+        "arrivalTime": "15-07-2024 21:55:13",
+        "airlineCode": "DL",
+        "airlineName": "Delta Air Lines",
+        "flightNumber": "DL2271",
+        "price": 687.84,
+        "duration": "2.18",
+        "distance": 1090
+      }
+    ],
+    "DFW": [
+      {
+        "departureTime": "10-07-2024 12:37:14",
+        "arrivalTime": "10-07-2024 14:51:45",
+        "airlineCode": "AA",
+        "airlineName": "American Airlines",
+        "flightNumber": "AA1601",
+        "price": 263.94,
+        "duration": "2.24",
+        "distance": 1121
+      },
+      {
+        "departureTime": "11-07-2024 12:08:36",
+        "arrivalTime": "11-07-2024 14:23:07",
+        "airlineCode": "AS",
+        "airlineName": "Alaska Airlines",
+        "flightNumber": "AS6443",
+        "price": 951.31,
+        "duration": "2.24",
+        "distance": 1121
+      },
+      {
+        "departureTime": "13-07-2024 10:49:15",
+        "arrivalTime": "13-07-2024 13:03:46",
+        "airlineCode": "NK",
+        "airlineName": "Spirit Airlines",
+        "flightNumber": "NK7038",
+        "price": 360.13,
+        "duration": "2.24",
+        "distance": 1121
+      },
+      {
+        "departureTime": "14-07-2024 01:19:44",
+        "arrivalTime": "14-07-2024 03:34:15",
+        "airlineCode": "B6",
+        "airlineName": "JetBlue Airways",
+        "flightNumber": "B65482",
+        "price": 455.62,
+        "duration": "2.24",
+        "distance": 1121
+      },
+      {
+        "departureTime": "16-07-2024 04:46:45",
+        "arrivalTime": "16-07-2024 07:01:16",
+        "airlineCode": "DL",
+        "airlineName": "Delta Air Lines",
+        "flightNumber": "DL2772",
+        "price": 862.99,
+        "duration": "2.24",
+        "distance": 1121
+      }
+    ],
+    "LAX": [
+      {
+        "departureTime": "11-07-2024 14:27:54",
+        "arrivalTime": "11-07-2024 19:08:57",
+        "airlineCode": "UA",
+        "airlineName": "United Airlines",
+        "flightNumber": "UA3571",
+        "price": 545.01,
+        "duration": "4.68",
+        "distance": 2342
+      },
+      {
+        "departureTime": "11-07-2024 19:39:08",
+        "arrivalTime": "12-07-2024 00:20:11",
+        "airlineCode": "DL",
+        "airlineName": "Delta Air Lines",
+        "flightNumber": "DL2672",
+        "price": 752.15,
+        "duration": "4.68",
+        "distance": 2342
+      },
+      {
+        "departureTime": "13-07-2024 09:06:16",
+        "arrivalTime": "13-07-2024 13:47:18",
+        "airlineCode": "UA",
+        "airlineName": "United Airlines",
+        "flightNumber": "UA3032",
+        "price": 431.48,
+        "duration": "4.68",
+        "distance": 2342
+      },
+      {
+        "departureTime": "14-07-2024 05:45:16",
+        "arrivalTime": "14-07-2024 10:26:18",
+        "airlineCode": "WN",
+        "airlineName": "Southwest Airlines",
+        "flightNumber": "WN4295",
+        "price": 412.06,
+        "duration": "4.68",
+        "distance": 2342
+      },
+      {
+        "departureTime": "14-07-2024 08:20:37",
+        "arrivalTime": "14-07-2024 13:01:40",
+        "airlineCode": "DL",
+        "airlineName": "Delta Air Lines",
+        "flightNumber": "DL2972",
+        "price": 690.48,
+        "duration": "4.68",
+        "distance": 2342
+      },
+      {
+        "departureTime": "14-07-2024 09:44:49",
+        "arrivalTime": "14-07-2024 14:25:52",
+        "airlineCode": "UA",
+        "airlineName": "United Airlines",
+        "flightNumber": "UA3820",
+        "price": 285.3,
+        "duration": "4.68",
+        "distance": 2342
+      },
+      {
+        "departureTime": "15-07-2024 01:38:10",
+        "arrivalTime": "15-07-2024 06:19:12",
+        "airlineCode": "NK",
+        "airlineName": "Spirit Airlines",
+        "flightNumber": "NK7438",
+        "price": 781.29,
+        "duration": "4.68",
+        "distance": 2342
+      },
+      {
+        "departureTime": "15-07-2024 14:52:21",
+        "arrivalTime": "15-07-2024 19:33:23",
+        "airlineCode": "B6",
+        "airlineName": "JetBlue Airways",
+        "flightNumber": "B65205",
+        "price": 803.88,
+        "duration": "4.68",
+        "distance": 2342
+      }
+    ]
+  },
+  "DFW": {
+    "NYC": [
+      {
+        "departureTime": "11-07-2024 11:54:26",
+        "arrivalTime": "11-07-2024 14:39:04",
+        "airlineCode": "NK",
+        "airlineName": "Spirit Airlines",
+        "flightNumber": "NK7772",
+        "price": 919.93,
+        "duration": "2.74",
+        "distance": 1372
+      },
+      {
+        "departureTime": "14-07-2024 02:54:56",
+        "arrivalTime": "14-07-2024 05:39:34",
+        "airlineCode": "F9",
+        "airlineName": "Frontier Airlines",
+        "flightNumber": "F98477",
+        "price": 193.12,
+        "duration": "2.74",
+        "distance": 1372
+      },
+      {
+        "departureTime": "14-07-2024 15:08:00",
+        "arrivalTime": "14-07-2024 17:52:38",
+        "airlineCode": "WN",
+        "airlineName": "Southwest Airlines",
+        "flightNumber": "WN4209",
+        "price": 395.32,
+        "duration": "2.74",
+        "distance": 1372
+      },
+      {
+        "departureTime": "14-07-2024 20:55:15",
+        "arrivalTime": "14-07-2024 23:39:53",
+        "airlineCode": "B6",
+        "airlineName": "JetBlue Airways",
+        "flightNumber": "B65622",
+        "price": 972.99,
+        "duration": "2.74",
+        "distance": 1372
+      },
+      {
+        "departureTime": "14-07-2024 21:42:48",
+        "arrivalTime": "15-07-2024 00:27:27",
+        "airlineCode": "DL",
+        "airlineName": "Delta Air Lines",
+        "flightNumber": "DL2401",
+        "price": 321.22,
+        "duration": "2.74",
+        "distance": 1372
+      },
+      {
+        "departureTime": "16-07-2024 09:03:17",
+        "arrivalTime": "16-07-2024 11:47:56",
+        "airlineCode": "AA",
+        "airlineName": "American Airlines",
+        "flightNumber": "AA1446",
+        "price": 882.7,
+        "duration": "2.74",
+        "distance": 1372
+      },
+      {
+        "departureTime": "16-07-2024 20:10:38",
+        "arrivalTime": "16-07-2024 22:55:16",
+        "airlineCode": "DL",
+        "airlineName": "Delta Air Lines",
+        "flightNumber": "DL2421",
+        "price": 787.23,
+        "duration": "2.74",
+        "distance": 1372
+      }
+    ],
+    "LAX": [
+      {
+        "departureTime": "11-07-2024 15:43:32",
+        "arrivalTime": "11-07-2024 18:11:44",
+        "airlineCode": "UA",
+        "airlineName": "United Airlines",
+        "flightNumber": "UA3670",
+        "price": 239.33,
+        "duration": "2.47",
+        "distance": 1235
+      },
+      {
+        "departureTime": "12-07-2024 06:46:15",
+        "arrivalTime": "12-07-2024 09:14:27",
+        "airlineCode": "WN",
+        "airlineName": "Southwest Airlines",
+        "flightNumber": "WN4805",
+        "price": 696.91,
+        "duration": "2.47",
+        "distance": 1235
+      },
+      {
+        "departureTime": "12-07-2024 17:24:16",
+        "arrivalTime": "12-07-2024 19:52:28",
+        "airlineCode": "AA",
+        "airlineName": "American Airlines",
+        "flightNumber": "AA1041",
+        "price": 809.1,
+        "duration": "2.47",
+        "distance": 1235
+      },
+      {
+        "departureTime": "14-07-2024 01:08:46",
+        "arrivalTime": "14-07-2024 03:36:58",
+        "airlineCode": "UA",
+        "airlineName": "United Airlines",
+        "flightNumber": "UA3682",
+        "price": 600.68,
+        "duration": "2.47",
+        "distance": 1235
+      },
+      {
+        "departureTime": "15-07-2024 14:54:21",
+        "arrivalTime": "15-07-2024 17:22:33",
+        "airlineCode": "WN",
+        "airlineName": "Southwest Airlines",
+        "flightNumber": "WN4041",
+        "price": 442.39,
+        "duration": "2.47",
+        "distance": 1235
+      },
+      {
+        "departureTime": "16-07-2024 13:50:59",
+        "arrivalTime": "16-07-2024 16:19:11",
+        "airlineCode": "F9",
+        "airlineName": "Frontier Airlines",
+        "flightNumber": "F98798",
+        "price": 642.2,
+        "duration": "2.47",
+        "distance": 1235
+      },
+      {
+        "departureTime": "17-07-2024 08:10:13",
+        "arrivalTime": "17-07-2024 10:38:25",
+        "airlineCode": "F9",
+        "airlineName": "Frontier Airlines",
+        "flightNumber": "F98695",
+        "price": 972.77,
+        "duration": "2.47",
+        "distance": 1235
+      }
+    ],
+    "BOS": [
+      {
+        "departureTime": "10-07-2024 20:19:16",
+        "arrivalTime": "10-07-2024 23:25:23",
+        "airlineCode": "NK",
+        "airlineName": "Spirit Airlines",
+        "flightNumber": "NK7775",
+        "price": 518.01,
+        "duration": "3.10",
+        "distance": 1551
+      },
+      {
+        "departureTime": "11-07-2024 05:18:27",
+        "arrivalTime": "11-07-2024 08:24:34",
+        "airlineCode": "B6",
+        "airlineName": "JetBlue Airways",
+        "flightNumber": "B65346",
+        "price": 793.48,
+        "duration": "3.10",
+        "distance": 1551
+      },
+      {
+        "departureTime": "11-07-2024 23:07:02",
+        "arrivalTime": "12-07-2024 02:13:09",
+        "airlineCode": "AA",
+        "airlineName": "American Airlines",
+        "flightNumber": "AA1113",
+        "price": 342.26,
+        "duration": "3.10",
+        "distance": 1551
+      },
+      {
+        "departureTime": "12-07-2024 20:54:27",
+        "arrivalTime": "13-07-2024 00:00:35",
+        "airlineCode": "B6",
+        "airlineName": "JetBlue Airways",
+        "flightNumber": "B65239",
+        "price": 748.01,
+        "duration": "3.10",
+        "distance": 1551
+      },
+      {
+        "departureTime": "13-07-2024 06:36:34",
+        "arrivalTime": "13-07-2024 09:42:41",
+        "airlineCode": "AA",
+        "airlineName": "American Airlines",
+        "flightNumber": "AA1560",
+        "price": 282.39,
+        "duration": "3.10",
+        "distance": 1551
+      },
+      {
+        "departureTime": "14-07-2024 05:24:45",
+        "arrivalTime": "14-07-2024 08:30:52",
+        "airlineCode": "NK",
+        "airlineName": "Spirit Airlines",
+        "flightNumber": "NK7319",
+        "price": 375.19,
+        "duration": "3.10",
+        "distance": 1551
+      }
+    ],
+    "MIA": [
+      {
+        "departureTime": "13-07-2024 16:13:04",
+        "arrivalTime": "13-07-2024 18:27:35",
+        "airlineCode": "B6",
+        "airlineName": "JetBlue Airways",
+        "flightNumber": "B65923",
+        "price": 518.17,
+        "duration": "2.24",
+        "distance": 1121
+      },
+      {
+        "departureTime": "13-07-2024 22:56:50",
+        "arrivalTime": "14-07-2024 01:11:21",
+        "airlineCode": "B6",
+        "airlineName": "JetBlue Airways",
+        "flightNumber": "B65474",
+        "price": 767.82,
+        "duration": "2.24",
+        "distance": 1121
+      },
+      {
+        "departureTime": "14-07-2024 22:48:19",
+        "arrivalTime": "15-07-2024 01:02:50",
+        "airlineCode": "B6",
+        "airlineName": "JetBlue Airways",
+        "flightNumber": "B65416",
+        "price": 757.98,
+        "duration": "2.24",
+        "distance": 1121
+      },
+      {
+        "departureTime": "15-07-2024 06:36:27",
+        "arrivalTime": "15-07-2024 08:50:58",
+        "airlineCode": "WN",
+        "airlineName": "Southwest Airlines",
+        "flightNumber": "WN4145",
+        "price": 468.73,
+        "duration": "2.24",
+        "distance": 1121
+      },
+      {
+        "departureTime": "15-07-2024 12:41:58",
+        "arrivalTime": "15-07-2024 14:56:29",
+        "airlineCode": "DL",
+        "airlineName": "Delta Air Lines",
+        "flightNumber": "DL2383",
+        "price": 743.29,
+        "duration": "2.24",
+        "distance": 1121
+      },
+      {
+        "departureTime": "15-07-2024 14:57:29",
+        "arrivalTime": "15-07-2024 17:12:00",
+        "airlineCode": "AA",
+        "airlineName": "American Airlines",
+        "flightNumber": "AA1132",
+        "price": 193.53,
+        "duration": "2.24",
+        "distance": 1121
+      },
+      {
+        "departureTime": "15-07-2024 16:58:58",
+        "arrivalTime": "15-07-2024 19:13:30",
+        "airlineCode": "WN",
+        "airlineName": "Southwest Airlines",
+        "flightNumber": "WN4568",
+        "price": 286.24,
+        "duration": "2.24",
+        "distance": 1121
+      },
+      {
+        "departureTime": "16-07-2024 08:20:42",
+        "arrivalTime": "16-07-2024 10:35:13",
+        "airlineCode": "AA",
+        "airlineName": "American Airlines",
+        "flightNumber": "AA1400",
+        "price": 258.14,
+        "duration": "2.24",
+        "distance": 1121
+      }
+    ]
+  },
+  "SEA": {
+    "DFW": [
+      {
+        "departureTime": "13-07-2024 12:34:21",
+        "arrivalTime": "13-07-2024 15:53:33",
+        "airlineCode": "UA",
+        "airlineName": "United Airlines",
+        "flightNumber": "UA3939",
+        "price": 519.4,
+        "duration": "3.32",
+        "distance": 1660
+      },
+      {
+        "departureTime": "13-07-2024 16:29:01",
+        "arrivalTime": "13-07-2024 19:48:13",
+        "airlineCode": "AA",
+        "airlineName": "American Airlines",
+        "flightNumber": "AA1324",
+        "price": 906.11,
+        "duration": "3.32",
+        "distance": 1660
+      },
+      {
+        "departureTime": "14-07-2024 18:39:37",
+        "arrivalTime": "14-07-2024 21:58:49",
+        "airlineCode": "AS",
+        "airlineName": "Alaska Airlines",
+        "flightNumber": "AS6264",
+        "price": 626.71,
+        "duration": "3.32",
+        "distance": 1660
+      },
+      {
+        "departureTime": "16-07-2024 11:28:04",
+        "arrivalTime": "16-07-2024 14:47:16",
+        "airlineCode": "F9",
+        "airlineName": "Frontier Airlines",
+        "flightNumber": "F98945",
+        "price": 503.33,
+        "duration": "3.32",
+        "distance": 1660
+      },
+      {
+        "departureTime": "16-07-2024 17:08:10",
+        "arrivalTime": "16-07-2024 20:27:22",
+        "airlineCode": "UA",
+        "airlineName": "United Airlines",
+        "flightNumber": "UA3563",
+        "price": 289.26,
+        "duration": "3.32",
+        "distance": 1660
+      }
+    ],
+    "SFO": [
+      {
+        "departureTime": "12-07-2024 14:25:33",
+        "arrivalTime": "12-07-2024 15:47:02",
+        "airlineCode": "UA",
+        "airlineName": "United Airlines",
+        "flightNumber": "UA3365",
+        "price": 290.2,
+        "duration": "1.36",
+        "distance": 679
+      },
+      {
+        "departureTime": "12-07-2024 16:08:29",
+        "arrivalTime": "12-07-2024 17:29:58",
+        "airlineCode": "AA",
+        "airlineName": "American Airlines",
+        "flightNumber": "AA1818",
+        "price": 921.63,
+        "duration": "1.36",
+        "distance": 679
+      },
+      {
+        "departureTime": "12-07-2024 20:06:35",
+        "arrivalTime": "12-07-2024 21:28:04",
+        "airlineCode": "F9",
+        "airlineName": "Frontier Airlines",
+        "flightNumber": "F98930",
+        "price": 720.21,
+        "duration": "1.36",
+        "distance": 679
+      },
+      {
+        "departureTime": "13-07-2024 07:24:21",
+        "arrivalTime": "13-07-2024 08:45:49",
+        "airlineCode": "B6",
+        "airlineName": "JetBlue Airways",
+        "flightNumber": "B65019",
+        "price": 198.33,
+        "duration": "1.36",
+        "distance": 679
+      },
+      {
+        "departureTime": "14-07-2024 03:17:10",
+        "arrivalTime": "14-07-2024 04:38:38",
+        "airlineCode": "UA",
+        "airlineName": "United Airlines",
+        "flightNumber": "UA3685",
+        "price": 457.55,
+        "duration": "1.36",
+        "distance": 679
+      },
+      {
+        "departureTime": "15-07-2024 02:07:19",
+        "arrivalTime": "15-07-2024 03:28:48",
+        "airlineCode": "AS",
+        "airlineName": "Alaska Airlines",
+        "flightNumber": "AS6921",
+        "price": 759.03,
+        "duration": "1.36",
+        "distance": 679
+      }
+    ],
+    "NYC": [
+      {
+        "departureTime": "11-07-2024 03:30:37",
+        "arrivalTime": "11-07-2024 08:20:18",
+        "airlineCode": "AS",
+        "airlineName": "Alaska Airlines",
+        "flightNumber": "AS6395",
+        "price": 124.46,
+        "duration": "4.83",
+        "distance": 2414
+      },
+      {
+        "departureTime": "12-07-2024 10:31:58",
+        "arrivalTime": "12-07-2024 15:21:39",
+        "airlineCode": "UA",
+        "airlineName": "United Airlines",
+        "flightNumber": "UA3441",
+        "price": 162.45,
+        "duration": "4.83",
+        "distance": 2414
+      },
+      {
+        "departureTime": "13-07-2024 04:56:21",
+        "arrivalTime": "13-07-2024 09:46:01",
+        "airlineCode": "B6",
+        "airlineName": "JetBlue Airways",
+        "flightNumber": "B65918",
+        "price": 627.97,
+        "duration": "4.83",
+        "distance": 2414
+      },
+      {
+        "departureTime": "15-07-2024 18:03:29",
+        "arrivalTime": "15-07-2024 22:53:09",
+        "airlineCode": "B6",
+        "airlineName": "JetBlue Airways",
+        "flightNumber": "B65776",
+        "price": 426.92,
+        "duration": "4.83",
+        "distance": 2414
+      },
+      {
+        "departureTime": "15-07-2024 22:33:57",
+        "arrivalTime": "16-07-2024 03:23:38",
+        "airlineCode": "DL",
+        "airlineName": "Delta Air Lines",
+        "flightNumber": "DL2903",
+        "price": 539.31,
+        "duration": "4.83",
+        "distance": 2414
+      },
+      {
+        "departureTime": "17-07-2024 03:07:36",
+        "arrivalTime": "17-07-2024 07:57:17",
+        "airlineCode": "B6",
+        "airlineName": "JetBlue Airways",
+        "flightNumber": "B65391",
+        "price": 594.06,
+        "duration": "4.83",
+        "distance": 2414
+      },
+      {
+        "departureTime": "17-07-2024 07:51:25",
+        "arrivalTime": "17-07-2024 12:41:06",
+        "airlineCode": "AA",
+        "airlineName": "American Airlines",
+        "flightNumber": "AA1679",
+        "price": 617.56,
+        "duration": "4.83",
+        "distance": 2414
+      }
+    ],
+    "LAX": [
+      {
+        "departureTime": "13-07-2024 10:34:05",
+        "arrivalTime": "13-07-2024 12:28:34",
+        "airlineCode": "WN",
+        "airlineName": "Southwest Airlines",
+        "flightNumber": "WN4664",
+        "price": 774.45,
+        "duration": "1.91",
+        "distance": 954
+      },
+      {
+        "departureTime": "15-07-2024 09:28:50",
+        "arrivalTime": "15-07-2024 11:23:19",
+        "airlineCode": "B6",
+        "airlineName": "JetBlue Airways",
+        "flightNumber": "B65613",
+        "price": 600.79,
+        "duration": "1.91",
+        "distance": 954
+      },
+      {
+        "departureTime": "16-07-2024 00:16:40",
+        "arrivalTime": "16-07-2024 02:11:08",
+        "airlineCode": "B6",
+        "airlineName": "JetBlue Airways",
+        "flightNumber": "B65111",
+        "price": 775.85,
+        "duration": "1.91",
+        "distance": 954
+      },
+      {
+        "departureTime": "16-07-2024 22:32:32",
+        "arrivalTime": "17-07-2024 00:27:00",
+        "airlineCode": "UA",
+        "airlineName": "United Airlines",
+        "flightNumber": "UA3752",
+        "price": 595.44,
+        "duration": "1.91",
+        "distance": 954
+      }
+    ]
+  },
+  "BOS": {
+    "NYC": [
+      {
+        "departureTime": "10-07-2024 17:48:12",
+        "arrivalTime": "10-07-2024 18:14:00",
+        "airlineCode": "AS",
+        "airlineName": "Alaska Airlines",
+        "flightNumber": "AS6317",
+        "price": 478.4,
+        "duration": "0.43",
+        "distance": 215
+      },
+      {
+        "departureTime": "10-07-2024 20:37:01",
+        "arrivalTime": "10-07-2024 21:02:49",
+        "airlineCode": "UA",
+        "airlineName": "United Airlines",
+        "flightNumber": "UA3267",
+        "price": 627.03,
+        "duration": "0.43",
+        "distance": 215
+      },
+      {
+        "departureTime": "12-07-2024 03:10:37",
+        "arrivalTime": "12-07-2024 03:36:25",
+        "airlineCode": "AS",
+        "airlineName": "Alaska Airlines",
+        "flightNumber": "AS6255",
+        "price": 213.54,
+        "duration": "0.43",
+        "distance": 215
+      },
+      {
+        "departureTime": "14-07-2024 10:27:23",
+        "arrivalTime": "14-07-2024 10:53:11",
+        "airlineCode": "F9",
+        "airlineName": "Frontier Airlines",
+        "flightNumber": "F98025",
+        "price": 181.4,
+        "duration": "0.43",
+        "distance": 215
+      },
+      {
+        "departureTime": "15-07-2024 08:04:32",
+        "arrivalTime": "15-07-2024 08:30:20",
+        "airlineCode": "F9",
+        "airlineName": "Frontier Airlines",
+        "flightNumber": "F98286",
+        "price": 457.5,
+        "duration": "0.43",
+        "distance": 215
+      },
+      {
+        "departureTime": "15-07-2024 13:02:00",
+        "arrivalTime": "15-07-2024 13:27:48",
+        "airlineCode": "WN",
+        "airlineName": "Southwest Airlines",
+        "flightNumber": "WN4008",
+        "price": 175.18,
+        "duration": "0.43",
+        "distance": 215
+      },
+      {
+        "departureTime": "16-07-2024 13:02:23",
+        "arrivalTime": "16-07-2024 13:28:11",
+        "airlineCode": "WN",
+        "airlineName": "Southwest Airlines",
+        "flightNumber": "WN4630",
+        "price": 393.12,
+        "duration": "0.43",
+        "distance": 215
+      },
+      {
+        "departureTime": "17-07-2024 04:53:59",
+        "arrivalTime": "17-07-2024 05:19:47",
+        "airlineCode": "WN",
+        "airlineName": "Southwest Airlines",
+        "flightNumber": "WN4033",
+        "price": 685.97,
+        "duration": "0.43",
+        "distance": 215
+      }
+    ],
+    "LAX": [
+      {
+        "departureTime": "10-07-2024 21:46:38",
+        "arrivalTime": "11-07-2024 02:59:57",
+        "airlineCode": "B6",
+        "airlineName": "JetBlue Airways",
+        "flightNumber": "B65011",
+        "price": 725.76,
+        "duration": "5.22",
+        "distance": 2611
+      },
+      {
+        "departureTime": "11-07-2024 00:22:00",
+        "arrivalTime": "11-07-2024 05:35:19",
+        "airlineCode": "B6",
+        "airlineName": "JetBlue Airways",
+        "flightNumber": "B65829",
+        "price": 172.77,
+        "duration": "5.22",
+        "distance": 2611
+      },
+      {
+        "departureTime": "13-07-2024 10:36:19",
+        "arrivalTime": "13-07-2024 15:49:38",
+        "airlineCode": "WN",
+        "airlineName": "Southwest Airlines",
+        "flightNumber": "WN4401",
+        "price": 458.48,
+        "duration": "5.22",
+        "distance": 2611
+      },
+      {
+        "departureTime": "13-07-2024 16:31:53",
+        "arrivalTime": "13-07-2024 21:45:12",
+        "airlineCode": "DL",
+        "airlineName": "Delta Air Lines",
+        "flightNumber": "DL2510",
+        "price": 312.19,
+        "duration": "5.22",
+        "distance": 2611
+      },
+      {
+        "departureTime": "16-07-2024 21:04:11",
+        "arrivalTime": "17-07-2024 02:17:30",
+        "airlineCode": "AS",
+        "airlineName": "Alaska Airlines",
+        "flightNumber": "AS6419",
+        "price": 701.34,
+        "duration": "5.22",
+        "distance": 2611
+      },
+      {
+        "departureTime": "16-07-2024 23:53:46",
+        "arrivalTime": "17-07-2024 05:07:05",
+        "airlineCode": "AS",
+        "airlineName": "Alaska Airlines",
+        "flightNumber": "AS6267",
+        "price": 893.38,
+        "duration": "5.22",
+        "distance": 2611
+      }
+    ],
+    "MIA": [
+      {
+        "departureTime": "10-07-2024 22:52:03",
+        "arrivalTime": "11-07-2024 01:23:01",
+        "airlineCode": "B6",
+        "airlineName": "JetBlue Airways",
+        "flightNumber": "B65228",
+        "price": 510.2,
+        "duration": "2.52",
+        "distance": 1258
+      },
+      {
+        "departureTime": "13-07-2024 08:44:33",
+        "arrivalTime": "13-07-2024 11:15:30",
+        "airlineCode": "NK",
+        "airlineName": "Spirit Airlines",
+        "flightNumber": "NK7583",
+        "price": 464.28,
+        "duration": "2.52",
+        "distance": 1258
+      },
+      {
+        "departureTime": "15-07-2024 22:03:21",
+        "arrivalTime": "16-07-2024 00:34:18",
+        "airlineCode": "AA",
+        "airlineName": "American Airlines",
+        "flightNumber": "AA1882",
+        "price": 711.76,
+        "duration": "2.52",
+        "distance": 1258
+      },
+      {
+        "departureTime": "17-07-2024 08:26:35",
+        "arrivalTime": "17-07-2024 10:57:33",
+        "airlineCode": "F9",
+        "airlineName": "Frontier Airlines",
+        "flightNumber": "F98849",
+        "price": 635.4,
+        "duration": "2.52",
+        "distance": 1258
+      }
+    ],
+    "DFW": [
+      {
+        "departureTime": "11-07-2024 21:11:55",
+        "arrivalTime": "12-07-2024 00:18:02",
+        "airlineCode": "AA",
+        "airlineName": "American Airlines",
+        "flightNumber": "AA1306",
+        "price": 137.68,
+        "duration": "3.10",
+        "distance": 1551
+      },
+      {
+        "departureTime": "12-07-2024 23:52:03",
+        "arrivalTime": "13-07-2024 02:58:10",
+        "airlineCode": "DL",
+        "airlineName": "Delta Air Lines",
+        "flightNumber": "DL2175",
+        "price": 588.44,
+        "duration": "3.10",
+        "distance": 1551
+      },
+      {
+        "departureTime": "13-07-2024 19:32:34",
+        "arrivalTime": "13-07-2024 22:38:41",
+        "airlineCode": "F9",
+        "airlineName": "Frontier Airlines",
+        "flightNumber": "F98076",
+        "price": 667.66,
+        "duration": "3.10",
+        "distance": 1551
+      },
+      {
+        "departureTime": "14-07-2024 09:55:51",
+        "arrivalTime": "14-07-2024 13:01:58",
+        "airlineCode": "UA",
+        "airlineName": "United Airlines",
+        "flightNumber": "UA3169",
+        "price": 729.43,
+        "duration": "3.10",
+        "distance": 1551
+      },
+      {
+        "departureTime": "14-07-2024 14:46:32",
+        "arrivalTime": "14-07-2024 17:52:39",
+        "airlineCode": "DL",
+        "airlineName": "Delta Air Lines",
+        "flightNumber": "DL2087",
+        "price": 327.7,
+        "duration": "3.10",
+        "distance": 1551
+      }
+    ]
+  }
+}
