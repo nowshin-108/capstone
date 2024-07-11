@@ -4,7 +4,6 @@ import { Navigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { API_BASE_URL } from '../config';
 
-
 const ProtectedRoute = ({ children }) => {
 const { user, updateUser } = useContext(UserContext);
 const [ isLoading, setIsLoading ] = useState(true);

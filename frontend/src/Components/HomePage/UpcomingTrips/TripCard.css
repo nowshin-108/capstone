@@ -52,11 +52,10 @@
     flex-basis: 30%;
 }
 
-/* .airline-name {
-    font-size: 1.1em;
-    font-weight: bold;
-    color: #333;
-} */
+.flight-status {
+    margin: 10px;
+    color: rgb(52, 198, 49);
+}
 
 .flight-number {
     font-size: 1.5em;

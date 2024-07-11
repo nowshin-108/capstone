@@ -11,7 +11,6 @@ import PastTrips from './Components/HomePage/PastTrips/PastTrips';
 import TripDetails from './Components/HomePage/UpcomingTrips/TripDetails.jsx';
 import ProtectedRoute from './Components/ProtectedRoute';
 
-
 function App() {
   // null: not checked, false: checked but not authenticated, object: authenticated user
   const [user, setUser] = useState(null);
