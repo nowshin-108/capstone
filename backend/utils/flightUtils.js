@@ -1,3 +1,10 @@
+import { API_KEY, API_SECRET } from "../config.js";
+import Amadeus from "amadeus";
+const amadeus = new Amadeus({
+    clientId: API_KEY,
+    clientSecret: API_SECRET,
+});
+
 export function calculateFlightStatus(flightData) {
     const now = new Date();
     const flightPoint = flightData.data[0].flightPoints;
@@ -43,4 +50,20 @@ function formatDuration(minutes) {
     const mins = minutes % 60;
     return hours > 0 ? `${hours}h ${mins}m` : `${mins}m`;
 }
+
+export async function getFlightStatus(carrierCode, flightNumber, scheduledDepartureDate) {
+    try {
+    const response = await amadeus.schedule.flights.get({
+        carrierCode,
+        flightNumber,
+        scheduledDepartureDate
+    });
+    const flightData = response.result;
+    return { status: calculateFlightStatus(flightData), error: null };
+    } catch (error) {
+    console.error('Error fetching flight status:', error);
+    return { status: null, error: 'Unable to fetch current status' };
+    }
+}
+
 
