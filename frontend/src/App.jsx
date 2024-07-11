@@ -2,7 +2,6 @@ import './App.css';
 import { useState } from 'react';
 import { UserContext, initialFlightData } from './UserContext';
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
-import { LoadingProvider } from './Loading/LoadingContext.jsx';
 import HomePage from './Components/HomePage/HomePage';
 import LoginForm from './Components/LoginForm/LoginForm';
 import SignupForm from './Components/SignupForm/SignupForm';
@@ -17,6 +16,7 @@ function App() {
   // null: not checked, false: checked but not authenticated, object: authenticated user
   const [user, setUser] = useState(null);
   const [flightData, setFlightData] = useState(initialFlightData);
+  
 
 
   const updateUser = (newUser) => {
@@ -32,7 +32,6 @@ function App() {
   return (
     <div className="app">
       <UserContext.Provider value={{ user, updateUser, flightData, updateFlightData }}>
-        <LoadingProvider>
           <BrowserRouter>
             <Routes>
               <Route path="/login" element={<LoginForm />} />
@@ -62,7 +61,6 @@ function App() {
               } />
             </Routes>
           </BrowserRouter>
-        </LoadingProvider>
       </UserContext.Provider>
     </div>
   );
