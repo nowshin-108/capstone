@@ -1,14 +1,12 @@
 import { useState, useEffect, useContext  } from 'react';
 import { UserContext } from '../UserContext/';
 import { Navigate } from 'react-router-dom';
-import { useLoading } from '../Loading/LoadingContext';
 import PropTypes from 'prop-types';
 import { API_BASE_URL } from '../config';
 
-
 const ProtectedRoute = ({ children }) => {
 const { user, updateUser } = useContext(UserContext);
-const { isLoading, setIsLoading } = useLoading();
+const [ isLoading, setIsLoading ] = useState(true);
 const [error, setError] = useState(null);
 
 
@@ -29,10 +27,9 @@ useEffect(() => {
             } catch (error) {
                 setError('Authentication check failed. Please try again.', error);
                 updateUser(null);
-            } finally {
-                setIsLoading(false);
             }
         }
+        setIsLoading(false);
     };
     checkAuth();
 }, [user, updateUser, setIsLoading]);

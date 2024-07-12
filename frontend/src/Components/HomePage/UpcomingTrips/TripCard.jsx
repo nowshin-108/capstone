@@ -73,6 +73,7 @@ return (
     <div className="trip-card" onClick={handleClick}>
     <div className="airline-info">
         <div className="flight-number">{trip.carrierCode} {trip.flightNumber}</div>
+        <div className="flight-status">{trip.status}</div>
     </div>
     <button 
         className="delete-btn" 
@@ -128,8 +129,9 @@ trip: PropTypes.shape({
     segments: PropTypes.arrayOf(PropTypes.shape({
     boardPointCode: PropTypes.string,
     offPointCode: PropTypes.string,
-    scheduledSegmentDuration: PropTypes.string
-    }))
+    scheduledSegmentDuration: PropTypes.string,
+    })),
+    status: PropTypes.string.isRequired,
 }).isRequired,
 onDelete: PropTypes.func.isRequired,
 };

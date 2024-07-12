@@ -34,7 +34,7 @@ const FlightForm= () => {
         updateFlightData({ flightStatus: null, flightAdded: false });  
     
         try {
-            const response = await axios.get(`${API_BASE_URL}/flight-status`, {
+            const response = await axios.get(`${API_BASE_URL}/add-trip/flight-status`, {
             params: {
                 carrierCode: flightData.carrierCode,
                 flightNumber: flightData.flightNumber,

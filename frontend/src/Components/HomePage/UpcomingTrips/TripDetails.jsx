@@ -11,6 +11,7 @@ import './TripDetails.css';
 const TripDetails = () => {
 const [trip, setTrip] = useState(null);
 const [flightStatus, setFlightStatus] = useState(null);
+const [flightData, setFlightData] = useState(null);
 const [airlineName, setAirlineName] = useState('');
 const [userLocation, setUserLocation] = useState(null);
 const [isLoading, setIsLoading] = useState(true);
@@ -61,7 +62,9 @@ useEffect(() => {
         params: { carrierCode, flightNumber, scheduledDepartureDate },
         withCredentials: true
         });
-        setFlightStatus(statusResponse.data.data[0]);
+        
+        setFlightData(statusResponse.data.data.data[0]);
+        setFlightStatus(statusResponse.data.status.status)
 
 
         // Fetch airline info
@@ -97,13 +100,13 @@ if (error) {
 }
 
 
-if (!trip || !flightStatus) {
+if (!trip || !flightData) {
     return <div className="error">Unable to load trip details. Please try again.</div>;
 }
 
 
-const departurePoint = flightStatus.flightPoints.find(point => point.departure);
-const arrivalPoint = flightStatus.flightPoints.find(point => point.arrival);
+const departurePoint = flightData.flightPoints.find(point => point.departure);
+const arrivalPoint = flightData.flightPoints.find(point => point.arrival);
 
 
 // Format date to 'Day, Month Date, Year' format
@@ -131,79 +134,53 @@ const calculateDuration = () => {
 };
 
 
-// Determine current flight status
-const getFlightStatus = () => {
-    const now = new Date();
-    const departureTime = new Date(departurePoint.departure.timings[0].value);
-    const arrivalTime = new Date(arrivalPoint.arrival.timings[0].value);
-    const scheduledArrivalTime = new Date(arrivalPoint.arrival.timings.find(t => t.qualifier === 'STA').value);
-
-
-    if (now < departureTime) {
-    const actualDepartureTime = departurePoint.departure.timings.find(t => t.qualifier === 'ETD')?.value;
-    if (actualDepartureTime && new Date(actualDepartureTime) > departureTime) {
-        return 'Delayed';
-    }
-    return 'Scheduled';
-    } else if (now < arrivalTime) {
-    return 'In Air';
-    } else {
-    if (arrivalTime < scheduledArrivalTime) {
-        return 'Arrived Early';
-    } else if (arrivalTime > scheduledArrivalTime) {
-        return 'Arrived Late';
-    } else {
-        return 'Arrived On Time';
-    }
-    }
-};
-
-
 // Calculate time remaining until departure or arrival
 const calculateTimeRemaining = () => {
+    if (!flightStatus || !flightStatus.status) {
+        return "Unable to retrieve flight status";
+    } 
     const now = new Date();
     const departureTime = new Date(departurePoint.departure.timings[0].value);
     const arrivalTime = new Date(arrivalPoint.arrival.timings[0].value);
-    const status = getFlightStatus();
+    const status = flightStatus.status;
 
-
-    if (status === 'Scheduled' || status === 'Delayed') {
-    const timeUntilDeparture = departureTime - now;
-    const hoursUntilDeparture = Math.floor(timeUntilDeparture / (1000 * 60 * 60));
-    const minutesUntilDeparture = Math.floor((timeUntilDeparture % (1000 * 60 * 60)) / (1000 * 60));
+    const formatTimeRemaining = (timeDiff) => {
+        const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
     
-    if (status === 'Delayed') {
-        const actualDepartureTime = new Date(departurePoint.departure.timings.find(t => t.qualifier === 'ETD').value);
-        const delayTime = actualDepartureTime - departureTime;
-        const delayHours = Math.floor(delayTime / (1000 * 60 * 60));
-        const delayMinutes = Math.floor((delayTime % (1000 * 60 * 60)) / (1000 * 60));
-        return `Delayed by ${delayHours}h ${delayMinutes}m. Departing in ${hoursUntilDeparture}h ${minutesUntilDeparture}m`;
-    }
     
-    return `Departing in ${hoursUntilDeparture}h ${minutesUntilDeparture}m`;
-    } else if (status === 'In Air') {
-    const timeUntilArrival = arrivalTime - now;
-    const hoursUntilArrival = Math.floor(timeUntilArrival / (1000 * 60 * 60));
-    const minutesUntilArrival = Math.floor((timeUntilArrival % (1000 * 60 * 60)) / (1000 * 60));
-    return `Arriving in ${hoursUntilArrival}h ${minutesUntilArrival}m`;
+        if (days > 0) {
+        return `${days}d ${hours}h ${minutes}m`;
+        } else {
+        return `${hours}h ${minutes}m`;
+        }
+    };
+    
+    if (status.startsWith('Delayed')) {
+        return status;
+    } else if (now < departureTime) {
+        const timeUntilDeparture = departureTime - now;
+        return `Scheduled: Departing in ${formatTimeRemaining(timeUntilDeparture)}`;
+    } else if (now < arrivalTime) {
+        const timeUntilArrival = arrivalTime - now;
+        return `En Route: Arriving in ${formatTimeRemaining(timeUntilArrival)}`;
     } else {
-    return status;
+        return status;
     }
+    
 };
 
 
 // Get color for flight status
 const getStatusColor = () => {
-    const status = getFlightStatus();
-    switch (status) {
-    case 'Scheduled': return 'green';
-    case 'Delayed': return 'red';
-    case 'In Air': return 'blue';
-    case 'Arrived Early': return 'green';
-    case 'Arrived On Time': return 'green';
-    case 'Arrived Late': return 'yellow';
-    default: return 'grey';
-    }
+    if (!flightStatus || !flightStatus.status) return 'grey';
+    const status = flightStatus.status;
+    if (status.startsWith('Delayed')) return 'red';
+    if (status === 'Scheduled') return 'green';
+    if (status === 'In Air') return 'blue';
+    if (status.startsWith('Arrived')) return 'green';
+    return 'grey';
 };
 
 
@@ -226,10 +203,14 @@ return (
     <div className="trip-details">
     <header>
         <div className='header-info'>
-        <h1>{flightStatus.flightDesignator.carrierCode} {flightStatus.flightDesignator.flightNumber}</h1>
+        <h1>{flightData.flightDesignator.carrierCode} {flightData.flightDesignator.flightNumber}</h1>
         <div className={`flight-status ${getStatusColor()}`}>
             <span className="status-dot"></span>
-            <span className="status-text">{calculateTimeRemaining()}</span>
+            <span className="status-text">          
+                {flightStatus && flightStatus.status 
+                ? calculateTimeRemaining()
+                : "Unable to retrieve flight status"}
+            </span>
         </div>
         </div>
         <p>{formatDate(departurePoint.departure.timings[0].value)}</p>
@@ -320,5 +301,3 @@ return (
 
 
 export default TripDetails;
-
-

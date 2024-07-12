@@ -1,14 +1,14 @@
 import { useNavigate } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { UserContext } from "../../UserContext.js";
 import { API_BASE_URL } from '../../config.js';
-import { useLoading } from "../../Loading/LoadingContext.jsx";
+
 
 
 function Sidebar() {
     const navigate = useNavigate();
     const { updateUser } = useContext(UserContext);
-    const { setIsLoading } = useLoading();
+    const [ isLoading, setIsLoading ] = useState(false);
 
     
     const handleNavigation = async (path, action = null) => {
@@ -31,6 +31,7 @@ function Sidebar() {
         return (
         <div className="sidebar">
             <div className="sidebar-header">
+            {isLoading && <div className="loader"></div>}
             <img src="/flight-svgrepo-com.svg" alt="flight icon" width="55" height="55"/>
             <h2>Halim</h2>
             </div>
