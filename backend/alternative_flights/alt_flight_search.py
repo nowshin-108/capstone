@@ -48,25 +48,36 @@ class FlightOption:
 
     def add_flight(self, flight: Flight):
         self.flights.append(flight)
-        self.total_price += flight.price
-        self.total_duration += flight.duration
-        self.total_distance += flight.distance
+
+    def calculate_totals(self):
+        self.total_price = sum(flight.price for flight in self.flights)
+        self.total_distance = sum(flight.distance for flight in self.flights)
+        self.calculate_idle_time()
+        self.total_duration = sum(flight.duration for flight in self.flights) + self.idle_time
 
     def calculate_idle_time(self):
-        self.idle_time = max(0, sum((self.flights[i+1].departure_time - self.flights[i].arrival_time).total_seconds() / 3600
-                                for i in range(len(self.flights) - 1)))
+        self.idle_time = sum((self.flights[i+1].departure_time - self.flights[i].arrival_time).total_seconds() / 3600
+                                for i in range(len(self.flights) - 1))
 
     def to_dict(self):
+        flight_time = sum(flight.duration for flight in self.flights)
+        original_price = sum(flight.price for flight in self.flights)
+        discount_percentage = (self.discount / original_price) * 100 if original_price > 0 else 0
+        
         return {
             'option_id': self.option_id,
             'flights': [flight.to_dict() for flight in self.flights],
-            'total_price': self.total_price,
-            'total_duration': self.total_duration,
-            'total_distance': self.total_distance,
-            'idle_time': self.idle_time,
-            'discount': self.discount,
-            'score': self.score,
-            'path': ' -> '.join(f"{flight.departure_airport}" for flight in self.flights) + f" -> {self.flights[-1].arrival_airport}"
+            'summary': {
+                'original_price': round(original_price, 2),
+                'discount_percentage': round(discount_percentage, 2),
+                'discounted_price': round(self.total_price, 2),
+                'flight_time': round(flight_time, 2),
+                'connection_time': round(self.idle_time, 2),
+                'total_duration': round(self.total_duration, 2),
+                'total_distance': self.total_distance,
+                'score': round(self.score, 4),
+                'path': ' -> '.join(f"{flight.departure_airport}" for flight in self.flights) + f" -> {self.flights[-1].arrival_airport}"
+            }
         }
 
 def load_flight_data(file_path: str) -> Dict[str, List[Flight]]:
@@ -99,14 +110,12 @@ def find_flight_options(departure_airport: str, arrival_airport: str, departure_
             return
 
         if current_airport == arrival_airport:
-            current_option.calculate_idle_time()
+            current_option.calculate_totals()  # Calculate totals when a complete route is found
             if current_option.total_duration <= 24:  # Ensure total trip time is <= 24 hours
                 options.append(current_option)
             return
 
         for flight in filtered_data.get(current_airport, []):
-            # If it's a direct flight, allow it to depart at the current time or later
-            # If it's a connecting flight, make it depart at least 1 hour after the first flight lands
             if len(current_option.flights) == 0 and flight.departure_time < current_time:
                 continue
             elif len(current_option.flights) > 0 and flight.departure_time < current_time + timedelta(hours=1):
@@ -123,9 +132,6 @@ def find_flight_options(departure_airport: str, arrival_airport: str, departure_
             new_option.flights = current_option.flights.copy()
             new_option.add_flight(flight)
 
-            if new_option.total_duration > 24:  # Prune if exceeding 24 hours
-                continue
-
             new_visited = visited.copy()
             new_visited.add(flight.arrival_airport)
 
@@ -140,7 +146,7 @@ def calculate_baseline_duration(options: List[FlightOption]) -> float:
     direct_flights = [opt for opt in options if len(opt.flights) == 1]
     if direct_flights:
         return min(opt.total_duration for opt in direct_flights)
-    
+   
     min_connections = min(len(opt.flights) for opt in options)
     least_connection_flights = [opt for opt in options if len(opt.flights) == min_connections]
     return min(opt.total_duration for opt in least_connection_flights)
@@ -158,84 +164,61 @@ def apply_discounts(options: List[FlightOption], baseline_duration: float):
             discount += option.total_price * 0.5
             if idle_times[i] == max_idle_time and max_idle_time > 0:
                 discount += option.total_price * 0.2
-        
+       
         option.discount = min(discount, option.total_price * 0.7)  # Cap discount at 70%
         option.total_price -= option.discount
 
-def calculate_ranking_scores(options: List[FlightOption], baseline_duration: float, preferred_airline_code: str):
-    n_options = len(options)
-    
+def calculate_ranking_scores(options: List[FlightOption], preferred_airline_code: str) -> List[FlightOption]:
     prices = np.array([opt.total_price for opt in options])
     durations = np.array([opt.total_duration for opt in options])
     connections = np.array([len(opt.flights) - 1 for opt in options])
-    airline_matches = np.array([sum(1 for flight in opt.flights if flight.airline_code == preferred_airline_code) / len(opt.flights) for opt in options])
+    airline_matches = np.array([1 if any(flight.airline_code == preferred_airline_code for flight in opt.flights) else 0 for opt in options])
 
-    price_scores = 1 - stats.zscore(prices)
-    speed_scores = 1 - stats.zscore(durations)
-    directness_scores = 1 - stats.zscore(connections)
-    airline_scores = stats.zscore(airline_matches)
+    price_scores = 1 - (prices - np.min(prices)) / (np.max(prices) - np.min(prices))
+    speed_scores = 1 - (durations - np.min(durations)) / (np.max(durations) - np.min(durations))
+    directness_scores = np.where(connections == 0, 2, 1 - connections / np.max(connections))
 
-    def min_max_scale(x):
-        return (x - np.min(x)) / (np.max(x) - np.min(x))
+    overall_scores = (
+        0.35 * price_scores +
+        0.25 * speed_scores +
+        0.30 * directness_scores +
+        0.10 * airline_matches
+    )
 
-    price_scores = min_max_scale(price_scores)
-    speed_scores = min_max_scale(speed_scores)
-    directness_scores = min_max_scale(directness_scores)
-    airline_scores = min_max_scale(airline_scores)
+    scored_options = list(zip(overall_scores, options))
+    scored_options.sort(key=lambda x: (-x[0], x[1].total_price))
+    sorted_options = [option for _, option in scored_options]
 
-    weights = np.array([0.35, 0.30, 0.20, 0.15])  # price, speed, directness, airline
-    scores = np.column_stack((price_scores, speed_scores, directness_scores, airline_scores))
-    total_scores = np.dot(scores, weights)
+    for score, option in zip(overall_scores, sorted_options):
+        option.score = score
 
-    for i, option in enumerate(options):
-        option.score = total_scores[i]
-
-def are_options_similar(option1: FlightOption, option2: FlightOption, threshold: float) -> bool:
-    same_flights = set(flight.flight_id for flight in option1.flights) == set(flight.flight_id for flight in option2.flights)
-    similar_price = abs(option1.total_price - option2.total_price) / max(option1.total_price, option2.total_price) < (1 - threshold)
-    similar_duration = abs(option1.total_duration - option2.total_duration) / max(option1.total_duration, option2.total_duration) < (1 - threshold)
-    return same_flights and similar_price and similar_duration
-
-def remove_similar_options(options: List[FlightOption], similarity_threshold: float = 0.9):
-    unique_options = []
-    for option in options:
-        if not any(are_options_similar(option, unique_opt, similarity_threshold) for unique_opt in unique_options):
-            unique_options.append(option)
-    return unique_options
-
-def sort_options(options: List[FlightOption], sort_by: str = 'score'):
-    if sort_by == 'price':
-        return sorted(options, key=lambda x: x.total_price)
-    elif sort_by == 'duration':
-        return sorted(options, key=lambda x: x.total_duration)
-    else:  # Default to score
-        return sorted(options, key=lambda x: x.score, reverse=True)
+    return sorted_options
 
 def main():
     current_dir = os.path.dirname(os.path.abspath(__file__))
     file_path = os.path.join(current_dir, 'flight_data.json')
-    
+   
     flight_data = load_flight_data(file_path)
 
-    departure_airport = "SFO"
-    arrival_airport = "BOS"
+    departure_airport = "NYC"
+    arrival_airport = "MIA"
     departure_time = datetime(2024, 7, 10, 12, 0, 0)
     preferred_airline_code = "AA"
 
     options = find_flight_options(departure_airport, arrival_airport, departure_time, flight_data)
-    
     if not options:
         print("No flight options found.")
         return
 
     baseline_duration = calculate_baseline_duration(options)
     apply_discounts(options, baseline_duration)
-    calculate_ranking_scores(options, baseline_duration, preferred_airline_code)
+   
+    sorted_options = calculate_ranking_scores(options, preferred_airline_code)
 
-    options = remove_similar_options(options)
-    sorted_options = sorted(options, key=lambda x: x.score, reverse=True)
-
-    results = [{"rank": i+1, **option.to_dict()} for i, option in enumerate(sorted_options)]
+    results = [{
+        "rank": i+1,
+        **option.to_dict()
+    } for i, option in enumerate(sorted_options)]
 
     output_file_path = os.path.join(current_dir, 'results.json')
     with open(output_file_path, 'w') as f:
@@ -245,4 +228,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
