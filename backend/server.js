@@ -7,6 +7,7 @@ const { PrismaClient } = pkg;
 import userRoutes from './routes/users.js';
 import flightStatusRoutes from './routes/flightStatus.js';
 import { CORS_ORIGIN } from "./config.js";
+import flightRecomRoutes from './routes/flightRecom.js'
 
 const prisma = new PrismaClient();
 const app = express();
@@ -34,6 +35,7 @@ app.use(
 
 app.use(userRoutes);
 app.use(flightStatusRoutes);
+app.use(flightRecomRoutes);
 
 const port = 3000;
 app.listen(port, () => {

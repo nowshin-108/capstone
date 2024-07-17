@@ -8,7 +8,7 @@ def generate_flight_data(start_date_str):
     start_date = datetime.strptime(start_date_str, "%d-%m-%Y %H:%M:%S")
 
     # List of airports
-    airports = ["SFO", "LAX", "NYC", "CHI", "MIA", "DFW", "SEA", "BOS"]
+    airports = ["SFO", "LAX", "JFK", "ORD", "MIA", "DFW", "SEA", "BOS"]
 
     # List of airlines with code, name, and flight number range
     airlines = [
@@ -24,10 +24,10 @@ def generate_flight_data(start_date_str):
 
     # Approximate distances between airports (in miles)
     distances = {
-        ("SFO", "LAX"): 337, ("SFO", "NYC"): 2572, ("SFO", "CHI"): 1847, ("SFO", "MIA"): 2582, ("SFO", "DFW"): 1464, ("SFO", "SEA"): 679, ("SFO", "BOS"): 2704,
-        ("LAX", "NYC"): 2475, ("LAX", "CHI"): 1745, ("LAX", "MIA"): 2342, ("LAX", "DFW"): 1235, ("LAX", "SEA"): 954, ("LAX", "BOS"): 2611,
-        ("NYC", "CHI"): 740, ("NYC", "MIA"): 1090, ("NYC", "DFW"): 1372, ("NYC", "SEA"): 2414, ("NYC", "BOS"): 215,
-        ("CHI", "MIA"): 1197, ("CHI", "DFW"): 802, ("CHI", "SEA"): 1721, ("CHI", "BOS"): 867,
+        ("SFO", "LAX"): 337, ("SFO", "JFK"): 2572, ("SFO", "ORD"): 1847, ("SFO", "MIA"): 2582, ("SFO", "DFW"): 1464, ("SFO", "SEA"): 679, ("SFO", "BOS"): 2704,
+        ("LAX", "JFK"): 2475, ("LAX", "ORD"): 1745, ("LAX", "MIA"): 2342, ("LAX", "DFW"): 1235, ("LAX", "SEA"): 954, ("LAX", "BOS"): 2611,
+        ("JFK", "ORD"): 740, ("JFK", "MIA"): 1090, ("JFK", "DFW"): 1372, ("JFK", "SEA"): 2414, ("JFK", "BOS"): 215,
+        ("ORD", "MIA"): 1197, ("ORD", "DFW"): 802, ("ORD", "SEA"): 1721, ("ORD", "BOS"): 867,
         ("MIA", "DFW"): 1121, ("MIA", "SEA"): 2724, ("MIA", "BOS"): 1258,
         ("DFW", "SEA"): 1660, ("DFW", "BOS"): 1551,
         ("SEA", "BOS"): 2489
@@ -84,7 +84,7 @@ def generate_flight_data(start_date_str):
     return flight_data
 
 if __name__ == "__main__":
-    start_date_str = "10-07-2024 12:00:00"
+    start_date_str = "20-07-2024 12:00:00"
     start_date = datetime.strptime(start_date_str, "%d-%m-%Y %H:%M:%S")
     end_date = start_date + timedelta(hours=24)
     
