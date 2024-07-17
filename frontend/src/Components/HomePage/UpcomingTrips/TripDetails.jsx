@@ -6,6 +6,8 @@ import { API_BASE_URL } from '../../../config';
 import { getCityName } from '../../../assets/data/airportCityMap';
 import TrafficInfo from './TrafficInfo';
 import './TripDetails.css';
+import AltFlightModal from './AltFlightModal';
+import { format } from 'date-fns';
 
 
 const TripDetails = () => {
@@ -18,6 +20,10 @@ const [isLoading, setIsLoading] = useState(true);
 const [isLocationLoading, setIsLocationLoading] = useState(true);
 const [error, setError] = useState(null);
 const { tripId } = useParams();
+const [isModalOpen, setIsModalOpen] = useState(false);
+const [alternativeFlights, setAlternativeFlights] = useState(null);
+const [isAlternativeFlightsLoading, setIsAlternativeFlightsLoading] = useState(false);
+const [modalError, setModalError] = useState(null);
 
 
 // Get user's current location
@@ -198,6 +204,30 @@ const calculateFlightProgress = () => {
     return (elapsedTime / totalFlightTime) * 100;
 };
 
+// fetching alternative flight recommendations
+const fetchAlternativeFlights = async () => {
+    setIsAlternativeFlightsLoading(true);
+    try {
+    const departureTime = new Date(departurePoint.departure.timings[0].value);
+    const formattedDepartureTime = format(departureTime, 'yyyy-MM-dd HH:mm:ss');   
+    const response = await axios.get(`${API_BASE_URL}/alternative-flights`, {
+        params: {
+        departure_airport: trip.departureAirportCode,
+        arrival_airport: trip.arrivalAirportCode,
+        departure_time: formattedDepartureTime,
+        preferred_airline_code: trip.carrierCode
+        },
+        withCredentials: true
+    });
+    setAlternativeFlights(response.data);
+    setIsModalOpen(true);
+    } catch (error) {
+        console.error("Error fetching alternative flights:", error);
+        setModalError("No alternative flights found. Please try later.");
+    } finally {
+        setIsAlternativeFlightsLoading(false);
+    }
+};
 
 return (
     <div className="trip-details">
@@ -250,6 +280,18 @@ return (
         )}
         </div>
     </div>
+    <p className="alt-flight">
+        Running late or missed flight? See{' '}
+        <button onClick={fetchAlternativeFlights} disabled={isAlternativeFlightsLoading}>
+            {isAlternativeFlightsLoading ? 'Loading...' : 'Alternative Flights'}
+        </button>
+    </p>
+    {modalError && <p className="error">{modalError}</p>}
+    <AltFlightModal
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)}
+        flights={alternativeFlights}
+    />
     <div className="map">
         {!isLocationLoading && userLocation ? (
         <TrafficInfo
