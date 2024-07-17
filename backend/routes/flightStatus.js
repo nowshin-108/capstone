@@ -24,7 +24,7 @@ router.get('/flight-status', authenticateUser, async (req, res) => {
             carrierCode, flightNumber, scheduledDepartureDate
         });
         const data = JSON.parse(response.body);
-        const status = await getFlightStatus(carrierCode, flightNumber, scheduledDepartureDate); 
+        const status = await getFlightStatus(carrierCode, flightNumber, scheduledDepartureDate);
         res.json({data, status});
     } catch (err) {
         res.status(500).json({ error: 'An error occurred while fetching flight status', details: err.message });
@@ -308,5 +308,117 @@ router.post('/batch-flight-status', authenticateUser, async (req, res) => {
     res.status(500).json({ error: 'Failed to fetch batch flight statuses' });
     }
 });
+
+// post trip history endpoint
+router.post('/trip-history', authenticateUser, async (req, res) => {
+    const { trip } = req.body;
+    const userId = req.session.user.userId;
+    
+        try {
+            if (trip.userId !== userId) {
+                return res.status(403).json({ error: 'Not authorized to move this trip' });
+            }
+            const completedTrip = await prisma.completedTrip.create({
+                data: {
+                userId: userId,
+                carrierCode: trip.carrierCode,
+                flightNumber: trip.flightNumber,
+                departureAirportCode: trip.departureAirportCode,
+                arrivalAirportCode: trip.arrivalAirportCode,
+                scheduledDepartureDate: trip.scheduledDepartureDate,
+                scheduledDepartureTime: trip.scheduledDepartureTime,
+                scheduledArrivalTime: trip.scheduledArrivalTime,
+                actualDepartureTime: trip.actualDepartureTime || trip.scheduledDepartureTime,
+                actualArrivalTime: trip.actualArrivalTime || trip.scheduledArrivalTime,
+                flightStatus: 'Completed',
+                segments: {
+                    create: trip.segments.map(segment => ({
+                    boardPointCode: segment.boardPointCode,
+                    offPointCode: segment.offPointCode,
+                    scheduledSegmentDuration: segment.scheduledSegmentDuration,
+                    actualSegmentDuration: segment.actualSegmentDuration || segment.scheduledSegmentDuration
+                    }))
+                }
+            }
+        });
+        res.status(201).json(completedTrip);
+        } catch (error) {
+        console.error('Error creating completed trip:', error);
+        res.status(500).json({ error: 'Failed to create completed trip' });
+        }
+    });
+
+// get trip history endpoint
+router.get('/trip-history', authenticateUser, async (req, res) => {
+    try {
+        const userId = req.session.user.userId;
+        const completedTrips = await prisma.completedTrip.findMany({
+            where: { userId },
+            include: { segments: true },
+            orderBy: { scheduledDepartureDate: 'desc' },
+        });
+        const tripsData = completedTrips.map(trip => {
+            return {
+                tripId: trip.completedTripId,
+                carrierCode: trip.carrierCode,
+                flightNumber: trip.flightNumber,
+                departureAirportCode: trip.departureAirportCode,
+                arrivalAirportCode: trip.arrivalAirportCode,
+                scheduledDepartureDate: trip.scheduledDepartureDate,
+                scheduledDepartureTime: trip.scheduledDepartureTime,
+                scheduledArrivalTime: trip.scheduledArrivalTime,
+                actualDepartureTime: trip.actualDepartureTime,
+                actualArrivalTime: trip.actualArrivalTime,
+                flightStatus: 'Completed',
+                segments: {
+                    create: trip.segments.map(segment => ({
+                    boardPointCode: segment.boardPointCode,
+                    offPointCode: segment.offPointCode,
+                    scheduledSegmentDuration: segment.scheduledSegmentDuration,
+                    actualSegmentDuration: segment.actualSegmentDuration || segment.scheduledSegmentDuration
+                    }))
+                }
+            };
+        });
+
+        res.json(tripsData);
+    } catch (error) {
+        console.error('Error in /trip-history route:', error);
+        res.status(500).json({ error: 'Failed to fetch trip history' });
+    }
+});
+
+
+// Delete trip from trip history endpoint
+router.delete('/trip-history/:tripId', authenticateUser, async (req, res) => {
+    try {
+        const tripId = parseInt(req.params.tripId);
+        const userId = req.session.user.userId;
+    
+        const trip = await prisma.completedTrips.findUnique({
+            where: { tripId },
+            select: { userId: true }
+        });
+    
+        if (!trip) {
+            return res.status(404).json({ error: 'Trip not found' });
+        }
+    
+        if (trip.userId !== userId) {
+            return res.status(403).json({ error: 'Not authorized to delete this trip' });
+        }
+    
+        // Delete associated segments and the trip
+        await prisma.$transaction([
+            prisma.segment.deleteMany({ where: { tripId } }),
+            prisma.trip.delete({ where: { tripId } })
+        ]);
+    
+        res.status(200).json({ message: 'Trip deleted successfully' });
+    } catch (error) {
+        res.status(500).json({ error: 'Failed to delete trip' });
+    }
+    });
+
 
 export default router;

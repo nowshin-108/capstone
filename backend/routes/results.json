@@ -1,0 +1,445 @@
+[
+  {
+    "rank": 1,
+    "option_id": "eab6c6cc-f4e9-42da-ba4a-b57c2db067a2",
+    "flights": [
+      {
+        "flight_id": "266f12ce-c57e-41a7-8eac-59683d87da01",
+        "departure_airport": "SFO",
+        "arrival_airport": "SEA",
+        "departure_time": "17-07-2024 01:46:24",
+        "arrival_time": "17-07-2024 03:07:53",
+        "airline_code": "B6",
+        "airline_name": "JetBlue Airways",
+        "flight_number": "5186",
+        "price": 312.02,
+        "duration": 1.36,
+        "distance": 679
+      },
+      {
+        "flight_id": "50eafa55-344b-475a-a7b0-355d572cf3fa",
+        "departure_airport": "SEA",
+        "arrival_airport": "MIA",
+        "departure_time": "17-07-2024 04:38:36",
+        "arrival_time": "17-07-2024 10:05:29",
+        "airline_code": "WN",
+        "airline_name": "Southwest Airlines",
+        "flight_number": "4419",
+        "price": 726.8,
+        "duration": 5.45,
+        "distance": 2724
+      }
+    ],
+    "summary": {
+      "original_price": 1038.82,
+      "discount_percentage": 0.0,
+      "discounted_price": 1038.82,
+      "flight_time": 6.81,
+      "connection_time": 1.51,
+      "total_duration": 8.32,
+      "total_distance": 3403,
+      "score": 0.45,
+      "path": "SFO -> SEA -> MIA"
+    }
+  },
+  {
+    "rank": 2,
+    "option_id": "15ac934f-9130-421b-bdd6-eadc74013063",
+    "flights": [
+      {
+        "flight_id": "a81f7c33-b42d-4ddb-87d6-1b5cf3958be6",
+        "departure_airport": "SFO",
+        "arrival_airport": "SEA",
+        "departure_time": "17-07-2024 01:07:29",
+        "arrival_time": "17-07-2024 02:28:57",
+        "airline_code": "UA",
+        "airline_name": "United Airlines",
+        "flight_number": "3054",
+        "price": 369.35,
+        "duration": 1.36,
+        "distance": 679
+      },
+      {
+        "flight_id": "50eafa55-344b-475a-a7b0-355d572cf3fa",
+        "departure_airport": "SEA",
+        "arrival_airport": "MIA",
+        "departure_time": "17-07-2024 04:38:36",
+        "arrival_time": "17-07-2024 10:05:29",
+        "airline_code": "WN",
+        "airline_name": "Southwest Airlines",
+        "flight_number": "4419",
+        "price": 726.8,
+        "duration": 5.45,
+        "distance": 2724
+      }
+    ],
+    "summary": {
+      "original_price": 1096.15,
+      "discount_percentage": 0.0,
+      "discounted_price": 1096.15,
+      "flight_time": 6.81,
+      "connection_time": 2.16,
+      "total_duration": 8.97,
+      "total_distance": 3403,
+      "score": 0.5975,
+      "path": "SFO -> SEA -> MIA"
+    }
+  },
+  {
+    "rank": 3,
+    "option_id": "4503efd6-9672-4be5-863f-7a35c7347947",
+    "flights": [
+      {
+        "flight_id": "266f12ce-c57e-41a7-8eac-59683d87da01",
+        "departure_airport": "SFO",
+        "arrival_airport": "SEA",
+        "departure_time": "17-07-2024 01:46:24",
+        "arrival_time": "17-07-2024 03:07:53",
+        "airline_code": "B6",
+        "airline_name": "JetBlue Airways",
+        "flight_number": "5186",
+        "price": 312.02,
+        "duration": 1.36,
+        "distance": 679
+      },
+      {
+        "flight_id": "ca4cd3e4-1cfb-4616-8b4b-0eb74728f6ab",
+        "departure_airport": "SEA",
+        "arrival_airport": "MIA",
+        "departure_time": "17-07-2024 05:23:38",
+        "arrival_time": "17-07-2024 10:50:30",
+        "airline_code": "WN",
+        "airline_name": "Southwest Airlines",
+        "flight_number": "4867",
+        "price": 711.64,
+        "duration": 5.45,
+        "distance": 2724
+      }
+    ],
+    "summary": {
+      "original_price": 1023.66,
+      "discount_percentage": 0.0,
+      "discounted_price": 1023.66,
+      "flight_time": 6.81,
+      "connection_time": 2.26,
+      "total_duration": 9.07,
+      "total_distance": 3403,
+      "score": 0.56,
+      "path": "SFO -> SEA -> MIA"
+    }
+  },
+  {
+    "rank": 4,
+    "option_id": "51f717a1-3721-4ab1-9fd1-7b702d5f7dde",
+    "flights": [
+      {
+        "flight_id": "a81f7c33-b42d-4ddb-87d6-1b5cf3958be6",
+        "departure_airport": "SFO",
+        "arrival_airport": "SEA",
+        "departure_time": "17-07-2024 01:07:29",
+        "arrival_time": "17-07-2024 02:28:57",
+        "airline_code": "UA",
+        "airline_name": "United Airlines",
+        "flight_number": "3054",
+        "price": 369.35,
+        "duration": 1.36,
+        "distance": 679
+      },
+      {
+        "flight_id": "ca4cd3e4-1cfb-4616-8b4b-0eb74728f6ab",
+        "departure_airport": "SEA",
+        "arrival_airport": "MIA",
+        "departure_time": "17-07-2024 05:23:38",
+        "arrival_time": "17-07-2024 10:50:30",
+        "airline_code": "WN",
+        "airline_name": "Southwest Airlines",
+        "flight_number": "4867",
+        "price": 711.64,
+        "duration": 5.45,
+        "distance": 2724
+      }
+    ],
+    "summary": {
+      "original_price": 1080.99,
+      "discount_percentage": 0.0,
+      "discounted_price": 1080.99,
+      "flight_time": 6.81,
+      "connection_time": 2.91,
+      "total_duration": 9.72,
+      "total_distance": 3403,
+      "score": 0.3368,
+      "path": "SFO -> SEA -> MIA"
+    }
+  },
+  {
+    "rank": 5,
+    "option_id": "d022eb1d-1998-448f-b9c0-48eea7524886",
+    "flights": [
+      {
+        "flight_id": "9dc3f8ab-5dd9-4b1e-87c7-5aa8668a9945",
+        "departure_airport": "SFO",
+        "arrival_airport": "SEA",
+        "departure_time": "17-07-2024 01:21:23",
+        "arrival_time": "17-07-2024 02:42:52",
+        "airline_code": "AA",
+        "airline_name": "American Airlines",
+        "flight_number": "1817",
+        "price": 334.47,
+        "duration": 1.36,
+        "distance": 679
+      },
+      {
+        "flight_id": "50eafa55-344b-475a-a7b0-355d572cf3fa",
+        "departure_airport": "SEA",
+        "arrival_airport": "MIA",
+        "departure_time": "17-07-2024 04:38:36",
+        "arrival_time": "17-07-2024 10:05:29",
+        "airline_code": "WN",
+        "airline_name": "Southwest Airlines",
+        "flight_number": "4419",
+        "price": 726.8,
+        "duration": 5.45,
+        "distance": 2724
+      }
+    ],
+    "summary": {
+      "original_price": 1061.27,
+      "discount_percentage": 0.0,
+      "discounted_price": 1061.27,
+      "flight_time": 6.81,
+      "connection_time": 1.93,
+      "total_duration": 8.74,
+      "total_distance": 3403,
+      "score": 0.5562,
+      "path": "SFO -> SEA -> MIA"
+    }
+  },
+  {
+    "rank": 6,
+    "option_id": "0619b641-1971-4c7f-a847-1862b22aad9f",
+    "flights": [
+      {
+        "flight_id": "9dc3f8ab-5dd9-4b1e-87c7-5aa8668a9945",
+        "departure_airport": "SFO",
+        "arrival_airport": "SEA",
+        "departure_time": "17-07-2024 01:21:23",
+        "arrival_time": "17-07-2024 02:42:52",
+        "airline_code": "AA",
+        "airline_name": "American Airlines",
+        "flight_number": "1817",
+        "price": 334.47,
+        "duration": 1.36,
+        "distance": 679
+      },
+      {
+        "flight_id": "ca4cd3e4-1cfb-4616-8b4b-0eb74728f6ab",
+        "departure_airport": "SEA",
+        "arrival_airport": "MIA",
+        "departure_time": "17-07-2024 05:23:38",
+        "arrival_time": "17-07-2024 10:50:30",
+        "airline_code": "WN",
+        "airline_name": "Southwest Airlines",
+        "flight_number": "4867",
+        "price": 711.64,
+        "duration": 5.45,
+        "distance": 2724
+      }
+    ],
+    "summary": {
+      "original_price": 1046.11,
+      "discount_percentage": 0.0,
+      "discounted_price": 1046.11,
+      "flight_time": 6.81,
+      "connection_time": 2.68,
+      "total_duration": 9.49,
+      "total_distance": 3403,
+      "score": 0.5187,
+      "path": "SFO -> SEA -> MIA"
+    }
+  },
+  {
+    "rank": 7,
+    "option_id": "c5911ade-bf23-42b8-a1a6-4549dd70b8d0",
+    "flights": [
+      {
+        "flight_id": "4b0b2ad2-1046-4e03-b3f7-3c6dd22419b3",
+        "departure_airport": "SFO",
+        "arrival_airport": "JFK",
+        "departure_time": "17-07-2024 00:28:48",
+        "arrival_time": "17-07-2024 05:37:27",
+        "airline_code": "AS",
+        "airline_name": "Alaska Airlines",
+        "flight_number": "6869",
+        "price": 229.31,
+        "duration": 5.14,
+        "distance": 2572
+      },
+      {
+        "flight_id": "4e377bb2-4be7-4310-a515-48493864df62",
+        "departure_airport": "JFK",
+        "arrival_airport": "ORD",
+        "departure_time": "17-07-2024 07:09:47",
+        "arrival_time": "17-07-2024 08:38:35",
+        "airline_code": "NK",
+        "airline_name": "Spirit Airlines",
+        "flight_number": "7581",
+        "price": 392.1,
+        "duration": 1.48,
+        "distance": 740
+      },
+      {
+        "flight_id": "22e20047-7c29-47e9-a672-d59121d72056",
+        "departure_airport": "ORD",
+        "arrival_airport": "MIA",
+        "departure_time": "17-07-2024 09:47:55",
+        "arrival_time": "17-07-2024 12:11:33",
+        "airline_code": "UA",
+        "airline_name": "United Airlines",
+        "flight_number": "3885",
+        "price": 303.03,
+        "duration": 2.39,
+        "distance": 1197
+      }
+    ],
+    "summary": {
+      "original_price": 924.44,
+      "discount_percentage": 0.0,
+      "discounted_price": 924.44,
+      "flight_time": 9.01,
+      "connection_time": 2.69,
+      "total_duration": 11.7,
+      "total_distance": 4509,
+      "score": 0.2955,
+      "path": "SFO -> JFK -> ORD -> MIA"
+    }
+  },
+  {
+    "rank": 8,
+    "option_id": "f8bd7c02-b4f3-43fa-af81-920c59de62e4",
+    "flights": [
+      {
+        "flight_id": "266f12ce-c57e-41a7-8eac-59683d87da01",
+        "departure_airport": "SFO",
+        "arrival_airport": "SEA",
+        "departure_time": "17-07-2024 01:46:24",
+        "arrival_time": "17-07-2024 03:07:53",
+        "airline_code": "B6",
+        "airline_name": "JetBlue Airways",
+        "flight_number": "5186",
+        "price": 312.02,
+        "duration": 1.36,
+        "distance": 679
+      },
+      {
+        "flight_id": "45fd2326-139f-49a6-ad4c-eda20d2e28f8",
+        "departure_airport": "SEA",
+        "arrival_airport": "MIA",
+        "departure_time": "17-07-2024 06:12:10",
+        "arrival_time": "17-07-2024 11:39:03",
+        "airline_code": "WN",
+        "airline_name": "Southwest Airlines",
+        "flight_number": "4032",
+        "price": 848.85,
+        "duration": 5.45,
+        "distance": 2724
+      }
+    ],
+    "summary": {
+      "original_price": 1160.87,
+      "discount_percentage": 0.0,
+      "discounted_price": 1160.87,
+      "flight_time": 6.81,
+      "connection_time": 3.07,
+      "total_duration": 9.88,
+      "total_distance": 3403,
+      "score": 0.6137,
+      "path": "SFO -> SEA -> MIA"
+    }
+  },
+  {
+    "rank": 9,
+    "option_id": "f98287ab-355c-4a7d-82cf-62e6117b4aa3",
+    "flights": [
+      {
+        "flight_id": "a81f7c33-b42d-4ddb-87d6-1b5cf3958be6",
+        "departure_airport": "SFO",
+        "arrival_airport": "SEA",
+        "departure_time": "17-07-2024 01:07:29",
+        "arrival_time": "17-07-2024 02:28:57",
+        "airline_code": "UA",
+        "airline_name": "United Airlines",
+        "flight_number": "3054",
+        "price": 369.35,
+        "duration": 1.36,
+        "distance": 679
+      },
+      {
+        "flight_id": "45fd2326-139f-49a6-ad4c-eda20d2e28f8",
+        "departure_airport": "SEA",
+        "arrival_airport": "MIA",
+        "departure_time": "17-07-2024 06:12:10",
+        "arrival_time": "17-07-2024 11:39:03",
+        "airline_code": "WN",
+        "airline_name": "Southwest Airlines",
+        "flight_number": "4032",
+        "price": 848.85,
+        "duration": 5.45,
+        "distance": 2724
+      }
+    ],
+    "summary": {
+      "original_price": 1218.2,
+      "discount_percentage": 0.0,
+      "discounted_price": 1218.2,
+      "flight_time": 6.81,
+      "connection_time": 3.72,
+      "total_duration": 10.53,
+      "total_distance": 3403,
+      "score": 0.5763,
+      "path": "SFO -> SEA -> MIA"
+    }
+  },
+  {
+    "rank": 10,
+    "option_id": "0242ae58-6989-4bd4-b31a-3ebdc91a55eb",
+    "flights": [
+      {
+        "flight_id": "9dc3f8ab-5dd9-4b1e-87c7-5aa8668a9945",
+        "departure_airport": "SFO",
+        "arrival_airport": "SEA",
+        "departure_time": "17-07-2024 01:21:23",
+        "arrival_time": "17-07-2024 02:42:52",
+        "airline_code": "AA",
+        "airline_name": "American Airlines",
+        "flight_number": "1817",
+        "price": 334.47,
+        "duration": 1.36,
+        "distance": 679
+      },
+      {
+        "flight_id": "45fd2326-139f-49a6-ad4c-eda20d2e28f8",
+        "departure_airport": "SEA",
+        "arrival_airport": "MIA",
+        "departure_time": "17-07-2024 06:12:10",
+        "arrival_time": "17-07-2024 11:39:03",
+        "airline_code": "WN",
+        "airline_name": "Southwest Airlines",
+        "flight_number": "4032",
+        "price": 848.85,
+        "duration": 5.45,
+        "distance": 2724
+      }
+    ],
+    "summary": {
+      "original_price": 1183.32,
+      "discount_percentage": 0.0,
+      "discounted_price": 1183.32,
+      "flight_time": 6.81,
+      "connection_time": 3.49,
+      "total_duration": 10.3,
+      "total_distance": 3403,
+      "score": 0.353,
+      "path": "SFO -> SEA -> MIA"
+    }
+  }
+]

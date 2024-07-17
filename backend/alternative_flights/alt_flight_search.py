@@ -1,4 +1,5 @@
 import os
+import sys
 import json
 from datetime import datetime, timedelta
 import uuid
@@ -106,7 +107,7 @@ def find_flight_options(departure_airport: str, arrival_airport: str, departure_
     options = []
 
     def dfs(current_airport: str, current_time: datetime, current_option: FlightOption, visited: set):
-        if len(current_option.flights) > 3:  # Max 4 stops
+        if len(current_option.flights) > 4:  # Max 4 stops
             return
 
         if current_airport == arrival_airport:
@@ -146,7 +147,7 @@ def calculate_baseline_duration(options: List[FlightOption]) -> float:
     direct_flights = [opt for opt in options if len(opt.flights) == 1]
     if direct_flights:
         return min(opt.total_duration for opt in direct_flights)
-   
+
     min_connections = min(len(opt.flights) for opt in options)
     least_connection_flights = [opt for opt in options if len(opt.flights) == min_connections]
     return min(opt.total_duration for opt in least_connection_flights)
@@ -164,7 +165,7 @@ def apply_discounts(options: List[FlightOption], baseline_duration: float):
             discount += option.total_price * 0.5
             if idle_times[i] == max_idle_time and max_idle_time > 0:
                 discount += option.total_price * 0.2
-       
+
         option.discount = min(discount, option.total_price * 0.7)  # Cap discount at 70%
         option.total_price -= option.discount
 
@@ -197,13 +198,15 @@ def calculate_ranking_scores(options: List[FlightOption], preferred_airline_code
 def main():
     current_dir = os.path.dirname(os.path.abspath(__file__))
     file_path = os.path.join(current_dir, 'flight_data.json')
-   
+
     flight_data = load_flight_data(file_path)
 
-    departure_airport = "NYC"
-    arrival_airport = "MIA"
-    departure_time = datetime(2024, 7, 10, 12, 0, 0)
-    preferred_airline_code = "AA"
+    input_data = json.loads(sys.stdin.read())
+    
+    departure_airport = input_data.get('departure_airport', 'JFK')
+    arrival_airport = input_data.get('arrival_airport', 'MIA')
+    departure_time = datetime.strptime(input_data.get('departure_time', '2024-07-10 12:00:00'), "%Y-%m-%d %H:%M:%S")
+    preferred_airline_code = input_data.get('preferred_airline_code', 'AA')
 
     options = find_flight_options(departure_airport, arrival_airport, departure_time, flight_data)
     if not options:
@@ -212,7 +215,7 @@ def main():
 
     baseline_duration = calculate_baseline_duration(options)
     apply_discounts(options, baseline_duration)
-   
+
     sorted_options = calculate_ranking_scores(options, preferred_airline_code)
 
     results = [{
@@ -220,11 +223,11 @@ def main():
         **option.to_dict()
     } for i, option in enumerate(sorted_options)]
 
-    output_file_path = os.path.join(current_dir, 'results.json')
+    output_file_path = os.path.join('routes/', 'results.json')
     with open(output_file_path, 'w') as f:
         json.dump(results, f, indent=2)
 
-    print(f"Results have been exported to {output_file_path}")
+    print(json.dumps(results))
 
 if __name__ == "__main__":
     main()
