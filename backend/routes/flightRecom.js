@@ -14,7 +14,6 @@ const router = express.Router();
 // Flight recommendation generation endpoint 
 router.get("/recommendations", async (req, res) => {
     const { departure_airport, arrival_airport, departure_time, preferred_airline_code } = req.query;
-    console.log(`Fetching recommendations for flight from ${departure_airport} to ${arrival_airport}`);
     try {
         const data = { departure_airport, arrival_airport, departure_time, preferred_airline_code };
         const dataString = JSON.stringify(data);
@@ -52,7 +51,6 @@ router.get("/recommendations", async (req, res) => {
 // result.json fetch endpoint
 router.get("/alternative-flights", authenticateUser, async (req, res) => {
     const { departure_airport, arrival_airport, departure_time, preferred_airline_code } = req.query;
-
     if (!departure_airport || !arrival_airport || !departure_time) {
     return res.status(400).send("Missing required parameters");
     }
