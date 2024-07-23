@@ -8,6 +8,8 @@ import TrafficInfo from './TrafficInfo';
 import './TripDetails.css';
 import AltFlightModal from './AltFlightModal';
 import { format } from 'date-fns';
+import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
+import SeatBidding from './SeatBidding';
 
 
 const TripDetails = () => {
@@ -24,6 +26,7 @@ const [isModalOpen, setIsModalOpen] = useState(false);
 const [alternativeFlights, setAlternativeFlights] = useState(null);
 const [isAlternativeFlightsLoading, setIsAlternativeFlightsLoading] = useState(false);
 const [modalError, setModalError] = useState(null);
+const [isSeatBidsExpanded, setIsSeatBidsExpanded] = useState(false);
 
 
 // Get user's current location
@@ -59,8 +62,9 @@ useEffect(() => {
         
         // Fetch trip data
         const tripResponse = await axios.get(`${API_BASE_URL}/trips/${tripId}`, { withCredentials: true });
-        setTrip(tripResponse.data);
+        const tripData = tripResponse.data;
 
+        setTrip(tripData);
 
         // Fetch flight status
         const { carrierCode, flightNumber, scheduledDepartureDate } = tripResponse.data;
@@ -94,6 +98,16 @@ useEffect(() => {
 
     fetchAllData();
 }, [tripId, getUserLocation]);
+
+
+const handleBiddingCompleted = async () => {
+    try {
+        const response = await axios.get(`${API_BASE_URL}/trips/${tripId}`, { withCredentials: true });
+        setTrip(response.data);
+    } catch (error) {
+        console.error('Failed to fetch updated trip data:', error);
+    }
+};
 
 
 if (isLoading) {
@@ -306,6 +320,27 @@ return (
     <h2>Manage</h2>
     <div className="manage-section">
         <ul>
+        <li onClick={() => setIsSeatBidsExpanded(!isSeatBidsExpanded)}>
+            <div className="item-info">
+                <span className="item-title">Seat Bids</span>
+                <span className="item-subtitle">Your Seat: {trip.seatNumber}</span>
+            </div>
+            <div className="icons">
+                {isSeatBidsExpanded ? <IoIosArrowUp /> : <IoIosArrowDown />}
+            </div>
+        </li>
+        {isSeatBidsExpanded && (
+            <li className="seat-bids-content">
+                <SeatBidding 
+                    trip={{
+                        userId: trip.userId,
+                        seatNumber: trip.seatNumber // Ensure this is available in your trip object
+                    }}
+                    flightId={`${trip.carrierCode}-${trip.flightNumber}-${trip.scheduledDepartureDate}`}
+                    onBiddingCompleted={handleBiddingCompleted}
+                />
+            </li>
+        )}
         <li>
             <div className="item-info">
             <span className="item-title">Travel Docs</span>
