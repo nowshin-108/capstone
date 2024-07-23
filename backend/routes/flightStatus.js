@@ -49,42 +49,99 @@ router.get('/add-trip/flight-status', authenticateUser, async (req, res) => {
 
 // Add trip endpoint
 router.post('/add-trip', authenticateUser, async (req, res) => {
-try {
-    const { carrierCode, flightNumber, departureAirportCode, arrivalAirportCode, scheduledDepartureDate, scheduledDepartureTime, scheduledArrivalTime, segments } = req.body;
-    const userId = req.session.user.userId;
+    try {
+        const { carrierCode, flightNumber, departureAirportCode, arrivalAirportCode, scheduledDepartureDate, scheduledDepartureTime, scheduledArrivalTime, segments } = req.body;
+        const userId = req.session.user.userId;
+        const flightId = `${carrierCode}-${flightNumber}-${scheduledDepartureDate}`;
 
-    const newTrip = await prisma.trip.create({
-        data: {
-            userId,
-            carrierCode,
-            flightNumber,
-            departureAirportCode,
-            arrivalAirportCode,
-            scheduledDepartureDate,
-            scheduledDepartureTime,
-            scheduledArrivalTime
-        }
-    });
-
-    // Create Segment records if there are multiple flight segments
-    if (segments && segments.length > 0) {
-        await Promise.all(segments.map(segment => 
-            prisma.segment.create({
-                data: {
-                    tripId: newTrip.tripId,
-                    boardPointCode: segment.boardPointCode,
-                    offPointCode: segment.offPointCode,
-                    scheduledSegmentDuration: segment.scheduledSegmentDuration
+        const result = await prisma.$transaction(async (prisma) => {
+            const flight = await prisma.flight.upsert({
+                where: { flightId },
+                update: {},
+                create: {
+                    flightId,
+                    carrierCode,
+                    flightNumber,
+                    scheduledDepartureDate
                 }
-            })
-        ));
-    }
+            });
 
-    res.status(201).json(newTrip);
-} catch (error) {
-    res.status(500).json({ error: 'Failed to add trip' });
-}
+            const newTrip = await prisma.trip.create({
+                data: {
+                    userId,
+                    carrierCode,
+                    flightNumber,
+                    departureAirportCode,
+                    arrivalAirportCode,
+                    scheduledDepartureDate,
+                    scheduledDepartureTime,
+                    scheduledArrivalTime
+                }
+            });
+
+            // Generate a random seat
+            const generateRandomSeat = () => {
+                const row = Math.floor(Math.random() * 30) + 1; // Assuming 30 rows
+                const seat = ['A', 'B', 'C', 'D', 'E', 'F'][Math.floor(Math.random() * 6)];
+                return `${row}${seat}`;
+            };
+
+            let seatAssigned = false;
+            let attempts = 0;
+            let seatNumber;
+            
+            // Allow system to try assigning a random seat multiple times in case the number is already taken
+            while (!seatAssigned && attempts < 100) {
+                seatNumber = generateRandomSeat();
+                try {
+                    await prisma.passenger.create({
+                        data: {
+                            userId,
+                            flightId: flight.flightId,
+                            seatNumber
+                        }
+                    });
+                    seatAssigned = true;
+                } catch (error) {
+                    if (error.code === 'P2002') {
+                        attempts++;
+                    } else {
+                        throw error;
+                    }
+                }
+            }
+
+            if (!seatAssigned) {
+                throw new Error('Unable to assign a unique seat after multiple attempts');
+            }
+
+            // Create Segment records if there are multiple flight segments
+            if (segments && segments.length > 0) {
+                await Promise.all(segments.map(segment =>
+                    prisma.segment.create({
+                        data: {
+                            tripId: newTrip.tripId,
+                            boardPointCode: segment.boardPointCode,
+                            offPointCode: segment.offPointCode,
+                            scheduledSegmentDuration: segment.scheduledSegmentDuration
+                        }
+                    })
+                ));
+            }
+
+            return { newTrip, seatNumber };
+        });
+
+        res.status(201).json({
+            trip: result.newTrip,
+            seatNumber: result.seatNumber
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Failed to add trip' });
+    }
 });
+
 
 // Fetch upcoming trips for the authenticated user
 router.get('/trips', authenticateUser, async (req, res) => {
@@ -211,9 +268,21 @@ try {
         return res.status(404).json({ error: 'Trip not found' });
     }
 
+    const flightId = `${trip.carrierCode}-${trip.flightNumber}-${trip.scheduledDepartureDate}`;
+    const passenger = await prisma.passenger.findUnique({
+        where: {
+            flightId_userId: {
+                flightId: flightId,
+                userId: userId
+            }
+        },
+        select: { seatNumber: true }
+    }); 
+
     const formattedTrip = {
         ...trip,
         flightStatus: trip.flightStatus || 'Scheduled',
+        seatNumber: passenger ? passenger.seatNumber : null
     };
 
     res.json(formattedTrip);

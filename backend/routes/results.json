@@ -1,651 +1,1000 @@
 [
   {
     "rank": 1,
-    "option_id": "cc069615-3641-4d2c-b701-9180886d23b6",
+    "option_id": "d2fba841-708a-4613-b9c7-12d72f4e1a9e",
     "flights": [
       {
-        "flight_id": "c0f7dabd-fbc6-463e-b440-33cf3e1089ff",
+        "flight_id": "2142537d-9243-4634-aa77-53aa9becd8f8",
         "departure_airport": "SFO",
-        "arrival_airport": "MIA",
-        "departure_time": "21-07-2024 03:40:48",
-        "arrival_time": "21-07-2024 08:50:39",
-        "airline_code": "F9",
-        "airline_name": "Frontier Airlines",
-        "flight_number": "8261",
-        "price": 122.71,
-        "duration": 5.16,
-        "distance": 2582
+        "arrival_airport": "DFW",
+        "departure_time": "20-07-2024 12:07:44",
+        "arrival_time": "20-07-2024 15:03:24",
+        "airline_code": "AA",
+        "airline_name": "American Airlines",
+        "flight_number": "1565",
+        "price": 873.27,
+        "duration": 2.93,
+        "distance": 1464
       }
     ],
     "summary": {
-      "original_price": 122.71,
+      "original_price": 873.27,
       "discount_percentage": 0.0,
-      "discounted_price": 122.71,
-      "flight_time": 5.16,
+      "discounted_price": 873.27,
+      "flight_time": 2.93,
       "connection_time": 0,
-      "total_duration": 5.16,
-      "total_distance": 2582,
-      "score": 0.4686,
-      "path": "SFO -> MIA"
+      "total_duration": 2.93,
+      "total_distance": 1464,
+      "score": 0.7358,
+      "path": "SFO -> DFW"
     }
   },
   {
     "rank": 2,
-    "option_id": "79958ef8-4fb4-483b-83aa-56ea23596faa",
+    "option_id": "0a992b9e-cc8e-4273-b433-607282f3a372",
     "flights": [
       {
-        "flight_id": "08472087-b539-42a2-b530-8c69138e2451",
+        "flight_id": "a792de31-d18c-4a2b-9b12-b087b9c4164c",
         "departure_airport": "SFO",
-        "arrival_airport": "MIA",
-        "departure_time": "21-07-2024 05:05:55",
-        "arrival_time": "21-07-2024 10:15:46",
+        "arrival_airport": "LAX",
+        "departure_time": "20-07-2024 12:14:49",
+        "arrival_time": "20-07-2024 12:55:16",
+        "airline_code": "F9",
+        "airline_name": "Frontier Airlines",
+        "flight_number": "8492",
+        "price": 308.0,
+        "duration": 0.67,
+        "distance": 337
+      },
+      {
+        "flight_id": "a23f0ad6-b916-417a-ac47-3240d138a11b",
+        "departure_airport": "LAX",
+        "arrival_airport": "DFW",
+        "departure_time": "20-07-2024 18:04:09",
+        "arrival_time": "20-07-2024 20:32:21",
         "airline_code": "AA",
         "airline_name": "American Airlines",
-        "flight_number": "1398",
-        "price": 549.45,
-        "duration": 5.16,
-        "distance": 2582
+        "flight_number": "1023",
+        "price": 326.9,
+        "duration": 2.47,
+        "distance": 1235
       }
     ],
     "summary": {
-      "original_price": 549.45,
-      "discount_percentage": 0.0,
-      "discounted_price": 549.45,
-      "flight_time": 5.16,
-      "connection_time": 0,
-      "total_duration": 5.16,
-      "total_distance": 2582,
-      "score": 0.6402,
-      "path": "SFO -> MIA"
+      "original_price": 634.9,
+      "discount_percentage": 50.0,
+      "discounted_price": 317.45,
+      "flight_time": 3.14,
+      "connection_time": 5.15,
+      "total_duration": 8.29,
+      "total_distance": 1572,
+      "score": 0.8083,
+      "path": "SFO -> LAX -> DFW"
     }
   },
   {
     "rank": 3,
-    "option_id": "0c078f54-27e5-4a7a-b2c6-b597ee3e5749",
+    "option_id": "986475a8-c736-471a-bb3c-dd16efd92a9f",
     "flights": [
       {
-        "flight_id": "2eef75d6-a2bc-4858-9d10-07ebfa42ddea",
+        "flight_id": "a792de31-d18c-4a2b-9b12-b087b9c4164c",
         "departure_airport": "SFO",
-        "arrival_airport": "MIA",
-        "departure_time": "21-07-2024 01:41:00",
-        "arrival_time": "21-07-2024 06:50:51",
+        "arrival_airport": "LAX",
+        "departure_time": "20-07-2024 12:14:49",
+        "arrival_time": "20-07-2024 12:55:16",
         "airline_code": "F9",
         "airline_name": "Frontier Airlines",
-        "flight_number": "8960",
-        "price": 149.87,
-        "duration": 5.16,
-        "distance": 2582
+        "flight_number": "8492",
+        "price": 308.0,
+        "duration": 0.67,
+        "distance": 337
+      },
+      {
+        "flight_id": "74495faa-f29e-4bf2-9b3c-6276cd0b6dbd",
+        "departure_airport": "LAX",
+        "arrival_airport": "DFW",
+        "departure_time": "20-07-2024 18:36:40",
+        "arrival_time": "20-07-2024 21:04:52",
+        "airline_code": "AA",
+        "airline_name": "American Airlines",
+        "flight_number": "1285",
+        "price": 563.09,
+        "duration": 2.47,
+        "distance": 1235
       }
     ],
     "summary": {
-      "original_price": 149.87,
-      "discount_percentage": 0.0,
-      "discounted_price": 149.87,
-      "flight_time": 5.16,
-      "connection_time": 0,
-      "total_duration": 5.16,
-      "total_distance": 2582,
-      "score": 0.6926,
-      "path": "SFO -> MIA"
+      "original_price": 871.09,
+      "discount_percentage": 50.0,
+      "discounted_price": 435.55,
+      "flight_time": 3.14,
+      "connection_time": 5.69,
+      "total_duration": 8.83,
+      "total_distance": 1572,
+      "score": 0.7696,
+      "path": "SFO -> LAX -> DFW"
     }
   },
   {
     "rank": 4,
-    "option_id": "5d2cc042-8ecc-486a-99d1-e14324786c75",
+    "option_id": "13350671-3403-4b86-ad85-60b503f142fe",
     "flights": [
       {
-        "flight_id": "5f5aec7d-dc8a-4942-b3fb-6a00c823de7c",
+        "flight_id": "a792de31-d18c-4a2b-9b12-b087b9c4164c",
         "departure_airport": "SFO",
         "arrival_airport": "LAX",
-        "departure_time": "21-07-2024 01:37:11",
-        "arrival_time": "21-07-2024 02:17:37",
+        "departure_time": "20-07-2024 12:14:49",
+        "arrival_time": "20-07-2024 12:55:16",
         "airline_code": "F9",
         "airline_name": "Frontier Airlines",
-        "flight_number": "8155",
-        "price": 303.82,
+        "flight_number": "8492",
+        "price": 308.0,
         "duration": 0.67,
         "distance": 337
       },
       {
-        "flight_id": "1a3dfc6e-b69c-49b0-9094-3d9049dbbcff",
+        "flight_id": "8789caba-535d-4414-840e-72c9cbacbbde",
         "departure_airport": "LAX",
-        "arrival_airport": "MIA",
-        "departure_time": "21-07-2024 03:29:09",
-        "arrival_time": "21-07-2024 08:10:11",
-        "airline_code": "WN",
-        "airline_name": "Southwest Airlines",
-        "flight_number": "4325",
-        "price": 165.02,
-        "duration": 4.68,
-        "distance": 2342
+        "arrival_airport": "DFW",
+        "departure_time": "20-07-2024 17:34:17",
+        "arrival_time": "20-07-2024 20:02:29",
+        "airline_code": "AS",
+        "airline_name": "Alaska Airlines",
+        "flight_number": "6258",
+        "price": 170.38,
+        "duration": 2.47,
+        "distance": 1235
       }
     ],
     "summary": {
-      "original_price": 468.84,
-      "discount_percentage": 0.0,
-      "discounted_price": 468.84,
-      "flight_time": 5.35,
-      "connection_time": 1.19,
-      "total_duration": 6.54,
-      "total_distance": 2679,
-      "score": 0.557,
-      "path": "SFO -> LAX -> MIA"
+      "original_price": 478.38,
+      "discount_percentage": 50.0,
+      "discounted_price": 239.19,
+      "flight_time": 3.14,
+      "connection_time": 4.65,
+      "total_duration": 7.79,
+      "total_distance": 1572,
+      "score": 0.1355,
+      "path": "SFO -> LAX -> DFW"
     }
   },
   {
     "rank": 5,
-    "option_id": "7e2d628a-f887-4597-b52a-e3cd383f745d",
+    "option_id": "1eb100a9-70ee-4c1e-a7e6-53d853de9bed",
     "flights": [
       {
-        "flight_id": "5f5aec7d-dc8a-4942-b3fb-6a00c823de7c",
+        "flight_id": "ebedc064-8cdc-4804-89c8-322bb88815bb",
         "departure_airport": "SFO",
-        "arrival_airport": "LAX",
-        "departure_time": "21-07-2024 01:37:11",
-        "arrival_time": "21-07-2024 02:17:37",
-        "airline_code": "F9",
-        "airline_name": "Frontier Airlines",
-        "flight_number": "8155",
-        "price": 303.82,
-        "duration": 0.67,
-        "distance": 337
+        "arrival_airport": "MIA",
+        "departure_time": "20-07-2024 12:05:17",
+        "arrival_time": "20-07-2024 17:15:07",
+        "airline_code": "DL",
+        "airline_name": "Delta Air Lines",
+        "flight_number": "2929",
+        "price": 573.61,
+        "duration": 5.16,
+        "distance": 2582
       },
       {
-        "flight_id": "0e09137b-760c-4b3d-b004-5e8e6283e7c6",
-        "departure_airport": "LAX",
-        "arrival_airport": "MIA",
-        "departure_time": "21-07-2024 03:22:12",
-        "arrival_time": "21-07-2024 08:03:15",
+        "flight_id": "b3dd6983-916a-498b-a6bd-3be44c326979",
+        "departure_airport": "MIA",
+        "arrival_airport": "DFW",
+        "departure_time": "20-07-2024 20:47:47",
+        "arrival_time": "20-07-2024 23:02:18",
         "airline_code": "WN",
         "airline_name": "Southwest Airlines",
-        "flight_number": "4224",
-        "price": 393.95,
-        "duration": 4.68,
-        "distance": 2342
+        "flight_number": "4904",
+        "price": 263.16,
+        "duration": 2.24,
+        "distance": 1121
       }
     ],
     "summary": {
-      "original_price": 697.77,
-      "discount_percentage": 0.0,
-      "discounted_price": 697.77,
-      "flight_time": 5.35,
-      "connection_time": 1.08,
-      "total_duration": 6.43,
-      "total_distance": 2679,
-      "score": 0.6392,
-      "path": "SFO -> LAX -> MIA"
+      "original_price": 836.77,
+      "discount_percentage": 50.0,
+      "discounted_price": 418.38,
+      "flight_time": 7.4,
+      "connection_time": 3.54,
+      "total_duration": 10.94,
+      "total_distance": 3703,
+      "score": 0.0864,
+      "path": "SFO -> MIA -> DFW"
     }
   },
   {
     "rank": 6,
-    "option_id": "c345e12a-fb77-4bc6-ad12-61d1876cbb33",
+    "option_id": "3bb1955f-2d03-40ec-b64e-6272034df3ef",
     "flights": [
       {
-        "flight_id": "5f5aec7d-dc8a-4942-b3fb-6a00c823de7c",
+        "flight_id": "75a6fc88-6cad-4512-860d-82decf7f0760",
         "departure_airport": "SFO",
-        "arrival_airport": "LAX",
-        "departure_time": "21-07-2024 01:37:11",
-        "arrival_time": "21-07-2024 02:17:37",
-        "airline_code": "F9",
-        "airline_name": "Frontier Airlines",
-        "flight_number": "8155",
-        "price": 303.82,
-        "duration": 0.67,
-        "distance": 337
+        "arrival_airport": "JFK",
+        "departure_time": "20-07-2024 12:26:28",
+        "arrival_time": "20-07-2024 17:35:06",
+        "airline_code": "DL",
+        "airline_name": "Delta Air Lines",
+        "flight_number": "2171",
+        "price": 754.45,
+        "duration": 5.14,
+        "distance": 2572
       },
       {
-        "flight_id": "6483344e-78ca-4637-8783-7439dcc5458b",
-        "departure_airport": "LAX",
-        "arrival_airport": "MIA",
-        "departure_time": "21-07-2024 08:03:39",
-        "arrival_time": "21-07-2024 12:44:42",
+        "flight_id": "14cf7a23-9723-4e76-b566-5d37a1ea8d37",
+        "departure_airport": "JFK",
+        "arrival_airport": "DFW",
+        "departure_time": "20-07-2024 19:25:31",
+        "arrival_time": "20-07-2024 22:10:10",
         "airline_code": "F9",
         "airline_name": "Frontier Airlines",
-        "flight_number": "8147",
-        "price": 386.23,
-        "duration": 4.68,
-        "distance": 2342
+        "flight_number": "8038",
+        "price": 275.86,
+        "duration": 2.74,
+        "distance": 1372
       }
     ],
     "summary": {
-      "original_price": 690.05,
+      "original_price": 1030.31,
       "discount_percentage": 50.0,
-      "discounted_price": 345.02,
-      "flight_time": 5.35,
-      "connection_time": 5.77,
-      "total_duration": 11.12,
-      "total_distance": 2679,
-      "score": 0.3383,
-      "path": "SFO -> LAX -> MIA"
+      "discounted_price": 515.15,
+      "flight_time": 7.88,
+      "connection_time": 1.84,
+      "total_duration": 9.72,
+      "total_distance": 3944,
+      "score": 0.1393,
+      "path": "SFO -> JFK -> DFW"
     }
   },
   {
     "rank": 7,
-    "option_id": "6a1e5438-8307-4618-82fb-29372c68a090",
+    "option_id": "655c9d59-76e1-42d1-84ef-817b38a6e1bd",
     "flights": [
       {
-        "flight_id": "50a33860-08a9-4ad5-ba21-aa0a02300c5c",
+        "flight_id": "7266d3d6-ce90-4abf-8a77-1885c59ae587",
         "departure_airport": "SFO",
-        "arrival_airport": "LAX",
-        "departure_time": "21-07-2024 03:44:26",
-        "arrival_time": "21-07-2024 04:24:52",
-        "airline_code": "NK",
-        "airline_name": "Spirit Airlines",
-        "flight_number": "7764",
-        "price": 981.14,
-        "duration": 0.67,
-        "distance": 337
-      },
-      {
-        "flight_id": "6483344e-78ca-4637-8783-7439dcc5458b",
-        "departure_airport": "LAX",
-        "arrival_airport": "MIA",
-        "departure_time": "21-07-2024 08:03:39",
-        "arrival_time": "21-07-2024 12:44:42",
+        "arrival_airport": "JFK",
+        "departure_time": "20-07-2024 13:37:34",
+        "arrival_time": "20-07-2024 18:46:12",
         "airline_code": "F9",
         "airline_name": "Frontier Airlines",
-        "flight_number": "8147",
-        "price": 386.23,
-        "duration": 4.68,
-        "distance": 2342
+        "flight_number": "8917",
+        "price": 574.19,
+        "duration": 5.14,
+        "distance": 2572
+      },
+      {
+        "flight_id": "36a6c975-0459-48c8-af11-13a52d0ddf66",
+        "departure_airport": "JFK",
+        "arrival_airport": "DFW",
+        "departure_time": "20-07-2024 21:26:05",
+        "arrival_time": "21-07-2024 00:10:44",
+        "airline_code": "UA",
+        "airline_name": "United Airlines",
+        "flight_number": "3195",
+        "price": 484.69,
+        "duration": 2.74,
+        "distance": 1372
       }
     ],
     "summary": {
-      "original_price": 1367.37,
+      "original_price": 1058.88,
       "discount_percentage": 50.0,
-      "discounted_price": 683.68,
-      "flight_time": 5.35,
-      "connection_time": 3.65,
-      "total_duration": 9.0,
-      "total_distance": 2679,
-      "score": 0.3407,
-      "path": "SFO -> LAX -> MIA"
+      "discounted_price": 529.44,
+      "flight_time": 7.88,
+      "connection_time": 2.66,
+      "total_duration": 10.54,
+      "total_distance": 3944,
+      "score": 0.4779,
+      "path": "SFO -> JFK -> DFW"
     }
   },
   {
     "rank": 8,
-    "option_id": "2d6fafde-5cb4-4e3d-89d6-74edc7501626",
+    "option_id": "6e5235c3-ea22-4e61-b7f5-6922760f1996",
     "flights": [
       {
-        "flight_id": "5f5aec7d-dc8a-4942-b3fb-6a00c823de7c",
+        "flight_id": "ebedc064-8cdc-4804-89c8-322bb88815bb",
         "departure_airport": "SFO",
-        "arrival_airport": "LAX",
-        "departure_time": "21-07-2024 01:37:11",
-        "arrival_time": "21-07-2024 02:17:37",
-        "airline_code": "F9",
-        "airline_name": "Frontier Airlines",
-        "flight_number": "8155",
-        "price": 303.82,
-        "duration": 0.67,
-        "distance": 337
+        "arrival_airport": "MIA",
+        "departure_time": "20-07-2024 12:05:17",
+        "arrival_time": "20-07-2024 17:15:07",
+        "airline_code": "DL",
+        "airline_name": "Delta Air Lines",
+        "flight_number": "2929",
+        "price": 573.61,
+        "duration": 5.16,
+        "distance": 2582
       },
       {
-        "flight_id": "72602d66-9d76-4da6-922a-a841335d4c44",
-        "departure_airport": "LAX",
-        "arrival_airport": "MIA",
-        "departure_time": "21-07-2024 04:11:42",
-        "arrival_time": "21-07-2024 08:52:45",
-        "airline_code": "B6",
-        "airline_name": "JetBlue Airways",
-        "flight_number": "5557",
-        "price": 680.82,
-        "duration": 4.68,
-        "distance": 2342
+        "flight_id": "decbb7aa-a408-49a1-86d8-3d96f55978ee",
+        "departure_airport": "MIA",
+        "arrival_airport": "DFW",
+        "departure_time": "20-07-2024 21:42:19",
+        "arrival_time": "20-07-2024 23:56:50",
+        "airline_code": "NK",
+        "airline_name": "Spirit Airlines",
+        "flight_number": "7353",
+        "price": 447.75,
+        "duration": 2.24,
+        "distance": 1121
       }
     ],
     "summary": {
-      "original_price": 984.64,
-      "discount_percentage": 0.0,
-      "discounted_price": 984.64,
-      "flight_time": 5.35,
-      "connection_time": 1.9,
-      "total_duration": 7.25,
-      "total_distance": 2679,
-      "score": 0.4411,
-      "path": "SFO -> LAX -> MIA"
+      "original_price": 1021.36,
+      "discount_percentage": 50.0,
+      "discounted_price": 510.68,
+      "flight_time": 7.4,
+      "connection_time": 4.45,
+      "total_duration": 11.85,
+      "total_distance": 3703,
+      "score": 0.4546,
+      "path": "SFO -> MIA -> DFW"
     }
   },
   {
     "rank": 9,
-    "option_id": "95e7bfd3-0ec6-4b4b-b601-10b719e569b2",
+    "option_id": "431ec649-21b3-44c7-8c2c-bb92e5c3b4ed",
     "flights": [
       {
-        "flight_id": "50a33860-08a9-4ad5-ba21-aa0a02300c5c",
+        "flight_id": "ebedc064-8cdc-4804-89c8-322bb88815bb",
         "departure_airport": "SFO",
-        "arrival_airport": "LAX",
-        "departure_time": "21-07-2024 03:44:26",
-        "arrival_time": "21-07-2024 04:24:52",
-        "airline_code": "NK",
-        "airline_name": "Spirit Airlines",
-        "flight_number": "7764",
-        "price": 981.14,
-        "duration": 0.67,
-        "distance": 337
+        "arrival_airport": "MIA",
+        "departure_time": "20-07-2024 12:05:17",
+        "arrival_time": "20-07-2024 17:15:07",
+        "airline_code": "DL",
+        "airline_name": "Delta Air Lines",
+        "flight_number": "2929",
+        "price": 573.61,
+        "duration": 5.16,
+        "distance": 2582
       },
       {
-        "flight_id": "1a21a121-81d0-4856-8591-9bb38ef0c2ec",
-        "departure_airport": "LAX",
-        "arrival_airport": "MIA",
-        "departure_time": "21-07-2024 10:02:41",
-        "arrival_time": "21-07-2024 14:43:43",
-        "airline_code": "UA",
-        "airline_name": "United Airlines",
-        "flight_number": "3219",
-        "price": 820.07,
-        "duration": 4.68,
-        "distance": 2342
+        "flight_id": "82c1f291-d402-4315-879d-f649e259cef7",
+        "departure_airport": "MIA",
+        "arrival_airport": "DFW",
+        "departure_time": "20-07-2024 22:10:49",
+        "arrival_time": "21-07-2024 00:25:20",
+        "airline_code": "DL",
+        "airline_name": "Delta Air Lines",
+        "flight_number": "2434",
+        "price": 574.96,
+        "duration": 2.24,
+        "distance": 1121
       }
     ],
     "summary": {
-      "original_price": 1801.21,
+      "original_price": 1148.57,
       "discount_percentage": 50.0,
-      "discounted_price": 900.61,
-      "flight_time": 5.35,
-      "connection_time": 5.63,
-      "total_duration": 10.98,
-      "total_distance": 2679,
-      "score": 0.597,
-      "path": "SFO -> LAX -> MIA"
+      "discounted_price": 574.29,
+      "flight_time": 7.4,
+      "connection_time": 4.93,
+      "total_duration": 12.33,
+      "total_distance": 3703,
+      "score": 0.202,
+      "path": "SFO -> MIA -> DFW"
     }
   },
   {
     "rank": 10,
-    "option_id": "ea195166-bc00-4db9-b327-5a4ff466a73a",
+    "option_id": "3e5931f7-b962-48d5-accf-908297704222",
     "flights": [
       {
-        "flight_id": "0df909c6-f87d-4e5e-9d96-c2f35dfc9ce9",
+        "flight_id": "75a6fc88-6cad-4512-860d-82decf7f0760",
         "departure_airport": "SFO",
         "arrival_airport": "JFK",
-        "departure_time": "21-07-2024 03:37:38",
-        "arrival_time": "21-07-2024 08:46:16",
-        "airline_code": "UA",
-        "airline_name": "United Airlines",
-        "flight_number": "3602",
-        "price": 572.12,
+        "departure_time": "20-07-2024 12:26:28",
+        "arrival_time": "20-07-2024 17:35:06",
+        "airline_code": "DL",
+        "airline_name": "Delta Air Lines",
+        "flight_number": "2171",
+        "price": 754.45,
         "duration": 5.14,
         "distance": 2572
       },
       {
-        "flight_id": "f14f19b4-8746-4176-a5cd-4c5ac03c826e",
+        "flight_id": "36a6c975-0459-48c8-af11-13a52d0ddf66",
         "departure_airport": "JFK",
         "arrival_airport": "DFW",
-        "departure_time": "21-07-2024 09:58:54",
-        "arrival_time": "21-07-2024 12:43:32",
-        "airline_code": "AA",
-        "airline_name": "American Airlines",
-        "flight_number": "1228",
-        "price": 246.54,
+        "departure_time": "20-07-2024 21:26:05",
+        "arrival_time": "21-07-2024 00:10:44",
+        "airline_code": "UA",
+        "airline_name": "United Airlines",
+        "flight_number": "3195",
+        "price": 484.69,
         "duration": 2.74,
         "distance": 1372
-      },
-      {
-        "flight_id": "79c7c245-6621-45c9-b82e-b82d9e4b55d9",
-        "departure_airport": "DFW",
-        "arrival_airport": "MIA",
-        "departure_time": "21-07-2024 16:39:48",
-        "arrival_time": "21-07-2024 18:54:19",
-        "airline_code": "AA",
-        "airline_name": "American Airlines",
-        "flight_number": "1605",
-        "price": 376.23,
-        "duration": 2.24,
-        "distance": 1121
       }
     ],
     "summary": {
-      "original_price": 1194.89,
+      "original_price": 1239.14,
       "discount_percentage": 50.0,
-      "discounted_price": 597.45,
-      "flight_time": 10.12,
-      "connection_time": 5.15,
-      "total_duration": 15.27,
-      "total_distance": 5065,
-      "score": 0.5094,
-      "path": "SFO -> JFK -> DFW -> MIA"
+      "discounted_price": 619.57,
+      "flight_time": 7.88,
+      "connection_time": 3.85,
+      "total_duration": 11.73,
+      "total_distance": 3944,
+      "score": 0.3007,
+      "path": "SFO -> JFK -> DFW"
     }
   },
   {
     "rank": 11,
-    "option_id": "a6da98ed-18b3-4857-9233-a2ba91841b0b",
+    "option_id": "9da6f0b5-249c-4804-ac4d-37e2bb0e2ffc",
     "flights": [
       {
-        "flight_id": "0df909c6-f87d-4e5e-9d96-c2f35dfc9ce9",
+        "flight_id": "75a6fc88-6cad-4512-860d-82decf7f0760",
         "departure_airport": "SFO",
         "arrival_airport": "JFK",
-        "departure_time": "21-07-2024 03:37:38",
-        "arrival_time": "21-07-2024 08:46:16",
-        "airline_code": "UA",
-        "airline_name": "United Airlines",
-        "flight_number": "3602",
-        "price": 572.12,
+        "departure_time": "20-07-2024 12:26:28",
+        "arrival_time": "20-07-2024 17:35:06",
+        "airline_code": "DL",
+        "airline_name": "Delta Air Lines",
+        "flight_number": "2171",
+        "price": 754.45,
         "duration": 5.14,
         "distance": 2572
       },
       {
-        "flight_id": "fcb2d4e3-5184-46b6-aa08-b059391b1b06",
+        "flight_id": "4d68908d-b18a-45e1-acc4-cda54e32d010",
         "departure_airport": "JFK",
         "arrival_airport": "DFW",
-        "departure_time": "21-07-2024 10:43:08",
-        "arrival_time": "21-07-2024 13:27:46",
-        "airline_code": "F9",
-        "airline_name": "Frontier Airlines",
-        "flight_number": "8886",
-        "price": 262.2,
+        "departure_time": "20-07-2024 19:32:19",
+        "arrival_time": "20-07-2024 22:16:57",
+        "airline_code": "B6",
+        "airline_name": "JetBlue Airways",
+        "flight_number": "5669",
+        "price": 786.45,
         "duration": 2.74,
         "distance": 1372
-      },
-      {
-        "flight_id": "79c7c245-6621-45c9-b82e-b82d9e4b55d9",
-        "departure_airport": "DFW",
-        "arrival_airport": "MIA",
-        "departure_time": "21-07-2024 16:39:48",
-        "arrival_time": "21-07-2024 18:54:19",
-        "airline_code": "AA",
-        "airline_name": "American Airlines",
-        "flight_number": "1605",
-        "price": 376.23,
-        "duration": 2.24,
-        "distance": 1121
       }
     ],
     "summary": {
-      "original_price": 1210.55,
+      "original_price": 1540.9,
       "discount_percentage": 50.0,
-      "discounted_price": 605.27,
-      "flight_time": 10.12,
-      "connection_time": 5.15,
-      "total_duration": 15.27,
-      "total_distance": 5065,
-      "score": 0.2022,
-      "path": "SFO -> JFK -> DFW -> MIA"
+      "discounted_price": 770.45,
+      "flight_time": 7.88,
+      "connection_time": 1.95,
+      "total_duration": 9.83,
+      "total_distance": 3944,
+      "score": 0.3149,
+      "path": "SFO -> JFK -> DFW"
     }
   },
   {
     "rank": 12,
-    "option_id": "b1b5c575-d168-4af1-a5ed-213d97cc34b5",
+    "option_id": "7766e173-2117-406d-98b0-0040af4d5ac9",
     "flights": [
       {
-        "flight_id": "cbf5edf0-fabf-4a9a-8a94-59d56bbf334d",
-        "departure_airport": "SFO",
-        "arrival_airport": "JFK",
-        "departure_time": "21-07-2024 03:50:53",
-        "arrival_time": "21-07-2024 08:59:32",
-        "airline_code": "B6",
-        "airline_name": "JetBlue Airways",
-        "flight_number": "5843",
-        "price": 679.26,
-        "duration": 5.14,
-        "distance": 2572
-      },
-      {
-        "flight_id": "fcb2d4e3-5184-46b6-aa08-b059391b1b06",
-        "departure_airport": "JFK",
-        "arrival_airport": "DFW",
-        "departure_time": "21-07-2024 10:43:08",
-        "arrival_time": "21-07-2024 13:27:46",
-        "airline_code": "F9",
-        "airline_name": "Frontier Airlines",
-        "flight_number": "8886",
-        "price": 262.2,
-        "duration": 2.74,
-        "distance": 1372
-      },
-      {
-        "flight_id": "79c7c245-6621-45c9-b82e-b82d9e4b55d9",
-        "departure_airport": "DFW",
-        "arrival_airport": "MIA",
-        "departure_time": "21-07-2024 16:39:48",
-        "arrival_time": "21-07-2024 18:54:19",
-        "airline_code": "AA",
-        "airline_name": "American Airlines",
-        "flight_number": "1605",
-        "price": 376.23,
-        "duration": 2.24,
-        "distance": 1121
-      }
-    ],
-    "summary": {
-      "original_price": 1317.69,
-      "discount_percentage": 50.0,
-      "discounted_price": 658.85,
-      "flight_time": 10.12,
-      "connection_time": 4.93,
-      "total_duration": 15.05,
-      "total_distance": 5065,
-      "score": 0.2062,
-      "path": "SFO -> JFK -> DFW -> MIA"
-    }
-  },
-  {
-    "rank": 13,
-    "option_id": "e5df104d-b363-4dc4-b16e-0f9fb0789e15",
-    "flights": [
-      {
-        "flight_id": "7d22b1c4-f071-4aee-a5f3-13fb36091381",
-        "departure_airport": "SFO",
-        "arrival_airport": "JFK",
-        "departure_time": "21-07-2024 02:11:17",
-        "arrival_time": "21-07-2024 07:19:55",
-        "airline_code": "UA",
-        "airline_name": "United Airlines",
-        "flight_number": "3324",
-        "price": 532.2,
-        "duration": 5.14,
-        "distance": 2572
-      },
-      {
-        "flight_id": "f14f19b4-8746-4176-a5cd-4c5ac03c826e",
-        "departure_airport": "JFK",
-        "arrival_airport": "DFW",
-        "departure_time": "21-07-2024 09:58:54",
-        "arrival_time": "21-07-2024 12:43:32",
-        "airline_code": "AA",
-        "airline_name": "American Airlines",
-        "flight_number": "1228",
-        "price": 246.54,
-        "duration": 2.74,
-        "distance": 1372
-      },
-      {
-        "flight_id": "79c7c245-6621-45c9-b82e-b82d9e4b55d9",
-        "departure_airport": "DFW",
-        "arrival_airport": "MIA",
-        "departure_time": "21-07-2024 16:39:48",
-        "arrival_time": "21-07-2024 18:54:19",
-        "airline_code": "AA",
-        "airline_name": "American Airlines",
-        "flight_number": "1605",
-        "price": 376.23,
-        "duration": 2.24,
-        "distance": 1121
-      }
-    ],
-    "summary": {
-      "original_price": 1154.97,
-      "discount_percentage": 50.0,
-      "discounted_price": 577.49,
-      "flight_time": 10.12,
-      "connection_time": 6.59,
-      "total_duration": 16.71,
-      "total_distance": 5065,
-      "score": 1.1935,
-      "path": "SFO -> JFK -> DFW -> MIA"
-    }
-  },
-  {
-    "rank": 14,
-    "option_id": "12c76b22-9a93-4435-b2fe-00a6db779569",
-    "flights": [
-      {
-        "flight_id": "7d22b1c4-f071-4aee-a5f3-13fb36091381",
-        "departure_airport": "SFO",
-        "arrival_airport": "JFK",
-        "departure_time": "21-07-2024 02:11:17",
-        "arrival_time": "21-07-2024 07:19:55",
-        "airline_code": "UA",
-        "airline_name": "United Airlines",
-        "flight_number": "3324",
-        "price": 532.2,
-        "duration": 5.14,
-        "distance": 2572
-      },
-      {
-        "flight_id": "fcb2d4e3-5184-46b6-aa08-b059391b1b06",
-        "departure_airport": "JFK",
-        "arrival_airport": "DFW",
-        "departure_time": "21-07-2024 10:43:08",
-        "arrival_time": "21-07-2024 13:27:46",
-        "airline_code": "F9",
-        "airline_name": "Frontier Airlines",
-        "flight_number": "8886",
-        "price": 262.2,
-        "duration": 2.74,
-        "distance": 1372
-      },
-      {
-        "flight_id": "79c7c245-6621-45c9-b82e-b82d9e4b55d9",
-        "departure_airport": "DFW",
-        "arrival_airport": "MIA",
-        "departure_time": "21-07-2024 16:39:48",
-        "arrival_time": "21-07-2024 18:54:19",
-        "airline_code": "AA",
-        "airline_name": "American Airlines",
-        "flight_number": "1605",
-        "price": 376.23,
-        "duration": 2.24,
-        "distance": 1121
-      }
-    ],
-    "summary": {
-      "original_price": 1170.63,
-      "discount_percentage": 50.0,
-      "discounted_price": 585.32,
-      "flight_time": 10.12,
-      "connection_time": 6.59,
-      "total_duration": 16.71,
-      "total_distance": 5065,
-      "score": 1.2,
-      "path": "SFO -> JFK -> DFW -> MIA"
-    }
-  },
-  {
-    "rank": 15,
-    "option_id": "2a0bd5b5-5c33-4407-94c2-2594654d7fe2",
-    "flights": [
-      {
-        "flight_id": "5f5aec7d-dc8a-4942-b3fb-6a00c823de7c",
+        "flight_id": "a792de31-d18c-4a2b-9b12-b087b9c4164c",
         "departure_airport": "SFO",
         "arrival_airport": "LAX",
-        "departure_time": "21-07-2024 01:37:11",
-        "arrival_time": "21-07-2024 02:17:37",
+        "departure_time": "20-07-2024 12:14:49",
+        "arrival_time": "20-07-2024 12:55:16",
         "airline_code": "F9",
         "airline_name": "Frontier Airlines",
-        "flight_number": "8155",
-        "price": 303.82,
+        "flight_number": "8492",
+        "price": 308.0,
         "duration": 0.67,
         "distance": 337
       },
       {
-        "flight_id": "c468c098-2efd-4899-aa46-3c838cc54d1c",
+        "flight_id": "9dfd8583-822f-4bc2-b8ba-d67a07093d73",
+        "departure_airport": "LAX",
+        "arrival_airport": "MIA",
+        "departure_time": "20-07-2024 15:31:42",
+        "arrival_time": "20-07-2024 20:12:45",
+        "airline_code": "UA",
+        "airline_name": "United Airlines",
+        "flight_number": "3000",
+        "price": 518.45,
+        "duration": 4.68,
+        "distance": 2342
+      },
+      {
+        "flight_id": "decbb7aa-a408-49a1-86d8-3d96f55978ee",
+        "departure_airport": "MIA",
+        "arrival_airport": "DFW",
+        "departure_time": "20-07-2024 21:42:19",
+        "arrival_time": "20-07-2024 23:56:50",
+        "airline_code": "NK",
+        "airline_name": "Spirit Airlines",
+        "flight_number": "7353",
+        "price": 447.75,
+        "duration": 2.24,
+        "distance": 1121
+      }
+    ],
+    "summary": {
+      "original_price": 1274.2,
+      "discount_percentage": 50.0,
+      "discounted_price": 637.1,
+      "flight_time": 7.59,
+      "connection_time": 4.1,
+      "total_duration": 11.69,
+      "total_distance": 3800,
+      "score": 0.0922,
+      "path": "SFO -> LAX -> MIA -> DFW"
+    }
+  },
+  {
+    "rank": 13,
+    "option_id": "1b18bfcd-92a8-48f4-91b4-6aff23fa6c6d",
+    "flights": [
+      {
+        "flight_id": "75a6fc88-6cad-4512-860d-82decf7f0760",
+        "departure_airport": "SFO",
+        "arrival_airport": "JFK",
+        "departure_time": "20-07-2024 12:26:28",
+        "arrival_time": "20-07-2024 17:35:06",
+        "airline_code": "DL",
+        "airline_name": "Delta Air Lines",
+        "flight_number": "2171",
+        "price": 754.45,
+        "duration": 5.14,
+        "distance": 2572
+      },
+      {
+        "flight_id": "36522e7b-ace2-4a2a-a5b1-cd242f08cc01",
+        "departure_airport": "JFK",
+        "arrival_airport": "ORD",
+        "departure_time": "20-07-2024 19:30:51",
+        "arrival_time": "20-07-2024 20:59:39",
+        "airline_code": "F9",
+        "airline_name": "Frontier Airlines",
+        "flight_number": "8186",
+        "price": 461.66,
+        "duration": 1.48,
+        "distance": 740
+      },
+      {
+        "flight_id": "05418aef-c678-47b2-9e36-4cbb63f308d8",
+        "departure_airport": "ORD",
+        "arrival_airport": "DFW",
+        "departure_time": "20-07-2024 23:20:11",
+        "arrival_time": "21-07-2024 00:56:26",
+        "airline_code": "AA",
+        "airline_name": "American Airlines",
+        "flight_number": "1628",
+        "price": 727.38,
+        "duration": 1.6,
+        "distance": 802
+      }
+    ],
+    "summary": {
+      "original_price": 1943.49,
+      "discount_percentage": 50.0,
+      "discounted_price": 971.75,
+      "flight_time": 8.22,
+      "connection_time": 4.27,
+      "total_duration": 12.49,
+      "total_distance": 4114,
+      "score": 0.1078,
+      "path": "SFO -> JFK -> ORD -> DFW"
+    }
+  },
+  {
+    "rank": 14,
+    "option_id": "b4e17c08-a057-4f93-b89a-715078d1db70",
+    "flights": [
+      {
+        "flight_id": "75a6fc88-6cad-4512-860d-82decf7f0760",
+        "departure_airport": "SFO",
+        "arrival_airport": "JFK",
+        "departure_time": "20-07-2024 12:26:28",
+        "arrival_time": "20-07-2024 17:35:06",
+        "airline_code": "DL",
+        "airline_name": "Delta Air Lines",
+        "flight_number": "2171",
+        "price": 754.45,
+        "duration": 5.14,
+        "distance": 2572
+      },
+      {
+        "flight_id": "e077314b-0b95-4ac9-aadd-ab2219e85971",
+        "departure_airport": "JFK",
+        "arrival_airport": "ORD",
+        "departure_time": "20-07-2024 19:43:45",
+        "arrival_time": "20-07-2024 21:12:33",
+        "airline_code": "NK",
+        "airline_name": "Spirit Airlines",
+        "flight_number": "7521",
+        "price": 494.42,
+        "duration": 1.48,
+        "distance": 740
+      },
+      {
+        "flight_id": "05418aef-c678-47b2-9e36-4cbb63f308d8",
+        "departure_airport": "ORD",
+        "arrival_airport": "DFW",
+        "departure_time": "20-07-2024 23:20:11",
+        "arrival_time": "21-07-2024 00:56:26",
+        "airline_code": "AA",
+        "airline_name": "American Airlines",
+        "flight_number": "1628",
+        "price": 727.38,
+        "duration": 1.6,
+        "distance": 802
+      }
+    ],
+    "summary": {
+      "original_price": 1976.25,
+      "discount_percentage": 50.0,
+      "discounted_price": 988.12,
+      "flight_time": 8.22,
+      "connection_time": 4.27,
+      "total_duration": 12.49,
+      "total_distance": 4114,
+      "score": 0.2672,
+      "path": "SFO -> JFK -> ORD -> DFW"
+    }
+  },
+  {
+    "rank": 15,
+    "option_id": "c64ee923-4cc9-440f-b2ed-2eb29a4aa6a1",
+    "flights": [
+      {
+        "flight_id": "a792de31-d18c-4a2b-9b12-b087b9c4164c",
+        "departure_airport": "SFO",
+        "arrival_airport": "LAX",
+        "departure_time": "20-07-2024 12:14:49",
+        "arrival_time": "20-07-2024 12:55:16",
+        "airline_code": "F9",
+        "airline_name": "Frontier Airlines",
+        "flight_number": "8492",
+        "price": 308.0,
+        "duration": 0.67,
+        "distance": 337
+      },
+      {
+        "flight_id": "9dfd8583-822f-4bc2-b8ba-d67a07093d73",
+        "departure_airport": "LAX",
+        "arrival_airport": "MIA",
+        "departure_time": "20-07-2024 15:31:42",
+        "arrival_time": "20-07-2024 20:12:45",
+        "airline_code": "UA",
+        "airline_name": "United Airlines",
+        "flight_number": "3000",
+        "price": 518.45,
+        "duration": 4.68,
+        "distance": 2342
+      },
+      {
+        "flight_id": "82c1f291-d402-4315-879d-f649e259cef7",
+        "departure_airport": "MIA",
+        "arrival_airport": "DFW",
+        "departure_time": "20-07-2024 22:10:49",
+        "arrival_time": "21-07-2024 00:25:20",
+        "airline_code": "DL",
+        "airline_name": "Delta Air Lines",
+        "flight_number": "2434",
+        "price": 574.96,
+        "duration": 2.24,
+        "distance": 1121
+      }
+    ],
+    "summary": {
+      "original_price": 1401.41,
+      "discount_percentage": 50.0,
+      "discounted_price": 700.71,
+      "flight_time": 7.59,
+      "connection_time": 4.58,
+      "total_duration": 12.16,
+      "total_distance": 3800,
+      "score": 0.2181,
+      "path": "SFO -> LAX -> MIA -> DFW"
+    }
+  },
+  {
+    "rank": 16,
+    "option_id": "19e6b8ff-021b-4910-b58d-5af168e4d2e2",
+    "flights": [
+      {
+        "flight_id": "7266d3d6-ce90-4abf-8a77-1885c59ae587",
+        "departure_airport": "SFO",
+        "arrival_airport": "JFK",
+        "departure_time": "20-07-2024 13:37:34",
+        "arrival_time": "20-07-2024 18:46:12",
+        "airline_code": "F9",
+        "airline_name": "Frontier Airlines",
+        "flight_number": "8917",
+        "price": 574.19,
+        "duration": 5.14,
+        "distance": 2572
+      },
+      {
+        "flight_id": "65f6e229-487a-4d25-a677-be5ad0ba19da",
+        "departure_airport": "JFK",
+        "arrival_airport": "SEA",
+        "departure_time": "20-07-2024 23:11:09",
+        "arrival_time": "21-07-2024 04:00:50",
+        "airline_code": "AS",
+        "airline_name": "Alaska Airlines",
+        "flight_number": "6569",
+        "price": 267.74,
+        "duration": 4.83,
+        "distance": 2414
+      },
+      {
+        "flight_id": "8a4853f7-f8ec-40f1-b579-d090690b3832",
+        "departure_airport": "SEA",
+        "arrival_airport": "DFW",
+        "departure_time": "21-07-2024 06:37:55",
+        "arrival_time": "21-07-2024 09:57:07",
+        "airline_code": "WN",
+        "airline_name": "Southwest Airlines",
+        "flight_number": "4221",
+        "price": 141.04,
+        "duration": 3.32,
+        "distance": 1660
+      }
+    ],
+    "summary": {
+      "original_price": 982.97,
+      "discount_percentage": 50.0,
+      "discounted_price": 491.49,
+      "flight_time": 13.29,
+      "connection_time": 7.03,
+      "total_duration": 20.32,
+      "total_distance": 6646,
+      "score": 0.3727,
+      "path": "SFO -> JFK -> SEA -> DFW"
+    }
+  },
+  {
+    "rank": 17,
+    "option_id": "daf5a73a-e2f8-4ae0-a6a2-fe085b792f20",
+    "flights": [
+      {
+        "flight_id": "7266d3d6-ce90-4abf-8a77-1885c59ae587",
+        "departure_airport": "SFO",
+        "arrival_airport": "JFK",
+        "departure_time": "20-07-2024 13:37:34",
+        "arrival_time": "20-07-2024 18:46:12",
+        "airline_code": "F9",
+        "airline_name": "Frontier Airlines",
+        "flight_number": "8917",
+        "price": 574.19,
+        "duration": 5.14,
+        "distance": 2572
+      },
+      {
+        "flight_id": "b07bbc92-6c3b-4beb-9868-a329ba83978a",
+        "departure_airport": "JFK",
+        "arrival_airport": "SEA",
+        "departure_time": "20-07-2024 23:53:10",
+        "arrival_time": "21-07-2024 04:42:51",
+        "airline_code": "UA",
+        "airline_name": "United Airlines",
+        "flight_number": "3280",
+        "price": 309.22,
+        "duration": 4.83,
+        "distance": 2414
+      },
+      {
+        "flight_id": "8a4853f7-f8ec-40f1-b579-d090690b3832",
+        "departure_airport": "SEA",
+        "arrival_airport": "DFW",
+        "departure_time": "21-07-2024 06:37:55",
+        "arrival_time": "21-07-2024 09:57:07",
+        "airline_code": "WN",
+        "airline_name": "Southwest Airlines",
+        "flight_number": "4221",
+        "price": 141.04,
+        "duration": 3.32,
+        "distance": 1660
+      }
+    ],
+    "summary": {
+      "original_price": 1024.45,
+      "discount_percentage": 50.0,
+      "discounted_price": 512.23,
+      "flight_time": 13.29,
+      "connection_time": 7.03,
+      "total_duration": 20.32,
+      "total_distance": 6646,
+      "score": 0.6462,
+      "path": "SFO -> JFK -> SEA -> DFW"
+    }
+  },
+  {
+    "rank": 18,
+    "option_id": "822ee884-bb59-4df1-9e08-d60f94c6554a",
+    "flights": [
+      {
+        "flight_id": "75a6fc88-6cad-4512-860d-82decf7f0760",
+        "departure_airport": "SFO",
+        "arrival_airport": "JFK",
+        "departure_time": "20-07-2024 12:26:28",
+        "arrival_time": "20-07-2024 17:35:06",
+        "airline_code": "DL",
+        "airline_name": "Delta Air Lines",
+        "flight_number": "2171",
+        "price": 754.45,
+        "duration": 5.14,
+        "distance": 2572
+      },
+      {
+        "flight_id": "36522e7b-ace2-4a2a-a5b1-cd242f08cc01",
+        "departure_airport": "JFK",
+        "arrival_airport": "ORD",
+        "departure_time": "20-07-2024 19:30:51",
+        "arrival_time": "20-07-2024 20:59:39",
+        "airline_code": "F9",
+        "airline_name": "Frontier Airlines",
+        "flight_number": "8186",
+        "price": 461.66,
+        "duration": 1.48,
+        "distance": 740
+      },
+      {
+        "flight_id": "36882563-1fd1-47de-a581-9fc9e83f93ca",
+        "departure_airport": "ORD",
+        "arrival_airport": "DFW",
+        "departure_time": "20-07-2024 22:50:50",
+        "arrival_time": "21-07-2024 00:27:05",
+        "airline_code": "DL",
+        "airline_name": "Delta Air Lines",
+        "flight_number": "2689",
+        "price": 811.53,
+        "duration": 1.6,
+        "distance": 802
+      }
+    ],
+    "summary": {
+      "original_price": 2027.64,
+      "discount_percentage": 50.0,
+      "discounted_price": 1013.82,
+      "flight_time": 8.22,
+      "connection_time": 3.78,
+      "total_duration": 12.0,
+      "total_distance": 4114,
+      "score": 0.6095,
+      "path": "SFO -> JFK -> ORD -> DFW"
+    }
+  },
+  {
+    "rank": 19,
+    "option_id": "6325dc54-e101-4ef2-be0f-0253a07a5eb5",
+    "flights": [
+      {
+        "flight_id": "ebedc064-8cdc-4804-89c8-322bb88815bb",
+        "departure_airport": "SFO",
+        "arrival_airport": "MIA",
+        "departure_time": "20-07-2024 12:05:17",
+        "arrival_time": "20-07-2024 17:15:07",
+        "airline_code": "DL",
+        "airline_name": "Delta Air Lines",
+        "flight_number": "2929",
+        "price": 573.61,
+        "duration": 5.16,
+        "distance": 2582
+      },
+      {
+        "flight_id": "c028615f-30b0-4940-9076-1eb1bf559108",
+        "departure_airport": "MIA",
+        "arrival_airport": "ORD",
+        "departure_time": "20-07-2024 23:13:11",
+        "arrival_time": "21-07-2024 01:36:49",
+        "airline_code": "F9",
+        "airline_name": "Frontier Airlines",
+        "flight_number": "8617",
+        "price": 978.65,
+        "duration": 2.39,
+        "distance": 1197
+      },
+      {
+        "flight_id": "c0c05514-3931-44f0-b968-8efb1677ced0",
+        "departure_airport": "ORD",
+        "arrival_airport": "DFW",
+        "departure_time": "21-07-2024 07:29:54",
+        "arrival_time": "21-07-2024 09:06:08",
+        "airline_code": "NK",
+        "airline_name": "Spirit Airlines",
+        "flight_number": "7995",
+        "price": 349.75,
+        "duration": 1.6,
+        "distance": 802
+      }
+    ],
+    "summary": {
+      "original_price": 1902.01,
+      "discount_percentage": 70.0,
+      "discounted_price": 570.6,
+      "flight_time": 9.15,
+      "connection_time": 11.85,
+      "total_duration": 21.0,
+      "total_distance": 4581,
+      "score": 0.5863,
+      "path": "SFO -> MIA -> ORD -> DFW"
+    }
+  },
+  {
+    "rank": 20,
+    "option_id": "8b21871e-c61f-466c-a300-f3cd95a48e50",
+    "flights": [
+      {
+        "flight_id": "7266d3d6-ce90-4abf-8a77-1885c59ae587",
+        "departure_airport": "SFO",
+        "arrival_airport": "JFK",
+        "departure_time": "20-07-2024 13:37:34",
+        "arrival_time": "20-07-2024 18:46:12",
+        "airline_code": "F9",
+        "airline_name": "Frontier Airlines",
+        "flight_number": "8917",
+        "price": 574.19,
+        "duration": 5.14,
+        "distance": 2572
+      },
+      {
+        "flight_id": "f698efac-1c15-4c2d-a25d-d83c3728e54a",
+        "departure_airport": "JFK",
+        "arrival_airport": "SEA",
+        "departure_time": "20-07-2024 23:15:02",
+        "arrival_time": "21-07-2024 04:04:43",
+        "airline_code": "UA",
+        "airline_name": "United Airlines",
+        "flight_number": "3694",
+        "price": 496.12,
+        "duration": 4.83,
+        "distance": 2414
+      },
+      {
+        "flight_id": "8a4853f7-f8ec-40f1-b579-d090690b3832",
+        "departure_airport": "SEA",
+        "arrival_airport": "DFW",
+        "departure_time": "21-07-2024 06:37:55",
+        "arrival_time": "21-07-2024 09:57:07",
+        "airline_code": "WN",
+        "airline_name": "Southwest Airlines",
+        "flight_number": "4221",
+        "price": 141.04,
+        "duration": 3.32,
+        "distance": 1660
+      }
+    ],
+    "summary": {
+      "original_price": 1211.35,
+      "discount_percentage": 50.0,
+      "discounted_price": 605.68,
+      "flight_time": 13.29,
+      "connection_time": 7.03,
+      "total_duration": 20.32,
+      "total_distance": 6646,
+      "score": 0.1653,
+      "path": "SFO -> JFK -> SEA -> DFW"
+    }
+  },
+  {
+    "rank": 21,
+    "option_id": "57eb20e4-ad3c-47d4-a5b0-9b2505278568",
+    "flights": [
+      {
+        "flight_id": "7266d3d6-ce90-4abf-8a77-1885c59ae587",
+        "departure_airport": "SFO",
+        "arrival_airport": "JFK",
+        "departure_time": "20-07-2024 13:37:34",
+        "arrival_time": "20-07-2024 18:46:12",
+        "airline_code": "F9",
+        "airline_name": "Frontier Airlines",
+        "flight_number": "8917",
+        "price": 574.19,
+        "duration": 5.14,
+        "distance": 2572
+      },
+      {
+        "flight_id": "30012450-41b8-4068-b0c2-ba560f3606aa",
+        "departure_airport": "JFK",
+        "arrival_airport": "LAX",
+        "departure_time": "20-07-2024 22:13:05",
+        "arrival_time": "21-07-2024 03:10:05",
+        "airline_code": "NK",
+        "airline_name": "Spirit Airlines",
+        "flight_number": "7186",
+        "price": 500.42,
+        "duration": 4.95,
+        "distance": 2475
+      },
+      {
+        "flight_id": "c87d25e4-db9f-461f-9dfa-785f75eb55f9",
         "departure_airport": "LAX",
         "arrival_airport": "DFW",
         "departure_time": "21-07-2024 04:18:44",
@@ -656,686 +1005,2199 @@
         "price": 453.65,
         "duration": 2.47,
         "distance": 1235
-      },
-      {
-        "flight_id": "4593b8aa-f1a3-44db-8a96-bcee3a3e490f",
-        "departure_airport": "DFW",
-        "arrival_airport": "MIA",
-        "departure_time": "21-07-2024 07:52:29",
-        "arrival_time": "21-07-2024 10:07:00",
-        "airline_code": "WN",
-        "airline_name": "Southwest Airlines",
-        "flight_number": "4078",
-        "price": 925.6,
-        "duration": 2.24,
-        "distance": 1121
       }
     ],
     "summary": {
-      "original_price": 1683.07,
+      "original_price": 1528.26,
       "discount_percentage": 50.0,
-      "discounted_price": 841.53,
-      "flight_time": 5.38,
-      "connection_time": 3.11,
-      "total_duration": 8.49,
-      "total_distance": 2693,
-      "score": 1.1984,
-      "path": "SFO -> LAX -> DFW -> MIA"
-    }
-  },
-  {
-    "rank": 16,
-    "option_id": "8383acaf-c9f5-439c-aecd-5f4a0da8ecbf",
-    "flights": [
-      {
-        "flight_id": "0df909c6-f87d-4e5e-9d96-c2f35dfc9ce9",
-        "departure_airport": "SFO",
-        "arrival_airport": "JFK",
-        "departure_time": "21-07-2024 03:37:38",
-        "arrival_time": "21-07-2024 08:46:16",
-        "airline_code": "UA",
-        "airline_name": "United Airlines",
-        "flight_number": "3602",
-        "price": 572.12,
-        "duration": 5.14,
-        "distance": 2572
-      },
-      {
-        "flight_id": "f14f19b4-8746-4176-a5cd-4c5ac03c826e",
-        "departure_airport": "JFK",
-        "arrival_airport": "DFW",
-        "departure_time": "21-07-2024 09:58:54",
-        "arrival_time": "21-07-2024 12:43:32",
-        "airline_code": "AA",
-        "airline_name": "American Airlines",
-        "flight_number": "1228",
-        "price": 246.54,
-        "duration": 2.74,
-        "distance": 1372
-      },
-      {
-        "flight_id": "b1e353ce-b673-4ff8-a891-7375c132218f",
-        "departure_airport": "DFW",
-        "arrival_airport": "MIA",
-        "departure_time": "21-07-2024 18:20:29",
-        "arrival_time": "21-07-2024 20:35:00",
-        "airline_code": "NK",
-        "airline_name": "Spirit Airlines",
-        "flight_number": "7083",
-        "price": 608.65,
-        "duration": 2.24,
-        "distance": 1121
-      }
-    ],
-    "summary": {
-      "original_price": 1427.31,
-      "discount_percentage": 50.0,
-      "discounted_price": 713.65,
-      "flight_time": 10.12,
-      "connection_time": 6.83,
-      "total_duration": 16.95,
-      "total_distance": 5065,
-      "score": 0.4826,
-      "path": "SFO -> JFK -> DFW -> MIA"
-    }
-  },
-  {
-    "rank": 17,
-    "option_id": "94bf1c97-4549-475b-a51d-a7777302651c",
-    "flights": [
-      {
-        "flight_id": "50a33860-08a9-4ad5-ba21-aa0a02300c5c",
-        "departure_airport": "SFO",
-        "arrival_airport": "LAX",
-        "departure_time": "21-07-2024 03:44:26",
-        "arrival_time": "21-07-2024 04:24:52",
-        "airline_code": "NK",
-        "airline_name": "Spirit Airlines",
-        "flight_number": "7764",
-        "price": 981.14,
-        "duration": 0.67,
-        "distance": 337
-      },
-      {
-        "flight_id": "c6592527-2f47-4ca1-80d6-bdd8dd86a317",
-        "departure_airport": "LAX",
-        "arrival_airport": "DFW",
-        "departure_time": "21-07-2024 08:26:46",
-        "arrival_time": "21-07-2024 10:54:58",
-        "airline_code": "WN",
-        "airline_name": "Southwest Airlines",
-        "flight_number": "4034",
-        "price": 382.06,
-        "duration": 2.47,
-        "distance": 1235
-      },
-      {
-        "flight_id": "79c7c245-6621-45c9-b82e-b82d9e4b55d9",
-        "departure_airport": "DFW",
-        "arrival_airport": "MIA",
-        "departure_time": "21-07-2024 16:39:48",
-        "arrival_time": "21-07-2024 18:54:19",
-        "airline_code": "AA",
-        "airline_name": "American Airlines",
-        "flight_number": "1605",
-        "price": 376.23,
-        "duration": 2.24,
-        "distance": 1121
-      }
-    ],
-    "summary": {
-      "original_price": 1739.43,
-      "discount_percentage": 50.0,
-      "discounted_price": 869.72,
-      "flight_time": 5.38,
-      "connection_time": 9.78,
-      "total_duration": 15.16,
-      "total_distance": 2693,
-      "score": 0.4245,
-      "path": "SFO -> LAX -> DFW -> MIA"
-    }
-  },
-  {
-    "rank": 18,
-    "option_id": "01ac2ad6-8fe6-47e2-a3f0-2dc6cbae3717",
-    "flights": [
-      {
-        "flight_id": "7d22b1c4-f071-4aee-a5f3-13fb36091381",
-        "departure_airport": "SFO",
-        "arrival_airport": "JFK",
-        "departure_time": "21-07-2024 02:11:17",
-        "arrival_time": "21-07-2024 07:19:55",
-        "airline_code": "UA",
-        "airline_name": "United Airlines",
-        "flight_number": "3324",
-        "price": 532.2,
-        "duration": 5.14,
-        "distance": 2572
-      },
-      {
-        "flight_id": "f14f19b4-8746-4176-a5cd-4c5ac03c826e",
-        "departure_airport": "JFK",
-        "arrival_airport": "DFW",
-        "departure_time": "21-07-2024 09:58:54",
-        "arrival_time": "21-07-2024 12:43:32",
-        "airline_code": "AA",
-        "airline_name": "American Airlines",
-        "flight_number": "1228",
-        "price": 246.54,
-        "duration": 2.74,
-        "distance": 1372
-      },
-      {
-        "flight_id": "b1e353ce-b673-4ff8-a891-7375c132218f",
-        "departure_airport": "DFW",
-        "arrival_airport": "MIA",
-        "departure_time": "21-07-2024 18:20:29",
-        "arrival_time": "21-07-2024 20:35:00",
-        "airline_code": "NK",
-        "airline_name": "Spirit Airlines",
-        "flight_number": "7083",
-        "price": 608.65,
-        "duration": 2.24,
-        "distance": 1121
-      }
-    ],
-    "summary": {
-      "original_price": 1387.39,
-      "discount_percentage": 50.0,
-      "discounted_price": 693.7,
-      "flight_time": 10.12,
-      "connection_time": 8.27,
-      "total_duration": 18.39,
-      "total_distance": 5065,
-      "score": 0.4807,
-      "path": "SFO -> JFK -> DFW -> MIA"
-    }
-  },
-  {
-    "rank": 19,
-    "option_id": "03f42d1e-05fc-4a28-8f58-1f858aae722c",
-    "flights": [
-      {
-        "flight_id": "090022af-f078-4453-8323-0c894d89c798",
-        "departure_airport": "SFO",
-        "arrival_airport": "DFW",
-        "departure_time": "21-07-2024 02:46:37",
-        "arrival_time": "21-07-2024 05:42:18",
-        "airline_code": "B6",
-        "airline_name": "JetBlue Airways",
-        "flight_number": "5070",
-        "price": 667.54,
-        "duration": 2.93,
-        "distance": 1464
-      },
-      {
-        "flight_id": "4593b8aa-f1a3-44db-8a96-bcee3a3e490f",
-        "departure_airport": "DFW",
-        "arrival_airport": "MIA",
-        "departure_time": "21-07-2024 07:52:29",
-        "arrival_time": "21-07-2024 10:07:00",
-        "airline_code": "WN",
-        "airline_name": "Southwest Airlines",
-        "flight_number": "4078",
-        "price": 925.6,
-        "duration": 2.24,
-        "distance": 1121
-      }
-    ],
-    "summary": {
-      "original_price": 1593.14,
-      "discount_percentage": 0.0,
-      "discounted_price": 1593.14,
-      "flight_time": 5.17,
-      "connection_time": 2.17,
-      "total_duration": 7.34,
-      "total_distance": 2585,
-      "score": 0.3226,
-      "path": "SFO -> DFW -> MIA"
-    }
-  },
-  {
-    "rank": 20,
-    "option_id": "53623dab-f3ba-43b2-8ee8-48d2f144af3f",
-    "flights": [
-      {
-        "flight_id": "0df909c6-f87d-4e5e-9d96-c2f35dfc9ce9",
-        "departure_airport": "SFO",
-        "arrival_airport": "JFK",
-        "departure_time": "21-07-2024 03:37:38",
-        "arrival_time": "21-07-2024 08:46:16",
-        "airline_code": "UA",
-        "airline_name": "United Airlines",
-        "flight_number": "3602",
-        "price": 572.12,
-        "duration": 5.14,
-        "distance": 2572
-      },
-      {
-        "flight_id": "fcb2d4e3-5184-46b6-aa08-b059391b1b06",
-        "departure_airport": "JFK",
-        "arrival_airport": "DFW",
-        "departure_time": "21-07-2024 10:43:08",
-        "arrival_time": "21-07-2024 13:27:46",
-        "airline_code": "F9",
-        "airline_name": "Frontier Airlines",
-        "flight_number": "8886",
-        "price": 262.2,
-        "duration": 2.74,
-        "distance": 1372
-      },
-      {
-        "flight_id": "b1e353ce-b673-4ff8-a891-7375c132218f",
-        "departure_airport": "DFW",
-        "arrival_airport": "MIA",
-        "departure_time": "21-07-2024 18:20:29",
-        "arrival_time": "21-07-2024 20:35:00",
-        "airline_code": "NK",
-        "airline_name": "Spirit Airlines",
-        "flight_number": "7083",
-        "price": 608.65,
-        "duration": 2.24,
-        "distance": 1121
-      }
-    ],
-    "summary": {
-      "original_price": 1442.97,
-      "discount_percentage": 50.0,
-      "discounted_price": 721.49,
-      "flight_time": 10.12,
-      "connection_time": 6.83,
-      "total_duration": 16.95,
-      "total_distance": 5065,
-      "score": 0.5039,
-      "path": "SFO -> JFK -> DFW -> MIA"
-    }
-  },
-  {
-    "rank": 21,
-    "option_id": "586796f7-1932-4efd-b7e9-d679d4611095",
-    "flights": [
-      {
-        "flight_id": "5f5aec7d-dc8a-4942-b3fb-6a00c823de7c",
-        "departure_airport": "SFO",
-        "arrival_airport": "LAX",
-        "departure_time": "21-07-2024 01:37:11",
-        "arrival_time": "21-07-2024 02:17:37",
-        "airline_code": "F9",
-        "airline_name": "Frontier Airlines",
-        "flight_number": "8155",
-        "price": 303.82,
-        "duration": 0.67,
-        "distance": 337
-      },
-      {
-        "flight_id": "a0b5dde5-34ef-4c2e-96d3-37bb73857df6",
-        "departure_airport": "LAX",
-        "arrival_airport": "SEA",
-        "departure_time": "21-07-2024 06:23:45",
-        "arrival_time": "21-07-2024 08:18:14",
-        "airline_code": "AA",
-        "airline_name": "American Airlines",
-        "flight_number": "1940",
-        "price": 377.2,
-        "duration": 1.91,
-        "distance": 954
-      },
-      {
-        "flight_id": "47a08bd4-fdce-4066-9011-8d047e4034ca",
-        "departure_airport": "SEA",
-        "arrival_airport": "DFW",
-        "departure_time": "21-07-2024 13:48:38",
-        "arrival_time": "21-07-2024 17:07:50",
-        "airline_code": "WN",
-        "airline_name": "Southwest Airlines",
-        "flight_number": "4875",
-        "price": 649.47,
-        "duration": 3.32,
-        "distance": 1660
-      },
-      {
-        "flight_id": "b1e353ce-b673-4ff8-a891-7375c132218f",
-        "departure_airport": "DFW",
-        "arrival_airport": "MIA",
-        "departure_time": "21-07-2024 18:20:29",
-        "arrival_time": "21-07-2024 20:35:00",
-        "airline_code": "NK",
-        "airline_name": "Spirit Airlines",
-        "flight_number": "7083",
-        "price": 608.65,
-        "duration": 2.24,
-        "distance": 1121
-      }
-    ],
-    "summary": {
-      "original_price": 1939.14,
-      "discount_percentage": 70.0,
-      "discounted_price": 581.74,
-      "flight_time": 8.14,
-      "connection_time": 10.82,
-      "total_duration": 18.96,
-      "total_distance": 4072,
-      "score": 0.4458,
-      "path": "SFO -> LAX -> SEA -> DFW -> MIA"
+      "discounted_price": 764.13,
+      "flight_time": 12.56,
+      "connection_time": 4.59,
+      "total_duration": 17.15,
+      "total_distance": 6282,
+      "score": 0.6365,
+      "path": "SFO -> JFK -> LAX -> DFW"
     }
   },
   {
     "rank": 22,
-    "option_id": "0947fb98-55de-4de7-bd81-836a86876dee",
+    "option_id": "70aa144f-2dd9-47c6-885d-004149426e11",
     "flights": [
       {
-        "flight_id": "5f5aec7d-dc8a-4942-b3fb-6a00c823de7c",
+        "flight_id": "75a6fc88-6cad-4512-860d-82decf7f0760",
         "departure_airport": "SFO",
-        "arrival_airport": "LAX",
-        "departure_time": "21-07-2024 01:37:11",
-        "arrival_time": "21-07-2024 02:17:37",
-        "airline_code": "F9",
-        "airline_name": "Frontier Airlines",
-        "flight_number": "8155",
-        "price": 303.82,
-        "duration": 0.67,
-        "distance": 337
+        "arrival_airport": "JFK",
+        "departure_time": "20-07-2024 12:26:28",
+        "arrival_time": "20-07-2024 17:35:06",
+        "airline_code": "DL",
+        "airline_name": "Delta Air Lines",
+        "flight_number": "2171",
+        "price": 754.45,
+        "duration": 5.14,
+        "distance": 2572
       },
       {
-        "flight_id": "a0b5dde5-34ef-4c2e-96d3-37bb73857df6",
-        "departure_airport": "LAX",
-        "arrival_airport": "SEA",
-        "departure_time": "21-07-2024 06:23:45",
-        "arrival_time": "21-07-2024 08:18:14",
-        "airline_code": "AA",
-        "airline_name": "American Airlines",
-        "flight_number": "1940",
-        "price": 377.2,
-        "duration": 1.91,
-        "distance": 954
-      },
-      {
-        "flight_id": "82f72818-563d-4bf1-bd56-0674e67f7789",
-        "departure_airport": "SEA",
-        "arrival_airport": "DFW",
-        "departure_time": "21-07-2024 12:47:20",
-        "arrival_time": "21-07-2024 16:06:32",
-        "airline_code": "F9",
-        "airline_name": "Frontier Airlines",
-        "flight_number": "8755",
-        "price": 683.81,
-        "duration": 3.32,
-        "distance": 1660
-      },
-      {
-        "flight_id": "b1e353ce-b673-4ff8-a891-7375c132218f",
-        "departure_airport": "DFW",
-        "arrival_airport": "MIA",
-        "departure_time": "21-07-2024 18:20:29",
-        "arrival_time": "21-07-2024 20:35:00",
+        "flight_id": "e077314b-0b95-4ac9-aadd-ab2219e85971",
+        "departure_airport": "JFK",
+        "arrival_airport": "ORD",
+        "departure_time": "20-07-2024 19:43:45",
+        "arrival_time": "20-07-2024 21:12:33",
         "airline_code": "NK",
         "airline_name": "Spirit Airlines",
-        "flight_number": "7083",
-        "price": 608.65,
-        "duration": 2.24,
-        "distance": 1121
+        "flight_number": "7521",
+        "price": 494.42,
+        "duration": 1.48,
+        "distance": 740
+      },
+      {
+        "flight_id": "36882563-1fd1-47de-a581-9fc9e83f93ca",
+        "departure_airport": "ORD",
+        "arrival_airport": "DFW",
+        "departure_time": "20-07-2024 22:50:50",
+        "arrival_time": "21-07-2024 00:27:05",
+        "airline_code": "DL",
+        "airline_name": "Delta Air Lines",
+        "flight_number": "2689",
+        "price": 811.53,
+        "duration": 1.6,
+        "distance": 802
       }
     ],
     "summary": {
-      "original_price": 1973.48,
-      "discount_percentage": 70.0,
-      "discounted_price": 592.04,
-      "flight_time": 8.14,
-      "connection_time": 10.82,
-      "total_duration": 18.96,
-      "total_distance": 4072,
-      "score": 0.502,
-      "path": "SFO -> LAX -> SEA -> DFW -> MIA"
+      "original_price": 2060.4,
+      "discount_percentage": 50.0,
+      "discounted_price": 1030.2,
+      "flight_time": 8.22,
+      "connection_time": 3.78,
+      "total_duration": 12.0,
+      "total_distance": 4114,
+      "score": 0.5667,
+      "path": "SFO -> JFK -> ORD -> DFW"
     }
   },
   {
     "rank": 23,
-    "option_id": "98f1240a-cb65-4777-ada1-fe456b5b1e80",
+    "option_id": "dacdc0e6-5987-4ef8-8ae5-20fe868c0790",
     "flights": [
       {
-        "flight_id": "cbf5edf0-fabf-4a9a-8a94-59d56bbf334d",
+        "flight_id": "75a6fc88-6cad-4512-860d-82decf7f0760",
         "departure_airport": "SFO",
         "arrival_airport": "JFK",
-        "departure_time": "21-07-2024 03:50:53",
-        "arrival_time": "21-07-2024 08:59:32",
-        "airline_code": "B6",
-        "airline_name": "JetBlue Airways",
-        "flight_number": "5843",
-        "price": 679.26,
+        "departure_time": "20-07-2024 12:26:28",
+        "arrival_time": "20-07-2024 17:35:06",
+        "airline_code": "DL",
+        "airline_name": "Delta Air Lines",
+        "flight_number": "2171",
+        "price": 754.45,
         "duration": 5.14,
         "distance": 2572
       },
       {
-        "flight_id": "fcb2d4e3-5184-46b6-aa08-b059391b1b06",
+        "flight_id": "65f6e229-487a-4d25-a677-be5ad0ba19da",
         "departure_airport": "JFK",
-        "arrival_airport": "DFW",
-        "departure_time": "21-07-2024 10:43:08",
-        "arrival_time": "21-07-2024 13:27:46",
-        "airline_code": "F9",
-        "airline_name": "Frontier Airlines",
-        "flight_number": "8886",
-        "price": 262.2,
-        "duration": 2.74,
-        "distance": 1372
+        "arrival_airport": "SEA",
+        "departure_time": "20-07-2024 23:11:09",
+        "arrival_time": "21-07-2024 04:00:50",
+        "airline_code": "AS",
+        "airline_name": "Alaska Airlines",
+        "flight_number": "6569",
+        "price": 267.74,
+        "duration": 4.83,
+        "distance": 2414
       },
       {
-        "flight_id": "b1e353ce-b673-4ff8-a891-7375c132218f",
-        "departure_airport": "DFW",
-        "arrival_airport": "MIA",
-        "departure_time": "21-07-2024 18:20:29",
-        "arrival_time": "21-07-2024 20:35:00",
-        "airline_code": "NK",
-        "airline_name": "Spirit Airlines",
-        "flight_number": "7083",
-        "price": 608.65,
-        "duration": 2.24,
-        "distance": 1121
+        "flight_id": "8a4853f7-f8ec-40f1-b579-d090690b3832",
+        "departure_airport": "SEA",
+        "arrival_airport": "DFW",
+        "departure_time": "21-07-2024 06:37:55",
+        "arrival_time": "21-07-2024 09:57:07",
+        "airline_code": "WN",
+        "airline_name": "Southwest Airlines",
+        "flight_number": "4221",
+        "price": 141.04,
+        "duration": 3.32,
+        "distance": 1660
       }
     ],
     "summary": {
-      "original_price": 1550.11,
+      "original_price": 1163.23,
       "discount_percentage": 50.0,
-      "discounted_price": 775.05,
-      "flight_time": 10.12,
-      "connection_time": 6.61,
-      "total_duration": 16.73,
-      "total_distance": 5065,
-      "score": 0.344,
-      "path": "SFO -> JFK -> DFW -> MIA"
+      "discounted_price": 581.62,
+      "flight_time": 13.29,
+      "connection_time": 8.22,
+      "total_duration": 21.51,
+      "total_distance": 6646,
+      "score": 0.5821,
+      "path": "SFO -> JFK -> SEA -> DFW"
     }
   },
   {
     "rank": 24,
-    "option_id": "9953739d-83f0-417a-b3e9-d459f5856844",
+    "option_id": "0d85a32c-9b00-4326-aa41-18bc9acf1c37",
     "flights": [
       {
-        "flight_id": "7d22b1c4-f071-4aee-a5f3-13fb36091381",
+        "flight_id": "7266d3d6-ce90-4abf-8a77-1885c59ae587",
         "departure_airport": "SFO",
         "arrival_airport": "JFK",
-        "departure_time": "21-07-2024 02:11:17",
-        "arrival_time": "21-07-2024 07:19:55",
-        "airline_code": "UA",
-        "airline_name": "United Airlines",
-        "flight_number": "3324",
-        "price": 532.2,
+        "departure_time": "20-07-2024 13:37:34",
+        "arrival_time": "20-07-2024 18:46:12",
+        "airline_code": "F9",
+        "airline_name": "Frontier Airlines",
+        "flight_number": "8917",
+        "price": 574.19,
         "duration": 5.14,
         "distance": 2572
       },
       {
-        "flight_id": "fcb2d4e3-5184-46b6-aa08-b059391b1b06",
+        "flight_id": "f0ac4173-fe3a-4719-a166-a34fe3ef6f49",
         "departure_airport": "JFK",
-        "arrival_airport": "DFW",
-        "departure_time": "21-07-2024 10:43:08",
-        "arrival_time": "21-07-2024 13:27:46",
-        "airline_code": "F9",
-        "airline_name": "Frontier Airlines",
-        "flight_number": "8886",
-        "price": 262.2,
-        "duration": 2.74,
-        "distance": 1372
+        "arrival_airport": "LAX",
+        "departure_time": "20-07-2024 21:30:51",
+        "arrival_time": "21-07-2024 02:27:51",
+        "airline_code": "DL",
+        "airline_name": "Delta Air Lines",
+        "flight_number": "2303",
+        "price": 668.03,
+        "duration": 4.95,
+        "distance": 2475
       },
       {
-        "flight_id": "b1e353ce-b673-4ff8-a891-7375c132218f",
-        "departure_airport": "DFW",
-        "arrival_airport": "MIA",
-        "departure_time": "21-07-2024 18:20:29",
-        "arrival_time": "21-07-2024 20:35:00",
-        "airline_code": "NK",
-        "airline_name": "Spirit Airlines",
-        "flight_number": "7083",
-        "price": 608.65,
-        "duration": 2.24,
-        "distance": 1121
+        "flight_id": "c87d25e4-db9f-461f-9dfa-785f75eb55f9",
+        "departure_airport": "LAX",
+        "arrival_airport": "DFW",
+        "departure_time": "21-07-2024 04:18:44",
+        "arrival_time": "21-07-2024 06:46:56",
+        "airline_code": "DL",
+        "airline_name": "Delta Air Lines",
+        "flight_number": "2800",
+        "price": 453.65,
+        "duration": 2.47,
+        "distance": 1235
       }
     ],
     "summary": {
-      "original_price": 1403.05,
+      "original_price": 1695.87,
       "discount_percentage": 50.0,
-      "discounted_price": 701.52,
-      "flight_time": 10.12,
-      "connection_time": 8.27,
-      "total_duration": 18.39,
-      "total_distance": 5065,
-      "score": 0.4933,
-      "path": "SFO -> JFK -> DFW -> MIA"
+      "discounted_price": 847.93,
+      "flight_time": 12.56,
+      "connection_time": 4.59,
+      "total_duration": 17.15,
+      "total_distance": 6282,
+      "score": 0.304,
+      "path": "SFO -> JFK -> LAX -> DFW"
     }
   },
   {
     "rank": 25,
-    "option_id": "a9caa9b3-d25c-4bd9-ae68-d8f0ac32fafa",
+    "option_id": "50277744-1dd8-4d56-9815-391600f6e39d",
     "flights": [
       {
-        "flight_id": "50a33860-08a9-4ad5-ba21-aa0a02300c5c",
+        "flight_id": "7266d3d6-ce90-4abf-8a77-1885c59ae587",
         "departure_airport": "SFO",
-        "arrival_airport": "LAX",
-        "departure_time": "21-07-2024 03:44:26",
-        "arrival_time": "21-07-2024 04:24:52",
-        "airline_code": "NK",
-        "airline_name": "Spirit Airlines",
-        "flight_number": "7764",
-        "price": 981.14,
-        "duration": 0.67,
-        "distance": 337
+        "arrival_airport": "JFK",
+        "departure_time": "20-07-2024 13:37:34",
+        "arrival_time": "20-07-2024 18:46:12",
+        "airline_code": "F9",
+        "airline_name": "Frontier Airlines",
+        "flight_number": "8917",
+        "price": 574.19,
+        "duration": 5.14,
+        "distance": 2572
       },
       {
-        "flight_id": "a0b5dde5-34ef-4c2e-96d3-37bb73857df6",
-        "departure_airport": "LAX",
+        "flight_id": "65f6e229-487a-4d25-a677-be5ad0ba19da",
+        "departure_airport": "JFK",
         "arrival_airport": "SEA",
-        "departure_time": "21-07-2024 06:23:45",
-        "arrival_time": "21-07-2024 08:18:14",
-        "airline_code": "AA",
-        "airline_name": "American Airlines",
-        "flight_number": "1940",
-        "price": 377.2,
-        "duration": 1.91,
-        "distance": 954
+        "departure_time": "20-07-2024 23:11:09",
+        "arrival_time": "21-07-2024 04:00:50",
+        "airline_code": "AS",
+        "airline_name": "Alaska Airlines",
+        "flight_number": "6569",
+        "price": 267.74,
+        "duration": 4.83,
+        "distance": 2414
       },
       {
-        "flight_id": "47a08bd4-fdce-4066-9011-8d047e4034ca",
+        "flight_id": "6afcaa4b-6d13-47fd-90f5-c5860a0f504c",
         "departure_airport": "SEA",
         "arrival_airport": "DFW",
-        "departure_time": "21-07-2024 13:48:38",
-        "arrival_time": "21-07-2024 17:07:50",
-        "airline_code": "WN",
-        "airline_name": "Southwest Airlines",
-        "flight_number": "4875",
-        "price": 649.47,
+        "departure_time": "21-07-2024 05:17:47",
+        "arrival_time": "21-07-2024 08:36:59",
+        "airline_code": "DL",
+        "airline_name": "Delta Air Lines",
+        "flight_number": "2868",
+        "price": 714.85,
         "duration": 3.32,
         "distance": 1660
-      },
-      {
-        "flight_id": "b1e353ce-b673-4ff8-a891-7375c132218f",
-        "departure_airport": "DFW",
-        "arrival_airport": "MIA",
-        "departure_time": "21-07-2024 18:20:29",
-        "arrival_time": "21-07-2024 20:35:00",
-        "airline_code": "NK",
-        "airline_name": "Spirit Airlines",
-        "flight_number": "7083",
-        "price": 608.65,
-        "duration": 2.24,
-        "distance": 1121
       }
     ],
     "summary": {
-      "original_price": 2616.46,
+      "original_price": 1556.78,
       "discount_percentage": 50.0,
-      "discounted_price": 1308.23,
-      "flight_time": 8.14,
-      "connection_time": 8.7,
-      "total_duration": 16.84,
-      "total_distance": 4072,
-      "score": 0.3352,
-      "path": "SFO -> LAX -> SEA -> DFW -> MIA"
+      "discounted_price": 778.39,
+      "flight_time": 13.29,
+      "connection_time": 5.7,
+      "total_duration": 18.99,
+      "total_distance": 6646,
+      "score": 0.3631,
+      "path": "SFO -> JFK -> SEA -> DFW"
     }
   },
   {
     "rank": 26,
-    "option_id": "60aadad0-f50e-4cda-b5b8-1ed56376240a",
+    "option_id": "8f2312c9-e9a7-472d-a3dc-e4e516d2ec8e",
     "flights": [
       {
-        "flight_id": "50a33860-08a9-4ad5-ba21-aa0a02300c5c",
+        "flight_id": "75a6fc88-6cad-4512-860d-82decf7f0760",
         "departure_airport": "SFO",
+        "arrival_airport": "JFK",
+        "departure_time": "20-07-2024 12:26:28",
+        "arrival_time": "20-07-2024 17:35:06",
+        "airline_code": "DL",
+        "airline_name": "Delta Air Lines",
+        "flight_number": "2171",
+        "price": 754.45,
+        "duration": 5.14,
+        "distance": 2572
+      },
+      {
+        "flight_id": "f698efac-1c15-4c2d-a25d-d83c3728e54a",
+        "departure_airport": "JFK",
+        "arrival_airport": "SEA",
+        "departure_time": "20-07-2024 23:15:02",
+        "arrival_time": "21-07-2024 04:04:43",
+        "airline_code": "UA",
+        "airline_name": "United Airlines",
+        "flight_number": "3694",
+        "price": 496.12,
+        "duration": 4.83,
+        "distance": 2414
+      },
+      {
+        "flight_id": "8a4853f7-f8ec-40f1-b579-d090690b3832",
+        "departure_airport": "SEA",
+        "arrival_airport": "DFW",
+        "departure_time": "21-07-2024 06:37:55",
+        "arrival_time": "21-07-2024 09:57:07",
+        "airline_code": "WN",
+        "airline_name": "Southwest Airlines",
+        "flight_number": "4221",
+        "price": 141.04,
+        "duration": 3.32,
+        "distance": 1660
+      }
+    ],
+    "summary": {
+      "original_price": 1391.61,
+      "discount_percentage": 50.0,
+      "discounted_price": 695.81,
+      "flight_time": 13.29,
+      "connection_time": 8.22,
+      "total_duration": 21.51,
+      "total_distance": 6646,
+      "score": 0.2734,
+      "path": "SFO -> JFK -> SEA -> DFW"
+    }
+  },
+  {
+    "rank": 27,
+    "option_id": "acce8e6f-bf7c-44ea-867b-28c29318bb72",
+    "flights": [
+      {
+        "flight_id": "75a6fc88-6cad-4512-860d-82decf7f0760",
+        "departure_airport": "SFO",
+        "arrival_airport": "JFK",
+        "departure_time": "20-07-2024 12:26:28",
+        "arrival_time": "20-07-2024 17:35:06",
+        "airline_code": "DL",
+        "airline_name": "Delta Air Lines",
+        "flight_number": "2171",
+        "price": 754.45,
+        "duration": 5.14,
+        "distance": 2572
+      },
+      {
+        "flight_id": "30012450-41b8-4068-b0c2-ba560f3606aa",
+        "departure_airport": "JFK",
         "arrival_airport": "LAX",
-        "departure_time": "21-07-2024 03:44:26",
-        "arrival_time": "21-07-2024 04:24:52",
+        "departure_time": "20-07-2024 22:13:05",
+        "arrival_time": "21-07-2024 03:10:05",
         "airline_code": "NK",
         "airline_name": "Spirit Airlines",
-        "flight_number": "7764",
-        "price": 981.14,
+        "flight_number": "7186",
+        "price": 500.42,
+        "duration": 4.95,
+        "distance": 2475
+      },
+      {
+        "flight_id": "c87d25e4-db9f-461f-9dfa-785f75eb55f9",
+        "departure_airport": "LAX",
+        "arrival_airport": "DFW",
+        "departure_time": "21-07-2024 04:18:44",
+        "arrival_time": "21-07-2024 06:46:56",
+        "airline_code": "DL",
+        "airline_name": "Delta Air Lines",
+        "flight_number": "2800",
+        "price": 453.65,
+        "duration": 2.47,
+        "distance": 1235
+      }
+    ],
+    "summary": {
+      "original_price": 1708.52,
+      "discount_percentage": 50.0,
+      "discounted_price": 854.26,
+      "flight_time": 12.56,
+      "connection_time": 5.78,
+      "total_duration": 18.34,
+      "total_distance": 6282,
+      "score": 0.3325,
+      "path": "SFO -> JFK -> LAX -> DFW"
+    }
+  },
+  {
+    "rank": 28,
+    "option_id": "5862c9ed-3dc0-4de2-8058-0c569461fa16",
+    "flights": [
+      {
+        "flight_id": "7266d3d6-ce90-4abf-8a77-1885c59ae587",
+        "departure_airport": "SFO",
+        "arrival_airport": "JFK",
+        "departure_time": "20-07-2024 13:37:34",
+        "arrival_time": "20-07-2024 18:46:12",
+        "airline_code": "F9",
+        "airline_name": "Frontier Airlines",
+        "flight_number": "8917",
+        "price": 574.19,
+        "duration": 5.14,
+        "distance": 2572
+      },
+      {
+        "flight_id": "30012450-41b8-4068-b0c2-ba560f3606aa",
+        "departure_airport": "JFK",
+        "arrival_airport": "LAX",
+        "departure_time": "20-07-2024 22:13:05",
+        "arrival_time": "21-07-2024 03:10:05",
+        "airline_code": "NK",
+        "airline_name": "Spirit Airlines",
+        "flight_number": "7186",
+        "price": 500.42,
+        "duration": 4.95,
+        "distance": 2475
+      },
+      {
+        "flight_id": "e70a3983-11a7-4b21-b5b6-8f0eacd2c9cd",
+        "departure_airport": "LAX",
+        "arrival_airport": "DFW",
+        "departure_time": "21-07-2024 05:31:29",
+        "arrival_time": "21-07-2024 07:59:41",
+        "airline_code": "WN",
+        "airline_name": "Southwest Airlines",
+        "flight_number": "4143",
+        "price": 691.35,
+        "duration": 2.47,
+        "distance": 1235
+      }
+    ],
+    "summary": {
+      "original_price": 1765.96,
+      "discount_percentage": 50.0,
+      "discounted_price": 882.98,
+      "flight_time": 12.56,
+      "connection_time": 5.8,
+      "total_duration": 18.36,
+      "total_distance": 6282,
+      "score": 0.13,
+      "path": "SFO -> JFK -> LAX -> DFW"
+    }
+  },
+  {
+    "rank": 29,
+    "option_id": "15566262-2e8e-4c44-bf4a-b95b17998ca6",
+    "flights": [
+      {
+        "flight_id": "ebedc064-8cdc-4804-89c8-322bb88815bb",
+        "departure_airport": "SFO",
+        "arrival_airport": "MIA",
+        "departure_time": "20-07-2024 12:05:17",
+        "arrival_time": "20-07-2024 17:15:07",
+        "airline_code": "DL",
+        "airline_name": "Delta Air Lines",
+        "flight_number": "2929",
+        "price": 573.61,
+        "duration": 5.16,
+        "distance": 2582
+      },
+      {
+        "flight_id": "5e4acf13-6d00-4abd-9331-b0068d3953e6",
+        "departure_airport": "MIA",
+        "arrival_airport": "BOS",
+        "departure_time": "20-07-2024 18:41:18",
+        "arrival_time": "20-07-2024 21:12:16",
+        "airline_code": "DL",
+        "airline_name": "Delta Air Lines",
+        "flight_number": "2465",
+        "price": 888.58,
+        "duration": 2.52,
+        "distance": 1258
+      },
+      {
+        "flight_id": "f9582d6a-17b5-400c-9920-6b9df5935f9b",
+        "departure_airport": "BOS",
+        "arrival_airport": "DFW",
+        "departure_time": "21-07-2024 00:54:32",
+        "arrival_time": "21-07-2024 04:00:39",
+        "airline_code": "NK",
+        "airline_name": "Spirit Airlines",
+        "flight_number": "7731",
+        "price": 612.99,
+        "duration": 3.1,
+        "distance": 1551
+      }
+    ],
+    "summary": {
+      "original_price": 2075.18,
+      "discount_percentage": 50.0,
+      "discounted_price": 1037.59,
+      "flight_time": 10.78,
+      "connection_time": 5.14,
+      "total_duration": 15.92,
+      "total_distance": 5391,
+      "score": 0.0542,
+      "path": "SFO -> MIA -> BOS -> DFW"
+    }
+  },
+  {
+    "rank": 30,
+    "option_id": "19ea7201-96d8-48b4-a916-7c05ee223f87",
+    "flights": [
+      {
+        "flight_id": "7266d3d6-ce90-4abf-8a77-1885c59ae587",
+        "departure_airport": "SFO",
+        "arrival_airport": "JFK",
+        "departure_time": "20-07-2024 13:37:34",
+        "arrival_time": "20-07-2024 18:46:12",
+        "airline_code": "F9",
+        "airline_name": "Frontier Airlines",
+        "flight_number": "8917",
+        "price": 574.19,
+        "duration": 5.14,
+        "distance": 2572
+      },
+      {
+        "flight_id": "f698efac-1c15-4c2d-a25d-d83c3728e54a",
+        "departure_airport": "JFK",
+        "arrival_airport": "SEA",
+        "departure_time": "20-07-2024 23:15:02",
+        "arrival_time": "21-07-2024 04:04:43",
+        "airline_code": "UA",
+        "airline_name": "United Airlines",
+        "flight_number": "3694",
+        "price": 496.12,
+        "duration": 4.83,
+        "distance": 2414
+      },
+      {
+        "flight_id": "6afcaa4b-6d13-47fd-90f5-c5860a0f504c",
+        "departure_airport": "SEA",
+        "arrival_airport": "DFW",
+        "departure_time": "21-07-2024 05:17:47",
+        "arrival_time": "21-07-2024 08:36:59",
+        "airline_code": "DL",
+        "airline_name": "Delta Air Lines",
+        "flight_number": "2868",
+        "price": 714.85,
+        "duration": 3.32,
+        "distance": 1660
+      }
+    ],
+    "summary": {
+      "original_price": 1785.16,
+      "discount_percentage": 50.0,
+      "discounted_price": 892.58,
+      "flight_time": 13.29,
+      "connection_time": 5.7,
+      "total_duration": 18.99,
+      "total_distance": 6646,
+      "score": 0.0542,
+      "path": "SFO -> JFK -> SEA -> DFW"
+    }
+  },
+  {
+    "rank": 31,
+    "option_id": "7d85b481-7e06-4c22-913d-3e198d992c4b",
+    "flights": [
+      {
+        "flight_id": "75a6fc88-6cad-4512-860d-82decf7f0760",
+        "departure_airport": "SFO",
+        "arrival_airport": "JFK",
+        "departure_time": "20-07-2024 12:26:28",
+        "arrival_time": "20-07-2024 17:35:06",
+        "airline_code": "DL",
+        "airline_name": "Delta Air Lines",
+        "flight_number": "2171",
+        "price": 754.45,
+        "duration": 5.14,
+        "distance": 2572
+      },
+      {
+        "flight_id": "f0ac4173-fe3a-4719-a166-a34fe3ef6f49",
+        "departure_airport": "JFK",
+        "arrival_airport": "LAX",
+        "departure_time": "20-07-2024 21:30:51",
+        "arrival_time": "21-07-2024 02:27:51",
+        "airline_code": "DL",
+        "airline_name": "Delta Air Lines",
+        "flight_number": "2303",
+        "price": 668.03,
+        "duration": 4.95,
+        "distance": 2475
+      },
+      {
+        "flight_id": "c87d25e4-db9f-461f-9dfa-785f75eb55f9",
+        "departure_airport": "LAX",
+        "arrival_airport": "DFW",
+        "departure_time": "21-07-2024 04:18:44",
+        "arrival_time": "21-07-2024 06:46:56",
+        "airline_code": "DL",
+        "airline_name": "Delta Air Lines",
+        "flight_number": "2800",
+        "price": 453.65,
+        "duration": 2.47,
+        "distance": 1235
+      }
+    ],
+    "summary": {
+      "original_price": 1876.13,
+      "discount_percentage": 50.0,
+      "discounted_price": 938.07,
+      "flight_time": 12.56,
+      "connection_time": 5.78,
+      "total_duration": 18.34,
+      "total_distance": 6282,
+      "score": 0.0207,
+      "path": "SFO -> JFK -> LAX -> DFW"
+    }
+  },
+  {
+    "rank": 32,
+    "option_id": "1b5b0f60-9def-4b53-b7b6-a8c649eb95b7",
+    "flights": [
+      {
+        "flight_id": "75a6fc88-6cad-4512-860d-82decf7f0760",
+        "departure_airport": "SFO",
+        "arrival_airport": "JFK",
+        "departure_time": "20-07-2024 12:26:28",
+        "arrival_time": "20-07-2024 17:35:06",
+        "airline_code": "DL",
+        "airline_name": "Delta Air Lines",
+        "flight_number": "2171",
+        "price": 754.45,
+        "duration": 5.14,
+        "distance": 2572
+      },
+      {
+        "flight_id": "65f6e229-487a-4d25-a677-be5ad0ba19da",
+        "departure_airport": "JFK",
+        "arrival_airport": "SEA",
+        "departure_time": "20-07-2024 23:11:09",
+        "arrival_time": "21-07-2024 04:00:50",
+        "airline_code": "AS",
+        "airline_name": "Alaska Airlines",
+        "flight_number": "6569",
+        "price": 267.74,
+        "duration": 4.83,
+        "distance": 2414
+      },
+      {
+        "flight_id": "6afcaa4b-6d13-47fd-90f5-c5860a0f504c",
+        "departure_airport": "SEA",
+        "arrival_airport": "DFW",
+        "departure_time": "21-07-2024 05:17:47",
+        "arrival_time": "21-07-2024 08:36:59",
+        "airline_code": "DL",
+        "airline_name": "Delta Air Lines",
+        "flight_number": "2868",
+        "price": 714.85,
+        "duration": 3.32,
+        "distance": 1660
+      }
+    ],
+    "summary": {
+      "original_price": 1737.04,
+      "discount_percentage": 50.0,
+      "discounted_price": 868.52,
+      "flight_time": 13.29,
+      "connection_time": 6.88,
+      "total_duration": 20.17,
+      "total_distance": 6646,
+      "score": 0.14,
+      "path": "SFO -> JFK -> SEA -> DFW"
+    }
+  },
+  {
+    "rank": 33,
+    "option_id": "db9087dd-2ad7-4e2c-8547-d190cb0b002a",
+    "flights": [
+      {
+        "flight_id": "7266d3d6-ce90-4abf-8a77-1885c59ae587",
+        "departure_airport": "SFO",
+        "arrival_airport": "JFK",
+        "departure_time": "20-07-2024 13:37:34",
+        "arrival_time": "20-07-2024 18:46:12",
+        "airline_code": "F9",
+        "airline_name": "Frontier Airlines",
+        "flight_number": "8917",
+        "price": 574.19,
+        "duration": 5.14,
+        "distance": 2572
+      },
+      {
+        "flight_id": "f0ac4173-fe3a-4719-a166-a34fe3ef6f49",
+        "departure_airport": "JFK",
+        "arrival_airport": "LAX",
+        "departure_time": "20-07-2024 21:30:51",
+        "arrival_time": "21-07-2024 02:27:51",
+        "airline_code": "DL",
+        "airline_name": "Delta Air Lines",
+        "flight_number": "2303",
+        "price": 668.03,
+        "duration": 4.95,
+        "distance": 2475
+      },
+      {
+        "flight_id": "e70a3983-11a7-4b21-b5b6-8f0eacd2c9cd",
+        "departure_airport": "LAX",
+        "arrival_airport": "DFW",
+        "departure_time": "21-07-2024 05:31:29",
+        "arrival_time": "21-07-2024 07:59:41",
+        "airline_code": "WN",
+        "airline_name": "Southwest Airlines",
+        "flight_number": "4143",
+        "price": 691.35,
+        "duration": 2.47,
+        "distance": 1235
+      }
+    ],
+    "summary": {
+      "original_price": 1933.57,
+      "discount_percentage": 50.0,
+      "discounted_price": 966.79,
+      "flight_time": 12.56,
+      "connection_time": 5.8,
+      "total_duration": 18.36,
+      "total_distance": 6282,
+      "score": 0.1066,
+      "path": "SFO -> JFK -> LAX -> DFW"
+    }
+  },
+  {
+    "rank": 34,
+    "option_id": "410ced25-1d23-4672-ba6e-8d2ffa7e3650",
+    "flights": [
+      {
+        "flight_id": "ebedc064-8cdc-4804-89c8-322bb88815bb",
+        "departure_airport": "SFO",
+        "arrival_airport": "MIA",
+        "departure_time": "20-07-2024 12:05:17",
+        "arrival_time": "20-07-2024 17:15:07",
+        "airline_code": "DL",
+        "airline_name": "Delta Air Lines",
+        "flight_number": "2929",
+        "price": 573.61,
+        "duration": 5.16,
+        "distance": 2582
+      },
+      {
+        "flight_id": "5e4acf13-6d00-4abd-9331-b0068d3953e6",
+        "departure_airport": "MIA",
+        "arrival_airport": "BOS",
+        "departure_time": "20-07-2024 18:41:18",
+        "arrival_time": "20-07-2024 21:12:16",
+        "airline_code": "DL",
+        "airline_name": "Delta Air Lines",
+        "flight_number": "2465",
+        "price": 888.58,
+        "duration": 2.52,
+        "distance": 1258
+      },
+      {
+        "flight_id": "0644b95a-e421-434e-9d15-05332a94e872",
+        "departure_airport": "BOS",
+        "arrival_airport": "DFW",
+        "departure_time": "20-07-2024 23:22:18",
+        "arrival_time": "21-07-2024 02:28:25",
+        "airline_code": "AS",
+        "airline_name": "Alaska Airlines",
+        "flight_number": "6276",
+        "price": 870.53,
+        "duration": 3.1,
+        "distance": 1551
+      }
+    ],
+    "summary": {
+      "original_price": 2332.72,
+      "discount_percentage": 50.0,
+      "discounted_price": 1166.36,
+      "flight_time": 10.78,
+      "connection_time": 3.6,
+      "total_duration": 14.38,
+      "total_distance": 5391,
+      "score": 0.373,
+      "path": "SFO -> MIA -> BOS -> DFW"
+    }
+  },
+  {
+    "rank": 35,
+    "option_id": "a9ac9964-ba09-401e-bda3-0b5b877f1487",
+    "flights": [
+      {
+        "flight_id": "75a6fc88-6cad-4512-860d-82decf7f0760",
+        "departure_airport": "SFO",
+        "arrival_airport": "JFK",
+        "departure_time": "20-07-2024 12:26:28",
+        "arrival_time": "20-07-2024 17:35:06",
+        "airline_code": "DL",
+        "airline_name": "Delta Air Lines",
+        "flight_number": "2171",
+        "price": 754.45,
+        "duration": 5.14,
+        "distance": 2572
+      },
+      {
+        "flight_id": "30012450-41b8-4068-b0c2-ba560f3606aa",
+        "departure_airport": "JFK",
+        "arrival_airport": "LAX",
+        "departure_time": "20-07-2024 22:13:05",
+        "arrival_time": "21-07-2024 03:10:05",
+        "airline_code": "NK",
+        "airline_name": "Spirit Airlines",
+        "flight_number": "7186",
+        "price": 500.42,
+        "duration": 4.95,
+        "distance": 2475
+      },
+      {
+        "flight_id": "e70a3983-11a7-4b21-b5b6-8f0eacd2c9cd",
+        "departure_airport": "LAX",
+        "arrival_airport": "DFW",
+        "departure_time": "21-07-2024 05:31:29",
+        "arrival_time": "21-07-2024 07:59:41",
+        "airline_code": "WN",
+        "airline_name": "Southwest Airlines",
+        "flight_number": "4143",
+        "price": 691.35,
+        "duration": 2.47,
+        "distance": 1235
+      }
+    ],
+    "summary": {
+      "original_price": 1946.22,
+      "discount_percentage": 50.0,
+      "discounted_price": 973.11,
+      "flight_time": 12.56,
+      "connection_time": 6.99,
+      "total_duration": 19.55,
+      "total_distance": 6282,
+      "score": 0.4778,
+      "path": "SFO -> JFK -> LAX -> DFW"
+    }
+  },
+  {
+    "rank": 36,
+    "option_id": "d6f318d9-d31d-4c44-b160-f42979843611",
+    "flights": [
+      {
+        "flight_id": "75a6fc88-6cad-4512-860d-82decf7f0760",
+        "departure_airport": "SFO",
+        "arrival_airport": "JFK",
+        "departure_time": "20-07-2024 12:26:28",
+        "arrival_time": "20-07-2024 17:35:06",
+        "airline_code": "DL",
+        "airline_name": "Delta Air Lines",
+        "flight_number": "2171",
+        "price": 754.45,
+        "duration": 5.14,
+        "distance": 2572
+      },
+      {
+        "flight_id": "f698efac-1c15-4c2d-a25d-d83c3728e54a",
+        "departure_airport": "JFK",
+        "arrival_airport": "SEA",
+        "departure_time": "20-07-2024 23:15:02",
+        "arrival_time": "21-07-2024 04:04:43",
+        "airline_code": "UA",
+        "airline_name": "United Airlines",
+        "flight_number": "3694",
+        "price": 496.12,
+        "duration": 4.83,
+        "distance": 2414
+      },
+      {
+        "flight_id": "6afcaa4b-6d13-47fd-90f5-c5860a0f504c",
+        "departure_airport": "SEA",
+        "arrival_airport": "DFW",
+        "departure_time": "21-07-2024 05:17:47",
+        "arrival_time": "21-07-2024 08:36:59",
+        "airline_code": "DL",
+        "airline_name": "Delta Air Lines",
+        "flight_number": "2868",
+        "price": 714.85,
+        "duration": 3.32,
+        "distance": 1660
+      }
+    ],
+    "summary": {
+      "original_price": 1965.42,
+      "discount_percentage": 50.0,
+      "discounted_price": 982.71,
+      "flight_time": 13.29,
+      "connection_time": 6.88,
+      "total_duration": 20.17,
+      "total_distance": 6646,
+      "score": 0.0498,
+      "path": "SFO -> JFK -> SEA -> DFW"
+    }
+  },
+  {
+    "rank": 37,
+    "option_id": "1292befd-f039-4593-ba30-df16991fe0bd",
+    "flights": [
+      {
+        "flight_id": "ebedc064-8cdc-4804-89c8-322bb88815bb",
+        "departure_airport": "SFO",
+        "arrival_airport": "MIA",
+        "departure_time": "20-07-2024 12:05:17",
+        "arrival_time": "20-07-2024 17:15:07",
+        "airline_code": "DL",
+        "airline_name": "Delta Air Lines",
+        "flight_number": "2929",
+        "price": 573.61,
+        "duration": 5.16,
+        "distance": 2582
+      },
+      {
+        "flight_id": "d770ffb0-049d-4028-bec1-9c75239eb83b",
+        "departure_airport": "MIA",
+        "arrival_airport": "ORD",
+        "departure_time": "20-07-2024 22:15:20",
+        "arrival_time": "21-07-2024 00:38:59",
+        "airline_code": "DL",
+        "airline_name": "Delta Air Lines",
+        "flight_number": "2764",
+        "price": 611.5,
+        "duration": 2.39,
+        "distance": 1197
+      },
+      {
+        "flight_id": "0cf5896d-1125-44c2-82ee-72670925e3e3",
+        "departure_airport": "ORD",
+        "arrival_airport": "DFW",
+        "departure_time": "21-07-2024 06:26:17",
+        "arrival_time": "21-07-2024 08:02:32",
+        "airline_code": "F9",
+        "airline_name": "Frontier Airlines",
+        "flight_number": "8307",
+        "price": 849.7,
+        "duration": 1.6,
+        "distance": 802
+      }
+    ],
+    "summary": {
+      "original_price": 2034.81,
+      "discount_percentage": 50.0,
+      "discounted_price": 1017.4,
+      "flight_time": 9.15,
+      "connection_time": 10.79,
+      "total_duration": 19.94,
+      "total_distance": 4581,
+      "score": 0.0164,
+      "path": "SFO -> MIA -> ORD -> DFW"
+    }
+  },
+  {
+    "rank": 38,
+    "option_id": "f0564dbf-9818-4b9e-8300-df50a7e0724e",
+    "flights": [
+      {
+        "flight_id": "75a6fc88-6cad-4512-860d-82decf7f0760",
+        "departure_airport": "SFO",
+        "arrival_airport": "JFK",
+        "departure_time": "20-07-2024 12:26:28",
+        "arrival_time": "20-07-2024 17:35:06",
+        "airline_code": "DL",
+        "airline_name": "Delta Air Lines",
+        "flight_number": "2171",
+        "price": 754.45,
+        "duration": 5.14,
+        "distance": 2572
+      },
+      {
+        "flight_id": "f0ac4173-fe3a-4719-a166-a34fe3ef6f49",
+        "departure_airport": "JFK",
+        "arrival_airport": "LAX",
+        "departure_time": "20-07-2024 21:30:51",
+        "arrival_time": "21-07-2024 02:27:51",
+        "airline_code": "DL",
+        "airline_name": "Delta Air Lines",
+        "flight_number": "2303",
+        "price": 668.03,
+        "duration": 4.95,
+        "distance": 2475
+      },
+      {
+        "flight_id": "e70a3983-11a7-4b21-b5b6-8f0eacd2c9cd",
+        "departure_airport": "LAX",
+        "arrival_airport": "DFW",
+        "departure_time": "21-07-2024 05:31:29",
+        "arrival_time": "21-07-2024 07:59:41",
+        "airline_code": "WN",
+        "airline_name": "Southwest Airlines",
+        "flight_number": "4143",
+        "price": 691.35,
+        "duration": 2.47,
+        "distance": 1235
+      }
+    ],
+    "summary": {
+      "original_price": 2113.83,
+      "discount_percentage": 50.0,
+      "discounted_price": 1056.91,
+      "flight_time": 12.56,
+      "connection_time": 6.99,
+      "total_duration": 19.55,
+      "total_distance": 6282,
+      "score": 0.1356,
+      "path": "SFO -> JFK -> LAX -> DFW"
+    }
+  },
+  {
+    "rank": 39,
+    "option_id": "fcd3e091-8090-4a4b-96aa-8d09eb523068",
+    "flights": [
+      {
+        "flight_id": "ebedc064-8cdc-4804-89c8-322bb88815bb",
+        "departure_airport": "SFO",
+        "arrival_airport": "MIA",
+        "departure_time": "20-07-2024 12:05:17",
+        "arrival_time": "20-07-2024 17:15:07",
+        "airline_code": "DL",
+        "airline_name": "Delta Air Lines",
+        "flight_number": "2929",
+        "price": 573.61,
+        "duration": 5.16,
+        "distance": 2582
+      },
+      {
+        "flight_id": "c028615f-30b0-4940-9076-1eb1bf559108",
+        "departure_airport": "MIA",
+        "arrival_airport": "ORD",
+        "departure_time": "20-07-2024 23:13:11",
+        "arrival_time": "21-07-2024 01:36:49",
+        "airline_code": "F9",
+        "airline_name": "Frontier Airlines",
+        "flight_number": "8617",
+        "price": 978.65,
+        "duration": 2.39,
+        "distance": 1197
+      },
+      {
+        "flight_id": "0cf5896d-1125-44c2-82ee-72670925e3e3",
+        "departure_airport": "ORD",
+        "arrival_airport": "DFW",
+        "departure_time": "21-07-2024 06:26:17",
+        "arrival_time": "21-07-2024 08:02:32",
+        "airline_code": "F9",
+        "airline_name": "Frontier Airlines",
+        "flight_number": "8307",
+        "price": 849.7,
+        "duration": 1.6,
+        "distance": 802
+      }
+    ],
+    "summary": {
+      "original_price": 2401.96,
+      "discount_percentage": 50.0,
+      "discounted_price": 1200.98,
+      "flight_time": 9.15,
+      "connection_time": 10.79,
+      "total_duration": 19.94,
+      "total_distance": 4581,
+      "score": 0.1022,
+      "path": "SFO -> MIA -> ORD -> DFW"
+    }
+  },
+  {
+    "rank": 40,
+    "option_id": "c2c5248a-c030-46e7-a310-be68b939e74f",
+    "flights": [
+      {
+        "flight_id": "a792de31-d18c-4a2b-9b12-b087b9c4164c",
+        "departure_airport": "SFO",
+        "arrival_airport": "LAX",
+        "departure_time": "20-07-2024 12:14:49",
+        "arrival_time": "20-07-2024 12:55:16",
+        "airline_code": "F9",
+        "airline_name": "Frontier Airlines",
+        "flight_number": "8492",
+        "price": 308.0,
         "duration": 0.67,
         "distance": 337
       },
       {
-        "flight_id": "a0b5dde5-34ef-4c2e-96d3-37bb73857df6",
+        "flight_id": "9dfd8583-822f-4bc2-b8ba-d67a07093d73",
         "departure_airport": "LAX",
-        "arrival_airport": "SEA",
-        "departure_time": "21-07-2024 06:23:45",
-        "arrival_time": "21-07-2024 08:18:14",
-        "airline_code": "AA",
-        "airline_name": "American Airlines",
-        "flight_number": "1940",
-        "price": 377.2,
-        "duration": 1.91,
-        "distance": 954
-      },
-      {
-        "flight_id": "82f72818-563d-4bf1-bd56-0674e67f7789",
-        "departure_airport": "SEA",
-        "arrival_airport": "DFW",
-        "departure_time": "21-07-2024 12:47:20",
-        "arrival_time": "21-07-2024 16:06:32",
-        "airline_code": "F9",
-        "airline_name": "Frontier Airlines",
-        "flight_number": "8755",
-        "price": 683.81,
-        "duration": 3.32,
-        "distance": 1660
-      },
-      {
-        "flight_id": "b1e353ce-b673-4ff8-a891-7375c132218f",
-        "departure_airport": "DFW",
         "arrival_airport": "MIA",
-        "departure_time": "21-07-2024 18:20:29",
-        "arrival_time": "21-07-2024 20:35:00",
+        "departure_time": "20-07-2024 15:31:42",
+        "arrival_time": "20-07-2024 20:12:45",
+        "airline_code": "UA",
+        "airline_name": "United Airlines",
+        "flight_number": "3000",
+        "price": 518.45,
+        "duration": 4.68,
+        "distance": 2342
+      },
+      {
+        "flight_id": "a71e1976-6750-4ee8-9f6b-aff6c0b023f0",
+        "departure_airport": "MIA",
+        "arrival_airport": "JFK",
+        "departure_time": "21-07-2024 00:43:25",
+        "arrival_time": "21-07-2024 02:54:13",
         "airline_code": "NK",
         "airline_name": "Spirit Airlines",
-        "flight_number": "7083",
-        "price": 608.65,
-        "duration": 2.24,
-        "distance": 1121
+        "flight_number": "7599",
+        "price": 282.01,
+        "duration": 2.18,
+        "distance": 1090
+      },
+      {
+        "flight_id": "dffa8d74-0b76-44dc-a96f-54240736df21",
+        "departure_airport": "JFK",
+        "arrival_airport": "DFW",
+        "departure_time": "21-07-2024 05:13:50",
+        "arrival_time": "21-07-2024 07:58:29",
+        "airline_code": "F9",
+        "airline_name": "Frontier Airlines",
+        "flight_number": "8636",
+        "price": 688.41,
+        "duration": 2.74,
+        "distance": 1372
       }
     ],
     "summary": {
-      "original_price": 2650.8,
+      "original_price": 1796.87,
       "discount_percentage": 50.0,
-      "discounted_price": 1325.4,
-      "flight_time": 8.14,
-      "connection_time": 8.7,
-      "total_duration": 16.84,
-      "total_distance": 4072,
-      "score": 0.4105,
-      "path": "SFO -> LAX -> SEA -> DFW -> MIA"
+      "discounted_price": 898.43,
+      "flight_time": 10.27,
+      "connection_time": 9.45,
+      "total_duration": 19.72,
+      "total_distance": 5141,
+      "score": 0.3686,
+      "path": "SFO -> LAX -> MIA -> JFK -> DFW"
+    }
+  },
+  {
+    "rank": 41,
+    "option_id": "46253932-f788-40fc-a45e-473472a71c1c",
+    "flights": [
+      {
+        "flight_id": "ebedc064-8cdc-4804-89c8-322bb88815bb",
+        "departure_airport": "SFO",
+        "arrival_airport": "MIA",
+        "departure_time": "20-07-2024 12:05:17",
+        "arrival_time": "20-07-2024 17:15:07",
+        "airline_code": "DL",
+        "airline_name": "Delta Air Lines",
+        "flight_number": "2929",
+        "price": 573.61,
+        "duration": 5.16,
+        "distance": 2582
+      },
+      {
+        "flight_id": "af6ccb54-adb5-4318-822e-9bc35cddd6e9",
+        "departure_airport": "MIA",
+        "arrival_airport": "JFK",
+        "departure_time": "20-07-2024 20:36:44",
+        "arrival_time": "20-07-2024 22:47:32",
+        "airline_code": "UA",
+        "airline_name": "United Airlines",
+        "flight_number": "3106",
+        "price": 835.75,
+        "duration": 2.18,
+        "distance": 1090
+      },
+      {
+        "flight_id": "b07bbc92-6c3b-4beb-9868-a329ba83978a",
+        "departure_airport": "JFK",
+        "arrival_airport": "SEA",
+        "departure_time": "20-07-2024 23:53:10",
+        "arrival_time": "21-07-2024 04:42:51",
+        "airline_code": "UA",
+        "airline_name": "United Airlines",
+        "flight_number": "3280",
+        "price": 309.22,
+        "duration": 4.83,
+        "distance": 2414
+      },
+      {
+        "flight_id": "8a4853f7-f8ec-40f1-b579-d090690b3832",
+        "departure_airport": "SEA",
+        "arrival_airport": "DFW",
+        "departure_time": "21-07-2024 06:37:55",
+        "arrival_time": "21-07-2024 09:57:07",
+        "airline_code": "WN",
+        "airline_name": "Southwest Airlines",
+        "flight_number": "4221",
+        "price": 141.04,
+        "duration": 3.32,
+        "distance": 1660
+      }
+    ],
+    "summary": {
+      "original_price": 1859.62,
+      "discount_percentage": 50.0,
+      "discounted_price": 929.81,
+      "flight_time": 15.49,
+      "connection_time": 6.37,
+      "total_duration": 21.86,
+      "total_distance": 7746,
+      "score": 0.4734,
+      "path": "SFO -> MIA -> JFK -> SEA -> DFW"
+    }
+  },
+  {
+    "rank": 42,
+    "option_id": "a9c88e1c-78cd-4b1c-b3a6-94890948a616",
+    "flights": [
+      {
+        "flight_id": "75a6fc88-6cad-4512-860d-82decf7f0760",
+        "departure_airport": "SFO",
+        "arrival_airport": "JFK",
+        "departure_time": "20-07-2024 12:26:28",
+        "arrival_time": "20-07-2024 17:35:06",
+        "airline_code": "DL",
+        "airline_name": "Delta Air Lines",
+        "flight_number": "2171",
+        "price": 754.45,
+        "duration": 5.14,
+        "distance": 2572
+      },
+      {
+        "flight_id": "36522e7b-ace2-4a2a-a5b1-cd242f08cc01",
+        "departure_airport": "JFK",
+        "arrival_airport": "ORD",
+        "departure_time": "20-07-2024 19:30:51",
+        "arrival_time": "20-07-2024 20:59:39",
+        "airline_code": "F9",
+        "airline_name": "Frontier Airlines",
+        "flight_number": "8186",
+        "price": 461.66,
+        "duration": 1.48,
+        "distance": 740
+      },
+      {
+        "flight_id": "08d0bdc4-fbb9-4d83-b716-3194d525d8b2",
+        "departure_airport": "ORD",
+        "arrival_airport": "BOS",
+        "departure_time": "20-07-2024 22:58:46",
+        "arrival_time": "21-07-2024 00:42:48",
+        "airline_code": "WN",
+        "airline_name": "Southwest Airlines",
+        "flight_number": "4441",
+        "price": 275.26,
+        "duration": 1.73,
+        "distance": 867
+      },
+      {
+        "flight_id": "2ef85a0f-ae71-4064-a0cb-ab7d0a0930a0",
+        "departure_airport": "BOS",
+        "arrival_airport": "DFW",
+        "departure_time": "21-07-2024 03:55:12",
+        "arrival_time": "21-07-2024 07:01:19",
+        "airline_code": "AS",
+        "airline_name": "Alaska Airlines",
+        "flight_number": "6477",
+        "price": 882.04,
+        "duration": 3.1,
+        "distance": 1551
+      }
+    ],
+    "summary": {
+      "original_price": 2373.41,
+      "discount_percentage": 50.0,
+      "discounted_price": 1186.7,
+      "flight_time": 11.45,
+      "connection_time": 7.12,
+      "total_duration": 18.57,
+      "total_distance": 5730,
+      "score": 0.3096,
+      "path": "SFO -> JFK -> ORD -> BOS -> DFW"
+    }
+  },
+  {
+    "rank": 43,
+    "option_id": "d198a78d-d2f0-4069-9b89-b50b70963302",
+    "flights": [
+      {
+        "flight_id": "a792de31-d18c-4a2b-9b12-b087b9c4164c",
+        "departure_airport": "SFO",
+        "arrival_airport": "LAX",
+        "departure_time": "20-07-2024 12:14:49",
+        "arrival_time": "20-07-2024 12:55:16",
+        "airline_code": "F9",
+        "airline_name": "Frontier Airlines",
+        "flight_number": "8492",
+        "price": 308.0,
+        "duration": 0.67,
+        "distance": 337
+      },
+      {
+        "flight_id": "9dfd8583-822f-4bc2-b8ba-d67a07093d73",
+        "departure_airport": "LAX",
+        "arrival_airport": "MIA",
+        "departure_time": "20-07-2024 15:31:42",
+        "arrival_time": "20-07-2024 20:12:45",
+        "airline_code": "UA",
+        "airline_name": "United Airlines",
+        "flight_number": "3000",
+        "price": 518.45,
+        "duration": 4.68,
+        "distance": 2342
+      },
+      {
+        "flight_id": "c028615f-30b0-4940-9076-1eb1bf559108",
+        "departure_airport": "MIA",
+        "arrival_airport": "ORD",
+        "departure_time": "20-07-2024 23:13:11",
+        "arrival_time": "21-07-2024 01:36:49",
+        "airline_code": "F9",
+        "airline_name": "Frontier Airlines",
+        "flight_number": "8617",
+        "price": 978.65,
+        "duration": 2.39,
+        "distance": 1197
+      },
+      {
+        "flight_id": "c0c05514-3931-44f0-b968-8efb1677ced0",
+        "departure_airport": "ORD",
+        "arrival_airport": "DFW",
+        "departure_time": "21-07-2024 07:29:54",
+        "arrival_time": "21-07-2024 09:06:08",
+        "airline_code": "NK",
+        "airline_name": "Spirit Airlines",
+        "flight_number": "7995",
+        "price": 349.75,
+        "duration": 1.6,
+        "distance": 802
+      }
+    ],
+    "summary": {
+      "original_price": 2154.85,
+      "discount_percentage": 50.0,
+      "discounted_price": 1077.42,
+      "flight_time": 9.34,
+      "connection_time": 11.5,
+      "total_duration": 20.84,
+      "total_distance": 4678,
+      "score": 0.2618,
+      "path": "SFO -> LAX -> MIA -> ORD -> DFW"
+    }
+  },
+  {
+    "rank": 44,
+    "option_id": "28668eb9-3869-4b4a-b6ad-b902d9c92341",
+    "flights": [
+      {
+        "flight_id": "75a6fc88-6cad-4512-860d-82decf7f0760",
+        "departure_airport": "SFO",
+        "arrival_airport": "JFK",
+        "departure_time": "20-07-2024 12:26:28",
+        "arrival_time": "20-07-2024 17:35:06",
+        "airline_code": "DL",
+        "airline_name": "Delta Air Lines",
+        "flight_number": "2171",
+        "price": 754.45,
+        "duration": 5.14,
+        "distance": 2572
+      },
+      {
+        "flight_id": "e077314b-0b95-4ac9-aadd-ab2219e85971",
+        "departure_airport": "JFK",
+        "arrival_airport": "ORD",
+        "departure_time": "20-07-2024 19:43:45",
+        "arrival_time": "20-07-2024 21:12:33",
+        "airline_code": "NK",
+        "airline_name": "Spirit Airlines",
+        "flight_number": "7521",
+        "price": 494.42,
+        "duration": 1.48,
+        "distance": 740
+      },
+      {
+        "flight_id": "08d0bdc4-fbb9-4d83-b716-3194d525d8b2",
+        "departure_airport": "ORD",
+        "arrival_airport": "BOS",
+        "departure_time": "20-07-2024 22:58:46",
+        "arrival_time": "21-07-2024 00:42:48",
+        "airline_code": "WN",
+        "airline_name": "Southwest Airlines",
+        "flight_number": "4441",
+        "price": 275.26,
+        "duration": 1.73,
+        "distance": 867
+      },
+      {
+        "flight_id": "2ef85a0f-ae71-4064-a0cb-ab7d0a0930a0",
+        "departure_airport": "BOS",
+        "arrival_airport": "DFW",
+        "departure_time": "21-07-2024 03:55:12",
+        "arrival_time": "21-07-2024 07:01:19",
+        "airline_code": "AS",
+        "airline_name": "Alaska Airlines",
+        "flight_number": "6477",
+        "price": 882.04,
+        "duration": 3.1,
+        "distance": 1551
+      }
+    ],
+    "summary": {
+      "original_price": 2406.17,
+      "discount_percentage": 50.0,
+      "discounted_price": 1203.09,
+      "flight_time": 11.45,
+      "connection_time": 7.12,
+      "total_duration": 18.57,
+      "total_distance": 5730,
+      "score": 0.332,
+      "path": "SFO -> JFK -> ORD -> BOS -> DFW"
+    }
+  },
+  {
+    "rank": 45,
+    "option_id": "8fef75f3-e1c9-4cad-a7b1-99c6278d3429",
+    "flights": [
+      {
+        "flight_id": "a792de31-d18c-4a2b-9b12-b087b9c4164c",
+        "departure_airport": "SFO",
+        "arrival_airport": "LAX",
+        "departure_time": "20-07-2024 12:14:49",
+        "arrival_time": "20-07-2024 12:55:16",
+        "airline_code": "F9",
+        "airline_name": "Frontier Airlines",
+        "flight_number": "8492",
+        "price": 308.0,
+        "duration": 0.67,
+        "distance": 337
+      },
+      {
+        "flight_id": "9dfd8583-822f-4bc2-b8ba-d67a07093d73",
+        "departure_airport": "LAX",
+        "arrival_airport": "MIA",
+        "departure_time": "20-07-2024 15:31:42",
+        "arrival_time": "20-07-2024 20:12:45",
+        "airline_code": "UA",
+        "airline_name": "United Airlines",
+        "flight_number": "3000",
+        "price": 518.45,
+        "duration": 4.68,
+        "distance": 2342
+      },
+      {
+        "flight_id": "d770ffb0-049d-4028-bec1-9c75239eb83b",
+        "departure_airport": "MIA",
+        "arrival_airport": "ORD",
+        "departure_time": "20-07-2024 22:15:20",
+        "arrival_time": "21-07-2024 00:38:59",
+        "airline_code": "DL",
+        "airline_name": "Delta Air Lines",
+        "flight_number": "2764",
+        "price": 611.5,
+        "duration": 2.39,
+        "distance": 1197
+      },
+      {
+        "flight_id": "0cf5896d-1125-44c2-82ee-72670925e3e3",
+        "departure_airport": "ORD",
+        "arrival_airport": "DFW",
+        "departure_time": "21-07-2024 06:26:17",
+        "arrival_time": "21-07-2024 08:02:32",
+        "airline_code": "F9",
+        "airline_name": "Frontier Airlines",
+        "flight_number": "8307",
+        "price": 849.7,
+        "duration": 1.6,
+        "distance": 802
+      }
+    ],
+    "summary": {
+      "original_price": 2287.65,
+      "discount_percentage": 50.0,
+      "discounted_price": 1143.83,
+      "flight_time": 9.34,
+      "connection_time": 10.44,
+      "total_duration": 19.78,
+      "total_distance": 4678,
+      "score": 0.2842,
+      "path": "SFO -> LAX -> MIA -> ORD -> DFW"
+    }
+  },
+  {
+    "rank": 46,
+    "option_id": "c875e111-d659-455a-ac6a-0e59bdeda86c",
+    "flights": [
+      {
+        "flight_id": "75a6fc88-6cad-4512-860d-82decf7f0760",
+        "departure_airport": "SFO",
+        "arrival_airport": "JFK",
+        "departure_time": "20-07-2024 12:26:28",
+        "arrival_time": "20-07-2024 17:35:06",
+        "airline_code": "DL",
+        "airline_name": "Delta Air Lines",
+        "flight_number": "2171",
+        "price": 754.45,
+        "duration": 5.14,
+        "distance": 2572
+      },
+      {
+        "flight_id": "36522e7b-ace2-4a2a-a5b1-cd242f08cc01",
+        "departure_airport": "JFK",
+        "arrival_airport": "ORD",
+        "departure_time": "20-07-2024 19:30:51",
+        "arrival_time": "20-07-2024 20:59:39",
+        "airline_code": "F9",
+        "airline_name": "Frontier Airlines",
+        "flight_number": "8186",
+        "price": 461.66,
+        "duration": 1.48,
+        "distance": 740
+      },
+      {
+        "flight_id": "f0ece0bd-ffe8-4a95-bf49-a987f323f8ca",
+        "departure_airport": "ORD",
+        "arrival_airport": "BOS",
+        "departure_time": "20-07-2024 22:10:24",
+        "arrival_time": "20-07-2024 23:54:26",
+        "airline_code": "WN",
+        "airline_name": "Southwest Airlines",
+        "flight_number": "4251",
+        "price": 916.7,
+        "duration": 1.73,
+        "distance": 867
+      },
+      {
+        "flight_id": "f9582d6a-17b5-400c-9920-6b9df5935f9b",
+        "departure_airport": "BOS",
+        "arrival_airport": "DFW",
+        "departure_time": "21-07-2024 00:54:32",
+        "arrival_time": "21-07-2024 04:00:39",
+        "airline_code": "NK",
+        "airline_name": "Spirit Airlines",
+        "flight_number": "7731",
+        "price": 612.99,
+        "duration": 3.1,
+        "distance": 1551
+      }
+    ],
+    "summary": {
+      "original_price": 2745.8,
+      "discount_percentage": 50.0,
+      "discounted_price": 1372.9,
+      "flight_time": 11.45,
+      "connection_time": 4.11,
+      "total_duration": 15.56,
+      "total_distance": 5730,
+      "score": 0.6218,
+      "path": "SFO -> JFK -> ORD -> BOS -> DFW"
+    }
+  },
+  {
+    "rank": 47,
+    "option_id": "9b274245-057e-4f18-b0fe-32640fa7cec4",
+    "flights": [
+      {
+        "flight_id": "ebedc064-8cdc-4804-89c8-322bb88815bb",
+        "departure_airport": "SFO",
+        "arrival_airport": "MIA",
+        "departure_time": "20-07-2024 12:05:17",
+        "arrival_time": "20-07-2024 17:15:07",
+        "airline_code": "DL",
+        "airline_name": "Delta Air Lines",
+        "flight_number": "2929",
+        "price": 573.61,
+        "duration": 5.16,
+        "distance": 2582
+      },
+      {
+        "flight_id": "5e4acf13-6d00-4abd-9331-b0068d3953e6",
+        "departure_airport": "MIA",
+        "arrival_airport": "BOS",
+        "departure_time": "20-07-2024 18:41:18",
+        "arrival_time": "20-07-2024 21:12:16",
+        "airline_code": "DL",
+        "airline_name": "Delta Air Lines",
+        "flight_number": "2465",
+        "price": 888.58,
+        "duration": 2.52,
+        "distance": 1258
+      },
+      {
+        "flight_id": "ac42e4af-9c15-4e13-a361-f38247d0bf19",
+        "departure_airport": "BOS",
+        "arrival_airport": "JFK",
+        "departure_time": "21-07-2024 02:44:09",
+        "arrival_time": "21-07-2024 03:09:57",
+        "airline_code": "UA",
+        "airline_name": "United Airlines",
+        "flight_number": "3573",
+        "price": 334.45,
+        "duration": 0.43,
+        "distance": 215
+      },
+      {
+        "flight_id": "dffa8d74-0b76-44dc-a96f-54240736df21",
+        "departure_airport": "JFK",
+        "arrival_airport": "DFW",
+        "departure_time": "21-07-2024 05:13:50",
+        "arrival_time": "21-07-2024 07:58:29",
+        "airline_code": "F9",
+        "airline_name": "Frontier Airlines",
+        "flight_number": "8636",
+        "price": 688.41,
+        "duration": 2.74,
+        "distance": 1372
+      }
+    ],
+    "summary": {
+      "original_price": 2485.05,
+      "discount_percentage": 50.0,
+      "discounted_price": 1242.53,
+      "flight_time": 10.85,
+      "connection_time": 9.03,
+      "total_duration": 19.88,
+      "total_distance": 5427,
+      "score": 0.3437,
+      "path": "SFO -> MIA -> BOS -> JFK -> DFW"
+    }
+  },
+  {
+    "rank": 48,
+    "option_id": "acd21c33-690e-444d-a4a2-2f1dae4ff96f",
+    "flights": [
+      {
+        "flight_id": "75a6fc88-6cad-4512-860d-82decf7f0760",
+        "departure_airport": "SFO",
+        "arrival_airport": "JFK",
+        "departure_time": "20-07-2024 12:26:28",
+        "arrival_time": "20-07-2024 17:35:06",
+        "airline_code": "DL",
+        "airline_name": "Delta Air Lines",
+        "flight_number": "2171",
+        "price": 754.45,
+        "duration": 5.14,
+        "distance": 2572
+      },
+      {
+        "flight_id": "36522e7b-ace2-4a2a-a5b1-cd242f08cc01",
+        "departure_airport": "JFK",
+        "arrival_airport": "ORD",
+        "departure_time": "20-07-2024 19:30:51",
+        "arrival_time": "20-07-2024 20:59:39",
+        "airline_code": "F9",
+        "airline_name": "Frontier Airlines",
+        "flight_number": "8186",
+        "price": 461.66,
+        "duration": 1.48,
+        "distance": 740
+      },
+      {
+        "flight_id": "08d0bdc4-fbb9-4d83-b716-3194d525d8b2",
+        "departure_airport": "ORD",
+        "arrival_airport": "BOS",
+        "departure_time": "20-07-2024 22:58:46",
+        "arrival_time": "21-07-2024 00:42:48",
+        "airline_code": "WN",
+        "airline_name": "Southwest Airlines",
+        "flight_number": "4441",
+        "price": 275.26,
+        "duration": 1.73,
+        "distance": 867
+      },
+      {
+        "flight_id": "66ccdd7e-84bc-49e5-b35c-e74c40233087",
+        "departure_airport": "BOS",
+        "arrival_airport": "DFW",
+        "departure_time": "21-07-2024 05:58:19",
+        "arrival_time": "21-07-2024 09:04:26",
+        "airline_code": "B6",
+        "airline_name": "JetBlue Airways",
+        "flight_number": "5475",
+        "price": 929.48,
+        "duration": 3.1,
+        "distance": 1551
+      }
+    ],
+    "summary": {
+      "original_price": 2420.85,
+      "discount_percentage": 50.0,
+      "discounted_price": 1210.42,
+      "flight_time": 11.45,
+      "connection_time": 9.17,
+      "total_duration": 20.62,
+      "total_distance": 5730,
+      "score": 0.4028,
+      "path": "SFO -> JFK -> ORD -> BOS -> DFW"
+    }
+  },
+  {
+    "rank": 49,
+    "option_id": "81b32fb2-583a-460c-b10a-90713d50755a",
+    "flights": [
+      {
+        "flight_id": "75a6fc88-6cad-4512-860d-82decf7f0760",
+        "departure_airport": "SFO",
+        "arrival_airport": "JFK",
+        "departure_time": "20-07-2024 12:26:28",
+        "arrival_time": "20-07-2024 17:35:06",
+        "airline_code": "DL",
+        "airline_name": "Delta Air Lines",
+        "flight_number": "2171",
+        "price": 754.45,
+        "duration": 5.14,
+        "distance": 2572
+      },
+      {
+        "flight_id": "e077314b-0b95-4ac9-aadd-ab2219e85971",
+        "departure_airport": "JFK",
+        "arrival_airport": "ORD",
+        "departure_time": "20-07-2024 19:43:45",
+        "arrival_time": "20-07-2024 21:12:33",
+        "airline_code": "NK",
+        "airline_name": "Spirit Airlines",
+        "flight_number": "7521",
+        "price": 494.42,
+        "duration": 1.48,
+        "distance": 740
+      },
+      {
+        "flight_id": "08d0bdc4-fbb9-4d83-b716-3194d525d8b2",
+        "departure_airport": "ORD",
+        "arrival_airport": "BOS",
+        "departure_time": "20-07-2024 22:58:46",
+        "arrival_time": "21-07-2024 00:42:48",
+        "airline_code": "WN",
+        "airline_name": "Southwest Airlines",
+        "flight_number": "4441",
+        "price": 275.26,
+        "duration": 1.73,
+        "distance": 867
+      },
+      {
+        "flight_id": "66ccdd7e-84bc-49e5-b35c-e74c40233087",
+        "departure_airport": "BOS",
+        "arrival_airport": "DFW",
+        "departure_time": "21-07-2024 05:58:19",
+        "arrival_time": "21-07-2024 09:04:26",
+        "airline_code": "B6",
+        "airline_name": "JetBlue Airways",
+        "flight_number": "5475",
+        "price": 929.48,
+        "duration": 3.1,
+        "distance": 1551
+      }
+    ],
+    "summary": {
+      "original_price": 2453.61,
+      "discount_percentage": 50.0,
+      "discounted_price": 1226.81,
+      "flight_time": 11.45,
+      "connection_time": 9.17,
+      "total_duration": 20.62,
+      "total_distance": 5730,
+      "score": 0.3132,
+      "path": "SFO -> JFK -> ORD -> BOS -> DFW"
+    }
+  },
+  {
+    "rank": 50,
+    "option_id": "515326b4-4d68-4754-b986-08138de3e95e",
+    "flights": [
+      {
+        "flight_id": "ebedc064-8cdc-4804-89c8-322bb88815bb",
+        "departure_airport": "SFO",
+        "arrival_airport": "MIA",
+        "departure_time": "20-07-2024 12:05:17",
+        "arrival_time": "20-07-2024 17:15:07",
+        "airline_code": "DL",
+        "airline_name": "Delta Air Lines",
+        "flight_number": "2929",
+        "price": 573.61,
+        "duration": 5.16,
+        "distance": 2582
+      },
+      {
+        "flight_id": "5e4acf13-6d00-4abd-9331-b0068d3953e6",
+        "departure_airport": "MIA",
+        "arrival_airport": "BOS",
+        "departure_time": "20-07-2024 18:41:18",
+        "arrival_time": "20-07-2024 21:12:16",
+        "airline_code": "DL",
+        "airline_name": "Delta Air Lines",
+        "flight_number": "2465",
+        "price": 888.58,
+        "duration": 2.52,
+        "distance": 1258
+      },
+      {
+        "flight_id": "e7f5c11f-82f5-42e9-99a2-3c5ca1dc58ea",
+        "departure_airport": "BOS",
+        "arrival_airport": "JFK",
+        "departure_time": "20-07-2024 23:25:42",
+        "arrival_time": "20-07-2024 23:51:30",
+        "airline_code": "WN",
+        "airline_name": "Southwest Airlines",
+        "flight_number": "4364",
+        "price": 450.65,
+        "duration": 0.43,
+        "distance": 215
+      },
+      {
+        "flight_id": "dffa8d74-0b76-44dc-a96f-54240736df21",
+        "departure_airport": "JFK",
+        "arrival_airport": "DFW",
+        "departure_time": "21-07-2024 05:13:50",
+        "arrival_time": "21-07-2024 07:58:29",
+        "airline_code": "F9",
+        "airline_name": "Frontier Airlines",
+        "flight_number": "8636",
+        "price": 688.41,
+        "duration": 2.74,
+        "distance": 1372
+      }
+    ],
+    "summary": {
+      "original_price": 2601.25,
+      "discount_percentage": 50.0,
+      "discounted_price": 1300.62,
+      "flight_time": 10.85,
+      "connection_time": 9.03,
+      "total_duration": 19.88,
+      "total_distance": 5427,
+      "score": 0.3723,
+      "path": "SFO -> MIA -> BOS -> JFK -> DFW"
+    }
+  },
+  {
+    "rank": 51,
+    "option_id": "11a88f71-734a-40f4-82cc-fae067753e2c",
+    "flights": [
+      {
+        "flight_id": "a792de31-d18c-4a2b-9b12-b087b9c4164c",
+        "departure_airport": "SFO",
+        "arrival_airport": "LAX",
+        "departure_time": "20-07-2024 12:14:49",
+        "arrival_time": "20-07-2024 12:55:16",
+        "airline_code": "F9",
+        "airline_name": "Frontier Airlines",
+        "flight_number": "8492",
+        "price": 308.0,
+        "duration": 0.67,
+        "distance": 337
+      },
+      {
+        "flight_id": "9dfd8583-822f-4bc2-b8ba-d67a07093d73",
+        "departure_airport": "LAX",
+        "arrival_airport": "MIA",
+        "departure_time": "20-07-2024 15:31:42",
+        "arrival_time": "20-07-2024 20:12:45",
+        "airline_code": "UA",
+        "airline_name": "United Airlines",
+        "flight_number": "3000",
+        "price": 518.45,
+        "duration": 4.68,
+        "distance": 2342
+      },
+      {
+        "flight_id": "c028615f-30b0-4940-9076-1eb1bf559108",
+        "departure_airport": "MIA",
+        "arrival_airport": "ORD",
+        "departure_time": "20-07-2024 23:13:11",
+        "arrival_time": "21-07-2024 01:36:49",
+        "airline_code": "F9",
+        "airline_name": "Frontier Airlines",
+        "flight_number": "8617",
+        "price": 978.65,
+        "duration": 2.39,
+        "distance": 1197
+      },
+      {
+        "flight_id": "0cf5896d-1125-44c2-82ee-72670925e3e3",
+        "departure_airport": "ORD",
+        "arrival_airport": "DFW",
+        "departure_time": "21-07-2024 06:26:17",
+        "arrival_time": "21-07-2024 08:02:32",
+        "airline_code": "F9",
+        "airline_name": "Frontier Airlines",
+        "flight_number": "8307",
+        "price": 849.7,
+        "duration": 1.6,
+        "distance": 802
+      }
+    ],
+    "summary": {
+      "original_price": 2654.8,
+      "discount_percentage": 50.0,
+      "discounted_price": 1327.4,
+      "flight_time": 9.34,
+      "connection_time": 10.44,
+      "total_duration": 19.78,
+      "total_distance": 4678,
+      "score": 0.3973,
+      "path": "SFO -> LAX -> MIA -> ORD -> DFW"
+    }
+  },
+  {
+    "rank": 52,
+    "option_id": "2be74d09-a999-4c5f-8680-a2116eb286e9",
+    "flights": [
+      {
+        "flight_id": "75a6fc88-6cad-4512-860d-82decf7f0760",
+        "departure_airport": "SFO",
+        "arrival_airport": "JFK",
+        "departure_time": "20-07-2024 12:26:28",
+        "arrival_time": "20-07-2024 17:35:06",
+        "airline_code": "DL",
+        "airline_name": "Delta Air Lines",
+        "flight_number": "2171",
+        "price": 754.45,
+        "duration": 5.14,
+        "distance": 2572
+      },
+      {
+        "flight_id": "36522e7b-ace2-4a2a-a5b1-cd242f08cc01",
+        "departure_airport": "JFK",
+        "arrival_airport": "ORD",
+        "departure_time": "20-07-2024 19:30:51",
+        "arrival_time": "20-07-2024 20:59:39",
+        "airline_code": "F9",
+        "airline_name": "Frontier Airlines",
+        "flight_number": "8186",
+        "price": 461.66,
+        "duration": 1.48,
+        "distance": 740
+      },
+      {
+        "flight_id": "f0ece0bd-ffe8-4a95-bf49-a987f323f8ca",
+        "departure_airport": "ORD",
+        "arrival_airport": "BOS",
+        "departure_time": "20-07-2024 22:10:24",
+        "arrival_time": "20-07-2024 23:54:26",
+        "airline_code": "WN",
+        "airline_name": "Southwest Airlines",
+        "flight_number": "4251",
+        "price": 916.7,
+        "duration": 1.73,
+        "distance": 867
+      },
+      {
+        "flight_id": "2ef85a0f-ae71-4064-a0cb-ab7d0a0930a0",
+        "departure_airport": "BOS",
+        "arrival_airport": "DFW",
+        "departure_time": "21-07-2024 03:55:12",
+        "arrival_time": "21-07-2024 07:01:19",
+        "airline_code": "AS",
+        "airline_name": "Alaska Airlines",
+        "flight_number": "6477",
+        "price": 882.04,
+        "duration": 3.1,
+        "distance": 1551
+      }
+    ],
+    "summary": {
+      "original_price": 3014.85,
+      "discount_percentage": 50.0,
+      "discounted_price": 1507.42,
+      "flight_time": 11.45,
+      "connection_time": 7.12,
+      "total_duration": 18.57,
+      "total_distance": 5730,
+      "score": 0.3494,
+      "path": "SFO -> JFK -> ORD -> BOS -> DFW"
+    }
+  },
+  {
+    "rank": 53,
+    "option_id": "ed8b9e8c-58b5-44e8-a5d1-893eb24f3bd4",
+    "flights": [
+      {
+        "flight_id": "75a6fc88-6cad-4512-860d-82decf7f0760",
+        "departure_airport": "SFO",
+        "arrival_airport": "JFK",
+        "departure_time": "20-07-2024 12:26:28",
+        "arrival_time": "20-07-2024 17:35:06",
+        "airline_code": "DL",
+        "airline_name": "Delta Air Lines",
+        "flight_number": "2171",
+        "price": 754.45,
+        "duration": 5.14,
+        "distance": 2572
+      },
+      {
+        "flight_id": "36522e7b-ace2-4a2a-a5b1-cd242f08cc01",
+        "departure_airport": "JFK",
+        "arrival_airport": "ORD",
+        "departure_time": "20-07-2024 19:30:51",
+        "arrival_time": "20-07-2024 20:59:39",
+        "airline_code": "F9",
+        "airline_name": "Frontier Airlines",
+        "flight_number": "8186",
+        "price": 461.66,
+        "duration": 1.48,
+        "distance": 740
+      },
+      {
+        "flight_id": "53f83642-3108-4aab-a078-8e1679e3d7ff",
+        "departure_airport": "ORD",
+        "arrival_airport": "BOS",
+        "departure_time": "20-07-2024 22:17:44",
+        "arrival_time": "21-07-2024 00:01:46",
+        "airline_code": "NK",
+        "airline_name": "Spirit Airlines",
+        "flight_number": "7614",
+        "price": 916.98,
+        "duration": 1.73,
+        "distance": 867
+      },
+      {
+        "flight_id": "2ef85a0f-ae71-4064-a0cb-ab7d0a0930a0",
+        "departure_airport": "BOS",
+        "arrival_airport": "DFW",
+        "departure_time": "21-07-2024 03:55:12",
+        "arrival_time": "21-07-2024 07:01:19",
+        "airline_code": "AS",
+        "airline_name": "Alaska Airlines",
+        "flight_number": "6477",
+        "price": 882.04,
+        "duration": 3.1,
+        "distance": 1551
+      }
+    ],
+    "summary": {
+      "original_price": 3015.13,
+      "discount_percentage": 50.0,
+      "discounted_price": 1507.57,
+      "flight_time": 11.45,
+      "connection_time": 7.12,
+      "total_duration": 18.57,
+      "total_distance": 5730,
+      "score": 0.3016,
+      "path": "SFO -> JFK -> ORD -> BOS -> DFW"
+    }
+  },
+  {
+    "rank": 54,
+    "option_id": "d46dc830-e9f7-4639-a1b8-01f4d51bad84",
+    "flights": [
+      {
+        "flight_id": "75a6fc88-6cad-4512-860d-82decf7f0760",
+        "departure_airport": "SFO",
+        "arrival_airport": "JFK",
+        "departure_time": "20-07-2024 12:26:28",
+        "arrival_time": "20-07-2024 17:35:06",
+        "airline_code": "DL",
+        "airline_name": "Delta Air Lines",
+        "flight_number": "2171",
+        "price": 754.45,
+        "duration": 5.14,
+        "distance": 2572
+      },
+      {
+        "flight_id": "e077314b-0b95-4ac9-aadd-ab2219e85971",
+        "departure_airport": "JFK",
+        "arrival_airport": "ORD",
+        "departure_time": "20-07-2024 19:43:45",
+        "arrival_time": "20-07-2024 21:12:33",
+        "airline_code": "NK",
+        "airline_name": "Spirit Airlines",
+        "flight_number": "7521",
+        "price": 494.42,
+        "duration": 1.48,
+        "distance": 740
+      },
+      {
+        "flight_id": "53f83642-3108-4aab-a078-8e1679e3d7ff",
+        "departure_airport": "ORD",
+        "arrival_airport": "BOS",
+        "departure_time": "20-07-2024 22:17:44",
+        "arrival_time": "21-07-2024 00:01:46",
+        "airline_code": "NK",
+        "airline_name": "Spirit Airlines",
+        "flight_number": "7614",
+        "price": 916.98,
+        "duration": 1.73,
+        "distance": 867
+      },
+      {
+        "flight_id": "2ef85a0f-ae71-4064-a0cb-ab7d0a0930a0",
+        "departure_airport": "BOS",
+        "arrival_airport": "DFW",
+        "departure_time": "21-07-2024 03:55:12",
+        "arrival_time": "21-07-2024 07:01:19",
+        "airline_code": "AS",
+        "airline_name": "Alaska Airlines",
+        "flight_number": "6477",
+        "price": 882.04,
+        "duration": 3.1,
+        "distance": 1551
+      }
+    ],
+    "summary": {
+      "original_price": 3047.89,
+      "discount_percentage": 50.0,
+      "discounted_price": 1523.94,
+      "flight_time": 11.45,
+      "connection_time": 7.12,
+      "total_duration": 18.57,
+      "total_distance": 5730,
+      "score": 0.3718,
+      "path": "SFO -> JFK -> ORD -> BOS -> DFW"
+    }
+  },
+  {
+    "rank": 55,
+    "option_id": "14b45246-dd37-42e7-9a42-17cb7fadca4f",
+    "flights": [
+      {
+        "flight_id": "75a6fc88-6cad-4512-860d-82decf7f0760",
+        "departure_airport": "SFO",
+        "arrival_airport": "JFK",
+        "departure_time": "20-07-2024 12:26:28",
+        "arrival_time": "20-07-2024 17:35:06",
+        "airline_code": "DL",
+        "airline_name": "Delta Air Lines",
+        "flight_number": "2171",
+        "price": 754.45,
+        "duration": 5.14,
+        "distance": 2572
+      },
+      {
+        "flight_id": "36522e7b-ace2-4a2a-a5b1-cd242f08cc01",
+        "departure_airport": "JFK",
+        "arrival_airport": "ORD",
+        "departure_time": "20-07-2024 19:30:51",
+        "arrival_time": "20-07-2024 20:59:39",
+        "airline_code": "F9",
+        "airline_name": "Frontier Airlines",
+        "flight_number": "8186",
+        "price": 461.66,
+        "duration": 1.48,
+        "distance": 740
+      },
+      {
+        "flight_id": "53f83642-3108-4aab-a078-8e1679e3d7ff",
+        "departure_airport": "ORD",
+        "arrival_airport": "BOS",
+        "departure_time": "20-07-2024 22:17:44",
+        "arrival_time": "21-07-2024 00:01:46",
+        "airline_code": "NK",
+        "airline_name": "Spirit Airlines",
+        "flight_number": "7614",
+        "price": 916.98,
+        "duration": 1.73,
+        "distance": 867
+      },
+      {
+        "flight_id": "66ccdd7e-84bc-49e5-b35c-e74c40233087",
+        "departure_airport": "BOS",
+        "arrival_airport": "DFW",
+        "departure_time": "21-07-2024 05:58:19",
+        "arrival_time": "21-07-2024 09:04:26",
+        "airline_code": "B6",
+        "airline_name": "JetBlue Airways",
+        "flight_number": "5475",
+        "price": 929.48,
+        "duration": 3.1,
+        "distance": 1551
+      }
+    ],
+    "summary": {
+      "original_price": 3062.57,
+      "discount_percentage": 50.0,
+      "discounted_price": 1531.29,
+      "flight_time": 11.45,
+      "connection_time": 9.17,
+      "total_duration": 20.62,
+      "total_distance": 5730,
+      "score": 0.324,
+      "path": "SFO -> JFK -> ORD -> BOS -> DFW"
+    }
+  },
+  {
+    "rank": 56,
+    "option_id": "c3619d26-a580-4733-ae02-7bc4e481e0fd",
+    "flights": [
+      {
+        "flight_id": "75a6fc88-6cad-4512-860d-82decf7f0760",
+        "departure_airport": "SFO",
+        "arrival_airport": "JFK",
+        "departure_time": "20-07-2024 12:26:28",
+        "arrival_time": "20-07-2024 17:35:06",
+        "airline_code": "DL",
+        "airline_name": "Delta Air Lines",
+        "flight_number": "2171",
+        "price": 754.45,
+        "duration": 5.14,
+        "distance": 2572
+      },
+      {
+        "flight_id": "e077314b-0b95-4ac9-aadd-ab2219e85971",
+        "departure_airport": "JFK",
+        "arrival_airport": "ORD",
+        "departure_time": "20-07-2024 19:43:45",
+        "arrival_time": "20-07-2024 21:12:33",
+        "airline_code": "NK",
+        "airline_name": "Spirit Airlines",
+        "flight_number": "7521",
+        "price": 494.42,
+        "duration": 1.48,
+        "distance": 740
+      },
+      {
+        "flight_id": "53f83642-3108-4aab-a078-8e1679e3d7ff",
+        "departure_airport": "ORD",
+        "arrival_airport": "BOS",
+        "departure_time": "20-07-2024 22:17:44",
+        "arrival_time": "21-07-2024 00:01:46",
+        "airline_code": "NK",
+        "airline_name": "Spirit Airlines",
+        "flight_number": "7614",
+        "price": 916.98,
+        "duration": 1.73,
+        "distance": 867
+      },
+      {
+        "flight_id": "66ccdd7e-84bc-49e5-b35c-e74c40233087",
+        "departure_airport": "BOS",
+        "arrival_airport": "DFW",
+        "departure_time": "21-07-2024 05:58:19",
+        "arrival_time": "21-07-2024 09:04:26",
+        "airline_code": "B6",
+        "airline_name": "JetBlue Airways",
+        "flight_number": "5475",
+        "price": 929.48,
+        "duration": 3.1,
+        "distance": 1551
+      }
+    ],
+    "summary": {
+      "original_price": 3095.33,
+      "discount_percentage": 50.0,
+      "discounted_price": 1547.66,
+      "flight_time": 11.45,
+      "connection_time": 9.17,
+      "total_duration": 20.62,
+      "total_distance": 5730,
+      "score": 1.1304,
+      "path": "SFO -> JFK -> ORD -> BOS -> DFW"
     }
   }
 ]

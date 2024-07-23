@@ -15,6 +15,7 @@ model User {
   email     String @unique
   password  String
   trips     Trip[]
+  passengers Passenger[]
 }
 
 model Trip {
@@ -30,6 +31,8 @@ model Trip {
   scheduledArrivalTime   String
   createdAt             DateTime @default(now())
   segments              Segment[]
+
+  @@unique([userId, carrierCode, flightNumber, scheduledDepartureDate])
 }
 
 model Segment {
@@ -41,6 +44,26 @@ model Segment {
   scheduledSegmentDuration String
 }
 
+model Flight {
+  flightId              String   @id
+  carrierCode           String
+  flightNumber          Int
+  scheduledDepartureDate String
+  passengers            Passenger[]
 
+  @@unique([carrierCode, flightNumber, scheduledDepartureDate])
+}
+
+model Passenger {
+  passengerId           Int      @id @default(autoincrement())
+  userId                Int
+  user                  User     @relation(fields: [userId], references: [userId])
+  flightId              String
+  flight                Flight   @relation(fields: [flightId], references: [flightId])
+  seatNumber            String
+
+  @@unique([flightId, seatNumber])
+  @@unique([flightId, userId])
+}
 
 
