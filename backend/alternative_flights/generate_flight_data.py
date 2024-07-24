@@ -84,7 +84,7 @@ def generate_flight_data(start_date_str):
     return flight_data
 
 if __name__ == "__main__":
-    start_date_str = "20-07-2024 12:00:00"
+    start_date_str = "09-08-2024 12:00:00"
     start_date = datetime.strptime(start_date_str, "%d-%m-%Y %H:%M:%S")
     end_date = start_date + timedelta(hours=24)
     
