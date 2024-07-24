@@ -203,9 +203,9 @@ def main():
 
     input_data = json.loads(sys.stdin.read())
     
-    departure_airport = input_data.get('departure_airport', 'JFK')
+    departure_airport = input_data.get('departure_airport', 'SFO')
     arrival_airport = input_data.get('arrival_airport', 'MIA')
-    departure_time = datetime.strptime(input_data.get('departure_time', '2024-07-10 12:00:00'), "%Y-%m-%d %H:%M:%S")
+    departure_time = datetime.strptime(input_data.get('departure_time', '2024-08-09 12:00:00'), "%Y-%m-%d %H:%M:%S")
     preferred_airline_code = input_data.get('preferred_airline_code', 'AA')
 
     options = find_flight_options(departure_airport, arrival_airport, departure_time, flight_data)
