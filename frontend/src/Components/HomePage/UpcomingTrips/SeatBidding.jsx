@@ -15,18 +15,19 @@ import './SeatBidding.css';
 const SeatBidding = ({ trip, flightId, onBiddingCompleted }) => {
     const [activeBiddings, setActiveBiddings] = useState([]);
     const [bidAmounts, setBidAmounts] = useState({});
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState();
     const [message, setMessage] = useState('');
 
     /**
      * Fetch active biddings for the current flight
      */
     const fetchActiveBiddings = async () => {
+        setIsLoading(true);
         try {
             const response = await axios.get(`${API_BASE_URL}/bidding/active/${flightId}`, { withCredentials: true });
             setActiveBiddings(response.data);
         } catch (error) {
-            // Error handling for failed fetch
+            setMessage("Error Fetching updated bidding info" + error.message);
         } finally {
             setIsLoading(false);
         }
@@ -37,12 +38,12 @@ const SeatBidding = ({ trip, flightId, onBiddingCompleted }) => {
 
         newSocket.on('connect', () => newSocket.emit('join-flight', flightId));
         newSocket.on('new-bid', (data) => {
-            fetchActiveBiddings();
             handleNewBid(data);
-        });
+        });        
         newSocket.on('bidding-completed', handleBiddingCompleted);
         newSocket.on('bidding-expired', handleBiddingExpired);
         newSocket.on('bidding-cancelled', handleBiddingCancelled);
+        newSocket.on('biddings-removed', handleBiddingsRemoved);
 
         fetchActiveBiddings();
 
@@ -57,12 +58,28 @@ const SeatBidding = ({ trip, flightId, onBiddingCompleted }) => {
      * Handle new bid event
      * @param {Object} data - New bid data
      */
-    const handleNewBid = ({ biddingId, bid }) => {
-        setActiveBiddings(prev => prev.map(bidding =>
-            bidding.biddingId === biddingId
-                ? { ...bidding, bids: [...(bidding.bids || []), bid] }
-                : bidding
-        ));
+    const handleNewBid = (data) => {
+        setActiveBiddings(prev => {
+            const { biddingId, seatNumber, passengerId, bids, bid } = data;
+            
+            const existingBiddingIndex = prev.findIndex(b => b.biddingId === biddingId);
+            
+            if (existingBiddingIndex !== -1) {
+                const updatedBiddings = [...prev];
+                updatedBiddings[existingBiddingIndex] = {
+                    ...updatedBiddings[existingBiddingIndex],
+                    bids: [...(updatedBiddings[existingBiddingIndex].bids || []), bid].filter(Boolean)
+                };
+                return updatedBiddings;
+            } else {
+                return [...prev, { 
+                    biddingId, 
+                    seatNumber, 
+                    passengerId, 
+                    bids: Array.isArray(bids) ? bids : [bid].filter(Boolean)
+                }];
+            }
+        });
     };
 
     /**
@@ -102,7 +119,7 @@ const SeatBidding = ({ trip, flightId, onBiddingCompleted }) => {
             }, { withCredentials: true });
             setActiveBiddings(prev => [...prev, { ...response.data, bids: [] }]);
         } catch (error) {
-            // Error handling for failed bidding start
+            setMessage("Error Starting the Bid");
         }
     };
 
@@ -117,7 +134,7 @@ const SeatBidding = ({ trip, flightId, onBiddingCompleted }) => {
             setMessage("Cancelled bid");
             setTimeout(() => setMessage(''), 3000);
         } catch (error) {
-            // Error handling for failed bidding cancellation
+            setMessage("Error Cancelling the Bid" + error.message);
         }
     };
 
@@ -138,7 +155,7 @@ const SeatBidding = ({ trip, flightId, onBiddingCompleted }) => {
             setBidAmounts({...bidAmounts, [biddingId]: ''});
             setTimeout(() => setMessage(''), 3000);
         } catch (error) {
-            // Error handling for failed bid placement
+            setMessage("Error Placing the Bid" + error.message);
         }
     };
 
@@ -151,10 +168,34 @@ const SeatBidding = ({ trip, flightId, onBiddingCompleted }) => {
         try {
             await axios.post(`${API_BASE_URL}/bidding/accept`, { biddingId, bidId }, { withCredentials: true });
             setMessage('Bid accepted successfully! Seat will be swapped');
-            setActiveBiddings(prev => prev.filter(bidding => bidding.biddingId !== biddingId));
             setTimeout(() => setMessage(''), 3000);
         } catch (error) {
-            // Error handling for failed bid acceptance
+            setMessage("Error Accepting the Bid: " + error.message);
+        }
+    };
+    
+    /**
+     * Handles the removal of biddings and bids after a seat swap.
+     * 
+     * @param {string[]} data.removedBiddingIds - Array of bidding IDs that should be completely removed.
+     * @param {string[]} data.removedSeatNumbers - Array of seat numbers involved in the swap.
+     */
+    const handleBiddingsRemoved = ({ removedBiddingIds, removedSeatNumbers }) => {
+        try {
+            setActiveBiddings(prev => {
+                return prev.map(bidding => {
+                    if (removedBiddingIds.includes(bidding.biddingId)) {
+                        return null;
+                    }
+                    const updatedBids = bidding.bids.filter(bid => 
+                        !removedSeatNumbers.includes(bid.bidderSeatNumber)
+                    );
+                    
+                    return {...bidding, bids: updatedBids};
+                }).filter(Boolean);
+            });
+        } catch (error) {
+            setMessage("Error removing bids for swapping seats. " + error.message);
         }
     };
 
@@ -176,20 +217,23 @@ const SeatBidding = ({ trip, flightId, onBiddingCompleted }) => {
                     <h3>Offers:</h3>
                     {activeBiddings
                         .filter(bidding => bidding.passengerId === trip.userId)
-                        .map((bidding) => (
-                            <div key={bidding.biddingId}>
-                                {bidding.bids.length > 0 ? (
-                                    bidding.bids.map((bid) => (
-                                        <div key={bid.id}>
-                                            <p>Seat {bid.bidderSeatNumber}: ${bid.amount}</p>
-                                            <button onClick={() => acceptBid(bidding.biddingId, bid.id)}>Accept</button>
-                                        </div>
-                                    ))
-                                ) : (
-                                    <p>No offers so far.</p>
-                                )}
+                        .flatMap(bidding => bidding.bids)
+                        .length === 0 ? (
+                        <p>No offers so far.</p>
+                    ) : (
+                        activeBiddings
+                        .filter(bidding => bidding.passengerId === trip.userId)
+                        .map((bidding, index) => (
+                            <div key={`${bidding.biddingId}-${index}`}>
+                                {bidding.bids.map((bid) => (
+                                    <div key={bid.id}>
+                                        <p>Seat {bid.bidderSeatNumber}: ${bid.amount}</p>
+                                        <button onClick={() => acceptBid(bidding.biddingId, bid.id)}>Accept</button>
+                                    </div>
+                                ))}
                             </div>
-                        ))}
+                        ))
+                    )}
                 </div>
             )}
             
@@ -197,19 +241,25 @@ const SeatBidding = ({ trip, flightId, onBiddingCompleted }) => {
             {activeBiddings.filter(bidding => bidding.passengerId !== trip.userId).length > 0 ? (
                 activeBiddings
                     .filter(bidding => bidding.passengerId !== trip.userId)
-                    .map((bidding) => (
-                        <div key={bidding.biddingId}>
+                    .map((bidding, index) => (
+                        <form 
+                            key={`${bidding.biddingId}-${index}`}
+                            onSubmit={(e) => {
+                                e.preventDefault();
+                                placeBid(bidding.biddingId, bidding.seatNumber);
+                            }}
+                        >
                             <p>Seat {bidding.seatNumber} is available for bidding</p>
                             <input
                                 type="number"
                                 value={bidAmounts[bidding.biddingId] || ''}
                                 onChange={(e) => setBidAmounts({...bidAmounts, [bidding.biddingId]: e.target.value})}
                                 placeholder="Enter bid amount"
+                                required
+                                min="0"
                             />
-                            <button onClick={() => placeBid(bidding.biddingId, bidding.seatNumber)}>
-                                Place Bid
-                            </button>
-                        </div>
+                            <button type="submit">Place Bid</button>
+                        </form>        
                     ))
             ) : (
                 <p>No active bids at the moment.</p>
