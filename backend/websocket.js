@@ -1,9 +1,31 @@
+import { PrismaClient } from '@prisma/client';
+
+const prisma = new PrismaClient();
+
 /**
  * In-memory storage for active biddings and bids associated with each bidding
  * @type {Map}
  */
 export const activeBiddings = new Map();
 export const bids = new Map();
+
+/**
+ * Check if a user still owns a specific seat
+ * @param {string} flightId - The ID of the flight
+ * @param {string} userId - The ID of the user
+ * @param {string} seatNumber - The seat number to check
+ * @param {string} expectedSeatNumber - The seat number we expect the user to own.
+ * @returns {Object} An object containing:
+ *   - ownsExpectedSeat (boolean): True if the user's current seat matches the expected seat, false otherwise.
+ */
+export async function checkSeatOwnership(flightId, userId, expectedSeatNumber) {
+    const passenger = await prisma.passenger.findUnique({
+        where: {
+            flightId_userId: { flightId, userId },
+        },
+    });
+    return passenger?.seatNumber === expectedSeatNumber;
+}
 
 /**
  * Set up WebSocket connection and event handlers
