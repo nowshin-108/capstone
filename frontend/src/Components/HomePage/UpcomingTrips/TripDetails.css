@@ -227,6 +227,25 @@ p {
     color: #1a73e8;
 }
 
+.icons {
+    display: flex;
+    align-items: center;
+}
+
+.icons svg {
+    font-size: 20px;
+    color: #333;
+}
+
+.seat-bids-content {
+    padding: 10px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.seat-bids-content p {
+    margin: 0;
+}
+
 .loader {
     border: 4px solid #f3f3f3;
     border-top: 4px solid #3498db;
