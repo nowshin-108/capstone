@@ -12,7 +12,8 @@ const [error, setError] = useState(null);
 
 useEffect(() => {
     const checkAuth = async () => {
-        if (user !== null){
+        if (user === null){
+            setIsLoading(true);
             try {
                 const response = await fetch(`${API_BASE_URL}/users/auth-check`, {
                 credentials: 'include'
