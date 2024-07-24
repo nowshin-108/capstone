@@ -1,6 +1,12 @@
 import express from 'express';
 import { PrismaClient } from '@prisma/client';
-import { activeBiddings, bids, emitToFlight, expireBidding } from '../websocket.js';
+import { 
+    activeBiddings, 
+    bids, 
+    emitToFlight, 
+    expireBidding, 
+    checkSeatOwnership
+} from '../websocket.js';
 import { authenticateUser } from '../auth.js';
 import { io } from '../server.js';
 
@@ -66,11 +72,6 @@ router.post('/bid', authenticateUser, async (req, res) => {
         b => b.passengerId === bidderId && b.status === 'ACTIVE'
     );
 
-    if (bidderActiveBidding) {
-        bidderActiveBidding.status = 'CANCELLED';
-        emitToFlight(req.app.locals.io, bidderActiveBidding.flightId, 'bidding-cancelled', { biddingId: bidderActiveBidding.biddingId });
-    }
-
     const bid = { 
         id: Date.now().toString(), 
         bidderId, 
@@ -106,6 +107,19 @@ router.post('/accept', authenticateUser, async (req, res) => {
     }
 
     try {
+        // Check seat ownership for both parties
+        const initiatorSeatCheck = await checkSeatOwnership(bidding.flightId, bidding.passengerId, bidding.seatNumber);
+        if (!initiatorSeatCheck) {
+            return res.status(400).json({ error: 'Bidding initiator no longer owns the seat' });
+        }
+
+        const bidderSeatCheck = await checkSeatOwnership(bidding.flightId, acceptedBid.bidderId, acceptedBid.bidderSeatNumber);
+        if (!bidderSeatCheck) {
+            return res.status(400).json({ error: 'Accepted bidder no longer owns their seat' });
+        }
+
+        const seatsToRemove = [bidding.seatNumber, acceptedBid.bidderSeatNumber];
+
         await prisma.$transaction([
             prisma.passenger.update({
                 where: { flightId_userId: { flightId: bidding.flightId, userId: bidding.passengerId } },
@@ -121,14 +135,37 @@ router.post('/accept', authenticateUser, async (req, res) => {
             }),
         ]);
 
-        activeBiddings.delete(biddingId);
-        bids.delete(biddingId);
+        seatsToRemove.forEach(seatNumber => {
+            const biddingIdToRemove = `${bidding.flightId}-${seatNumber}`;
+            activeBiddings.delete(biddingIdToRemove);
+            bids.delete(biddingIdToRemove);
+        });
+
+        activeBiddings.forEach((activeBidding, activeBiddingId) => {
+            if (!seatsToRemove.includes(activeBidding.seatNumber)) {
+                const updatedBids = bids.get(activeBiddingId).filter(bid => 
+                    !seatsToRemove.includes(bid.bidderSeatNumber)
+                );
+                bids.set(activeBiddingId, updatedBids);
+
+                if (updatedBids.length === 0) {
+                    activeBiddings.delete(activeBiddingId);
+                    bids.delete(activeBiddingId);
+                }
+            }
+        });
 
         emitToFlight(req.app.locals.io, bidding.flightId, 'bidding-completed', {
             biddingId,
             winnerId: acceptedBid.bidderId,
             auctioneerNewSeat: acceptedBid.bidderSeatNumber,
             bidderNewSeat: bidding.seatNumber
+        });
+
+        const removedBiddingIds = seatsToRemove.map(seat => `${bidding.flightId}-${seat}`);
+        emitToFlight(req.app.locals.io, bidding.flightId, 'biddings-removed', {
+            removedBiddingIds,
+            removedSeatNumbers: seatsToRemove
         });
 
         res.json({ success: true });
