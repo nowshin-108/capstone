@@ -8,9 +8,14 @@ import userRoutes from './routes/users.js';
 import flightStatusRoutes from './routes/flightStatus.js';
 import { CORS_ORIGIN } from "./config.js";
 import flightRecomRoutes from './routes/flightRecom.js'
+import http from 'http';
+import { Server } from 'socket.io';
+import { setupWebSocket } from './websocket.js';
+import seatbidRoutes from './routes/seatbid.js';
 
 const prisma = new PrismaClient();
 const app = express();
+const server = http.createServer(app);
 
 app.use(cors({
   origin: `${CORS_ORIGIN}` || 'http://localhost:3001',
@@ -33,11 +38,24 @@ app.use(
   })
 );
 
+const io = new Server(server, {
+  cors: {
+    origin: CORS_ORIGIN,
+    credentials: true,
+  },
+});
+app.locals.io = io;
+
 app.use(userRoutes);
 app.use(flightStatusRoutes);
 app.use(flightRecomRoutes);
+app.use('/bidding', seatbidRoutes);
+
+setupWebSocket(io);
+
+export { io };
 
 const port = 3000;
-app.listen(port, () => {
-  console.log(`App is listening on port ${port}`);
+server.listen(port, () => {
+  console.log(`Server with Socket.io is listening on port ${port}`);
 });
