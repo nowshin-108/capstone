@@ -1,8 +1,6 @@
 import express from 'express';
 import { PrismaClient } from '@prisma/client';
 import { 
-    activeBiddings, 
-    bids, 
     emitToFlight, 
     expireBidding, 
     checkSeatOwnership
@@ -21,38 +19,60 @@ const router = express.Router();
 router.post('/start', authenticateUser, async (req, res) => {
     const { passengerId, seatNumber, flightId } = req.body;
     const biddingId = `${flightId}-${seatNumber}`;
-    const expirationTime = Date.now() + 30 * 60 * 1000; // 30 minutes
 
-    const existingBidding = Array.from(activeBiddings.values()).find(
-        bidding => bidding.passengerId === passengerId && bidding.status === 'ACTIVE'
-    );
+    try {
+        const flight = await prisma.flight.findUnique({ where: { flightId } });
+        if (!flight) {
+            return res.status(404).json({ error: 'Flight not found' });
+        }
 
-    if (existingBidding) {
-        return res.status(400).json({ error: 'You already have an active bidding' });
+        const departureDateTime = new Date(flight.scheduledDepartureTime);
+
+        if (isNaN(departureDateTime.getTime())) {
+            return res.status(400).json({ error: 'Invalid departure time' });
+        }
+
+        const expirationTime = new Date(departureDateTime.getTime() - 60 * 60 * 1000); // 1 hour before departure
+
+        const existingBidding = await prisma.bidding.findFirst({
+            where: {
+                passengerId,
+                status: 'ACTIVE'
+            }
+        });
+
+        if (existingBidding) {
+            return res.status(400).json({ error: 'You already have an active bidding' });
+        }
+
+        const newBidding = await prisma.bidding.create({
+            data: {
+                biddingId,
+                flightId,
+                passengerId,
+                seatNumber,
+                startTime: new Date(),
+                expirationTime,
+                status: 'ACTIVE'
+            }
+        });
+
+        emitToFlight(io, flightId, 'new-bid', { 
+            biddingId, 
+            seatNumber, 
+            passengerId,
+            startTime: new Date(),
+            expirationTime,
+            bids: []
+        });
+
+        setTimeout(() => expireBidding(io, biddingId), expirationTime.getTime() - Date.now());
+
+        res.json({ success: true, ...newBidding, bids: [] });
+    } catch (error) {
+        console.error('Error starting bidding:', error);
+        res.status(500).json({ error: 'Failed to start bidding' });
     }
-
-    const newBidding = {
-        passengerId,
-        seatNumber,
-        flightId,
-        startTime: Date.now(),
-        expirationTime,
-        status: 'ACTIVE'
-    };
-
-    activeBiddings.set(biddingId, newBidding);
-    bids.set(biddingId, []);
-
-    emitToFlight(req.app.locals.io, flightId, 'new-bid', { 
-        biddingId, 
-        seatNumber, 
-        passengerId,
-        bids: []
-    });
-
-    setTimeout(() => expireBidding(req.app.locals.io, biddingId), expirationTime - Date.now());
-
-    res.json({ success: true, biddingId, ...newBidding, bids: [] });
 });
 
 /**
@@ -62,30 +82,34 @@ router.post('/start', authenticateUser, async (req, res) => {
  */
 router.post('/bid', authenticateUser, async (req, res) => {
     const { biddingId, bidderId, amount, bidderSeatNumber } = req.body;
-    const bidding = activeBiddings.get(biddingId);
 
-    if (!bidding || bidding.status !== 'ACTIVE') {
-        return res.status(400).json({ error: 'Bidding not found or not active' });
+    try {
+        const bidding = await prisma.bidding.findUnique({ 
+            where: { biddingId },
+            include: { flight: true }
+        });
+
+        if (!bidding || bidding.status !== 'ACTIVE') {
+            return res.status(400).json({ error: 'Bidding not found or not active' });
+        }
+
+        const newBid = await prisma.bid.create({
+            data: {
+                biddingId,
+                bidderId,
+                amount: parseFloat(amount),
+                bidderSeatNumber,
+                time: new Date()
+            }
+        });
+
+        emitToFlight(io, bidding.flightId, 'new-bid', { biddingId, bid: newBid });
+
+        res.json({ success: true, bidId: newBid.bidId });
+    } catch (error) {
+        console.error('Error placing bid:', error);
+        res.status(500).json({ error: 'Failed to place bid' });
     }
-
-    const bidderActiveBidding = Array.from(activeBiddings.values()).find(
-        b => b.passengerId === bidderId && b.status === 'ACTIVE'
-    );
-
-    const bid = { 
-        id: Date.now().toString(), 
-        bidderId, 
-        amount, 
-        bidderSeatNumber, 
-        time: Date.now() 
-    };
-
-    if (!bids.has(biddingId)) bids.set(biddingId, []);
-    bids.get(biddingId).push(bid);
-
-    emitToFlight(req.app.locals.io, bidding.flightId, 'new-bid', { biddingId, bid });
-
-    res.json({ success: true, bidId: bid.id });
 });
 
 /**
@@ -95,18 +119,22 @@ router.post('/bid', authenticateUser, async (req, res) => {
  */
 router.post('/accept', authenticateUser, async (req, res) => {
     const { biddingId, bidId } = req.body;
-    const bidding = activeBiddings.get(biddingId);
-
-    if (!bidding || bidding.status !== 'ACTIVE') {
-        return res.status(400).json({ error: 'Bidding not found or not active' });
-    }
-
-    const acceptedBid = bids.get(biddingId).find(bid => bid.id === bidId);
-    if (!acceptedBid) {
-        return res.status(400).json({ error: 'Bid not found' });
-    }
 
     try {
+        const bidding = await prisma.bidding.findUnique({
+            where: { biddingId },
+            include: { flight: true, bids: true }
+        });
+
+        if (!bidding || bidding.status !== 'ACTIVE') {
+            return res.status(400).json({ error: 'Bidding not found or not active' });
+        }
+
+        const acceptedBid = bidding.bids.find(bid => bid.bidId === parseInt(bidId));
+        if (!acceptedBid) {
+            return res.status(400).json({ error: 'Bid not found' });
+        }
+
         // Check seat ownership for both parties
         const initiatorSeatCheck = await checkSeatOwnership(bidding.flightId, bidding.passengerId, bidding.seatNumber);
         if (!initiatorSeatCheck) {
@@ -133,44 +161,39 @@ router.post('/accept', authenticateUser, async (req, res) => {
                 where: { flightId_userId: { flightId: bidding.flightId, userId: bidding.passengerId } },
                 data: { seatNumber: acceptedBid.bidderSeatNumber },
             }),
+            prisma.bidding.deleteMany({
+                where: { 
+                    flightId: bidding.flightId,
+                    seatNumber: { in: seatsToRemove },
+                    status: 'ACTIVE'
+                }
+            }),
+            prisma.bid.deleteMany({
+                where: {
+                    bidding: {
+                        flightId: bidding.flightId,
+                        seatNumber: { in: seatsToRemove }
+                    }
+                }
+            })
         ]);
 
-        seatsToRemove.forEach(seatNumber => {
-            const biddingIdToRemove = `${bidding.flightId}-${seatNumber}`;
-            activeBiddings.delete(biddingIdToRemove);
-            bids.delete(biddingIdToRemove);
-        });
-
-        activeBiddings.forEach((activeBidding, activeBiddingId) => {
-            if (!seatsToRemove.includes(activeBidding.seatNumber)) {
-                const updatedBids = bids.get(activeBiddingId).filter(bid => 
-                    !seatsToRemove.includes(bid.bidderSeatNumber)
-                );
-                bids.set(activeBiddingId, updatedBids);
-
-                if (updatedBids.length === 0) {
-                    activeBiddings.delete(activeBiddingId);
-                    bids.delete(activeBiddingId);
-                }
-            }
-        });
-
-        emitToFlight(req.app.locals.io, bidding.flightId, 'bidding-completed', {
+        emitToFlight(io, bidding.flightId, 'bidding-completed', {
             biddingId,
             winnerId: acceptedBid.bidderId,
             auctioneerNewSeat: acceptedBid.bidderSeatNumber,
             bidderNewSeat: bidding.seatNumber
         });
 
-        const removedBiddingIds = seatsToRemove.map(seat => `${bidding.flightId}-${seat}`);
-        emitToFlight(req.app.locals.io, bidding.flightId, 'biddings-removed', {
-            removedBiddingIds,
+        emitToFlight(io, bidding.flightId, 'biddings-removed', {
+            removedBiddingIds: seatsToRemove.map(seat => `${bidding.flightId}-${seat}`),
             removedSeatNumbers: seatsToRemove
         });
 
         res.json({ success: true });
     } catch (error) {
-        res.status(500).json({ error: 'Failed to swap seats' });
+        console.error('Error accepting bid:', error);
+        res.status(500).json({ error: 'Failed to accept bid and swap seats' });
     }
 });
 
@@ -179,20 +202,34 @@ router.post('/accept', authenticateUser, async (req, res) => {
  * @desc Get all active biddings for a specific flight
  * @access Private
  */
-router.get('/active/:flightId', authenticateUser, (req, res) => {
+router.get('/active/:flightId', authenticateUser, async (req, res) => {
     const { flightId } = req.params;
-    const flightBiddings = Array.from(activeBiddings.values())
-        .filter(bidding => bidding.flightId === flightId && bidding.status === 'ACTIVE')
-        .map(bidding => ({
-            biddingId: `${bidding.flightId}-${bidding.seatNumber}`,
+
+    try {
+        const activeBiddings = await prisma.bidding.findMany({
+            where: {
+                flightId,
+                status: 'ACTIVE'
+            },
+            include: {
+                bids: true
+            }
+        });
+
+        const formattedBiddings = activeBiddings.map(bidding => ({
+            biddingId: bidding.biddingId,
             seatNumber: bidding.seatNumber,
             passengerId: bidding.passengerId,
             startTime: bidding.startTime,
             expirationTime: bidding.expirationTime,
-            bids: bids.get(`${bidding.flightId}-${bidding.seatNumber}`) || []
+            bids: bidding.bids
         }));
 
-    res.json(flightBiddings);
+        res.json(formattedBiddings);
+    } catch (error) {
+        console.error('Error fetching active biddings:', error);
+        res.status(500).json({ error: 'Failed to fetch active biddings' });
+    }
 });
 
 /**
@@ -202,20 +239,26 @@ router.get('/active/:flightId', authenticateUser, (req, res) => {
  */
 router.post('/cancel', authenticateUser, async (req, res) => {
     const { biddingId } = req.body;
-    const bidding = activeBiddings.get(biddingId);
-    
-    if (!bidding || bidding.status !== 'ACTIVE') {
-        return res.status(400).json({ error: 'Bidding not found or not active' });
-    }
 
     try {
-        activeBiddings.delete(biddingId);
-        bids.delete(biddingId);
-    
+        const bidding = await prisma.bidding.findUnique({
+            where: { biddingId }
+        });
+
+        if (!bidding || bidding.status !== 'ACTIVE') {
+            return res.status(400).json({ error: 'Bidding not found or not active' });
+        }
+
+        await prisma.$transaction([
+            prisma.bid.deleteMany({ where: { biddingId } }),
+            prisma.bidding.delete({ where: { biddingId } })
+        ]); 
+
         io.to(bidding.flightId).emit('bidding-cancelled', { biddingId });
-    
+
         res.json({ success: true });
     } catch (error) {
+        console.error('Error cancelling bidding:', error);
         res.status(500).json({ error: 'Failed to cancel bidding' });
     }
 });

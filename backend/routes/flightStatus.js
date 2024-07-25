@@ -62,7 +62,8 @@ router.post('/add-trip', authenticateUser, async (req, res) => {
                     flightId,
                     carrierCode,
                     flightNumber,
-                    scheduledDepartureDate
+                    scheduledDepartureDate,
+                    scheduledDepartureTime
                 }
             });
 
