@@ -49,7 +49,9 @@ model Flight {
   carrierCode           String
   flightNumber          Int
   scheduledDepartureDate String
+  scheduledDepartureTime String
   passengers            Passenger[]
+  biddings              Bidding[]
 
   @@unique([carrierCode, flightNumber, scheduledDepartureDate])
 }
@@ -61,9 +63,34 @@ model Passenger {
   flightId              String
   flight                Flight   @relation(fields: [flightId], references: [flightId])
   seatNumber            String
+  biddings              Bidding[]
+  bids                  Bid[]
 
   @@unique([flightId, seatNumber])
   @@unique([flightId, userId])
 }
 
+model Bidding {
+  biddingId      String   @id
+  flightId       String
+  flight         Flight   @relation(fields: [flightId], references: [flightId])
+  passengerId    Int
+  passenger      Passenger @relation(fields: [passengerId], references: [passengerId])
+  seatNumber     String
+  startTime      DateTime
+  expirationTime DateTime
+  status         String
+  bids           Bid[]
+}
+
+model Bid {
+  bidId           Int      @id @default(autoincrement())
+  biddingId       String
+  bidding         Bidding  @relation(fields: [biddingId], references: [biddingId], onDelete: Cascade)
+  bidderId        Int
+  bidder          Passenger @relation(fields: [bidderId], references: [passengerId])
+  amount          Float
+  bidderSeatNumber String
+  time            DateTime
+}
 
