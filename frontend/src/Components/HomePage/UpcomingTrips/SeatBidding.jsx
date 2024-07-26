@@ -76,7 +76,9 @@ const SeatBidding = ({ trip, flightId, onBiddingCompleted }) => {
                     biddingId, 
                     seatNumber, 
                     passengerId, 
-                    bids: Array.isArray(bids) ? bids : [bid].filter(Boolean)
+                    bids: Array.isArray(bids) ? bids : [bid].filter(Boolean),
+                    startTime: data.startTime,
+                    expirationTime: data.expirationTime
                 }];
             }
         });
@@ -117,7 +119,7 @@ const SeatBidding = ({ trip, flightId, onBiddingCompleted }) => {
                 seatNumber: trip.seatNumber,
                 flightId
             }, { withCredentials: true });
-            setActiveBiddings(prev => [...prev, { ...response.data, bids: [] }]);
+            setActiveBiddings(prev => [...prev, response.data]);
         } catch (error) {
             setMessage("Error Starting the Bid");
         }
@@ -226,9 +228,9 @@ const SeatBidding = ({ trip, flightId, onBiddingCompleted }) => {
                         .map((bidding, index) => (
                             <div key={`${bidding.biddingId}-${index}`}>
                                 {bidding.bids.map((bid) => (
-                                    <div key={bid.id}>
+                                    <div key={bid.bidId}>
                                         <p>Seat {bid.bidderSeatNumber}: ${bid.amount}</p>
-                                        <button onClick={() => acceptBid(bidding.biddingId, bid.id)}>Accept</button>
+                                        <button onClick={() => acceptBid(bidding.biddingId, bid.bidId)}>Accept</button>
                                     </div>
                                 ))}
                             </div>
@@ -238,7 +240,7 @@ const SeatBidding = ({ trip, flightId, onBiddingCompleted }) => {
             )}
             
             <h3>Active Bids in This Flight</h3>
-            {activeBiddings.filter(bidding => bidding.passengerId !== trip.userId).length > 0 ? (
+            {activeBiddings.filter(bidding => bidding.passengerId !== trip.userId && new Date(bidding.expirationTime) > new Date()).length > 0 ? (
                 activeBiddings
                     .filter(bidding => bidding.passengerId !== trip.userId)
                     .map((bidding, index) => (
