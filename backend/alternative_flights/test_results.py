@@ -6,12 +6,10 @@ from alt_flight_search import main, load_flight_data, find_flight_options, calcu
 
 class TestFlightRecommendation(unittest.TestCase):
     def setUp(self):
-        # Running the main function to generate results
-        main()
-        
-        # Loading the results
         current_dir = os.path.dirname(os.path.abspath(__file__))
-        results_path = os.path.join(current_dir, 'results.json')
+        parent_dir = os.path.dirname(current_dir)
+        results_path = os.path.join(parent_dir, 'routes', 'results.json')
+
         with open(results_path, 'r') as f:
             self.results = json.load(f)
 
@@ -90,6 +88,11 @@ class TestFlightRecommendation(unittest.TestCase):
                     for i in range(len(result['flights']) - 1)
                 )
                 self.assertAlmostEqual(calculated_connection_time, result['summary']['connection_time'], delta=0.01)
+
+    def test_score_range(self):
+        for result in self.results:
+            self.assertGreaterEqual(result['summary']['score'], 0)
+            self.assertLessEqual(result['summary']['score'], 1)
 
 if __name__ == '__main__':
     unittest.main()
