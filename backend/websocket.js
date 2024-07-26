@@ -3,13 +3,6 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 /**
- * In-memory storage for active biddings and bids associated with each bidding
- * @type {Map}
- */
-export const activeBiddings = new Map();
-export const bids = new Map();
-
-/**
  * Check if a user still owns a specific seat
  * @param {string} flightId - The ID of the flight
  * @param {string} userId - The ID of the user
@@ -42,11 +35,6 @@ export function setupWebSocket(io) {
         socket.on('leave-flight', (flightId) => {
             socket.leave(flightId);
         });
-
-        // Handle client disconnection
-        socket.on('disconnect', () => {
-            // Client disconnected
-        });
     });
 }
 
@@ -66,14 +54,26 @@ export function emitToFlight(io, flightId, eventName, data) {
  * @param {SocketIO.Server} io - The Socket.IO server instance
  * @param {string} biddingId - The ID of the bidding to expire
  */
-export function expireBidding(io, biddingId) {
-    const bidding = activeBiddings.get(biddingId);
-    if (bidding && bidding.status === 'ACTIVE') {
-        bidding.status = 'EXPIRED';
-        emitToFlight(io, bidding.flightId, 'bidding-expired', { biddingId });
+export async function expireBidding(io, biddingId) {
+    try {
+        const bidding = await prisma.bidding.findUnique({
+            where: { biddingId },
+            include: { flight: true }
+        });
         
-        // Clean up expired bidding and bids
-        activeBiddings.delete(biddingId);
-        bids.delete(biddingId);
+        if (bidding && bidding.status === 'ACTIVE' && new Date() >= bidding.expirationTime) {
+            await prisma.$transaction([
+                prisma.bidding.update({
+                    where: { biddingId },
+                    data: { status: 'EXPIRED' }
+                }),
+                prisma.bid.deleteMany({
+                    where: { biddingId }
+                })
+            ]);
+            emitToFlight(io, bidding.flightId, 'bidding-expired', { biddingId });
+        }
+    } catch (error) {
+        console.error('Error expiring bidding:', error);
     }
-}
+} 
