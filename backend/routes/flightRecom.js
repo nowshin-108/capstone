@@ -11,11 +11,34 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const prisma = new PrismaClient();
 const router = express.Router();
 
+async function getUserAirlineUsage(userId, preferredAirlineCode) {
+    const airlineUsage = await prisma.trip.groupBy({
+        by: ['carrierCode'],
+        where: {
+            userId: userId,
+        },
+        _count: {
+            carrierCode: true
+        }
+        });
+    
+        return airlineUsage.map(usage => ({
+        airlineCode: usage.carrierCode,
+        count: usage.carrierCode === preferredAirlineCode 
+            ? Math.max(0, usage._count.carrierCode - 1) 
+            : usage._count.carrierCode
+    }));
+}  
+
 // Flight recommendation generation endpoint 
 router.get("/recommendations", async (req, res) => {
-    const { departure_airport, arrival_airport, departure_time, preferred_airline_code } = req.query;
+    const { departure_airport, arrival_airport, departure_time, preferred_airline_code, userId } = req.query;
     try {
-        const data = { departure_airport, arrival_airport, departure_time, preferred_airline_code };
+
+        const airlineUsage = await getUserAirlineUsage(parseFloat(userId), preferred_airline_code);
+        console.log("airline usage", airlineUsage)
+
+        const data = { departure_airport, arrival_airport, departure_time, preferred_airline_code, airline_usage: airlineUsage };
         const dataString = JSON.stringify(data);
         const scriptPath = "/Users/nowshinanber/Desktop/capstone/backend/alternative_flights/alt_flight_search.py";
         const pythonProcess = exec(`python3 ${scriptPath}`);
@@ -56,7 +79,8 @@ router.get("/alternative-flights", authenticateUser, async (req, res) => {
     }
 
     try {
-    const recommendationResponse = await fetch(`${BACKEND_ORIGIN}/recommendations?departure_airport=${departure_airport}&arrival_airport=${arrival_airport}&departure_time=${departure_time}&preferred_airline_code=${preferred_airline_code}`);
+    const userId = req.session.user.userId
+    const recommendationResponse = await fetch(`${BACKEND_ORIGIN}/recommendations?departure_airport=${departure_airport}&arrival_airport=${arrival_airport}&departure_time=${departure_time}&preferred_airline_code=${preferred_airline_code}&userId=${userId}`);
     if (!recommendationResponse.ok) {
         throw new Error('Failed to generate recommendations');
     }

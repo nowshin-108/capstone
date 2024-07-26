@@ -169,22 +169,41 @@ def apply_discounts(options: List[FlightOption], baseline_duration: float):
         option.discount = min(discount, option.total_price * 0.7)  # Cap discount at 70%
         option.total_price -= option.discount
 
-def calculate_ranking_scores(options: List[FlightOption], preferred_airline_code: str) -> List[FlightOption]:
+def calculate_ranking_scores(options: List[FlightOption], preferred_airline_code: str, airline_usage: List[Dict]) -> List[FlightOption]:
     prices = np.array([opt.total_price for opt in options])
     durations = np.array([opt.total_duration for opt in options])
     connections = np.array([len(opt.flights) - 1 for opt in options])
-    airline_matches = np.array([1 if any(flight.airline_code == preferred_airline_code for flight in opt.flights) else 0 for opt in options])
 
     price_scores = 1 - (prices - np.min(prices)) / (np.max(prices) - np.min(prices))
     speed_scores = 1 - (durations - np.min(durations)) / (np.max(durations) - np.min(durations))
     directness_scores = np.where(connections == 0, 2, 1 - connections / np.max(connections))
 
-    overall_scores = (
-        0.35 * price_scores +
-        0.25 * speed_scores +
-        0.30 * directness_scores +
-        0.10 * airline_matches
-    )
+    preferred_airline_scores = np.array([
+        1 if any(flight.airline_code == preferred_airline_code for flight in opt.flights) else 0
+        for opt in options
+    ])
+
+    usage_dict = {usage['airlineCode']: usage['count'] for usage in airline_usage}
+    max_usage = max(usage_dict.values(), default=0)
+    if max_usage > 0:
+        historical_usage_scores = np.array([
+            max((usage_dict.get(flight.airline_code, 0) / max_usage for flight in opt.flights), default=0)
+            for opt in options
+        ])
+        overall_scores = (
+            0.25 * price_scores +
+            0.20 * speed_scores +
+            0.20 * directness_scores +
+            0.20 * preferred_airline_scores +
+            0.15 * historical_usage_scores
+        )
+    else:
+        overall_scores = (
+            0.35 * price_scores +
+            0.25 * speed_scores +
+            0.30 * directness_scores +
+            0.10 * preferred_airline_scores
+        )
 
     scored_options = list(zip(overall_scores, options))
     scored_options.sort(key=lambda x: (-x[0], x[1].total_price))
@@ -207,6 +226,7 @@ def main():
     arrival_airport = input_data.get('arrival_airport', 'MIA')
     departure_time = datetime.strptime(input_data.get('departure_time', '2024-08-09 12:00:00'), "%Y-%m-%d %H:%M:%S")
     preferred_airline_code = input_data.get('preferred_airline_code', 'AA')
+    airline_usage = input_data.get('airline_usage', '[]')
 
     options = find_flight_options(departure_airport, arrival_airport, departure_time, flight_data)
     if not options:
@@ -216,7 +236,7 @@ def main():
     baseline_duration = calculate_baseline_duration(options)
     apply_discounts(options, baseline_duration)
 
-    sorted_options = calculate_ranking_scores(options, preferred_airline_code)
+    sorted_options = calculate_ranking_scores(options, preferred_airline_code, airline_usage)
 
     results = [{
         "rank": i+1,
