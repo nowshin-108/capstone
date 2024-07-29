@@ -208,7 +208,7 @@ const FlightForm= () => {
             {flightData.flightAdded && (
                     <div className="success-message">
                     <p>Flight has been added to your trips!</p>
-                    <button onClick={() => navigate('/') }>See Upcoming Trip</button>
+                    <button onClick={() => navigate('/upcoming-trips') }>See Upcoming Trip</button>
                     </div>
             )}
 

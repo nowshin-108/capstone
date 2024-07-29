@@ -36,7 +36,7 @@ function Sidebar() {
             <h2>Halim</h2>
             </div>
             <button onClick={() => handleNavigation('/add-trips')}>+ Add Trip</button>
-            <button onClick={() => handleNavigation('/')}>Upcoming Trip</button>
+            <button onClick={() => handleNavigation('/upcoming-trips')}>Upcoming Trip</button>
             <button onClick={() => handleNavigation('/past-trips')}>Trip History</button>
             <button className="logout" onClick={() => handleNavigation('/login', handleLogout)}>Log out</button>
         </div>

@@ -10,6 +10,7 @@ import Sidebar from './Components/HomePage/Sidebar';
 import PastTrips from './Components/HomePage/PastTrips/PastTrips';
 import TripDetails from './Components/HomePage/UpcomingTrips/TripDetails.jsx';
 import ProtectedRoute from './Components/ProtectedRoute';
+import Landing from './Components/LandingPage/Landing.jsx';
 
 function App() {
   // null: not checked, false: checked but not authenticated, object: authenticated user
@@ -33,9 +34,10 @@ function App() {
       <UserContext.Provider value={{ user, updateUser, flightData, updateFlightData }}>
           <BrowserRouter>
             <Routes>
+              <Route path="/" element={<Landing />} />
               <Route path="/login" element={<LoginForm />} />
               <Route path="/signup" element={<SignupForm />} />
-              <Route path="/" element={
+              <Route path="/upcoming-trips" element={
                 <ProtectedRoute>
                   <HomePage />
                 </ProtectedRoute>
