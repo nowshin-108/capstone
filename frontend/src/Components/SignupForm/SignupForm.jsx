@@ -33,7 +33,7 @@ const SignupForm = () => {
 
       if (response.ok) {
         updateUser(data.user);
-        navigate('/');
+        navigate('/upcoming-trips');
       } else {
         setError(data.message || 'Signup failed. Please try again.');
       }

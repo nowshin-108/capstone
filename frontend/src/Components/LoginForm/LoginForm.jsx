@@ -30,7 +30,7 @@ const LoginForm = () => {
       if (response.ok) {
         const data = await response.json();
         updateUser(data.user);
-        navigate('/');
+        navigate('/upcoming-trips');
       } else {
         setError('Incorrect username or password'); 
       }
