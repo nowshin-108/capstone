@@ -63,7 +63,8 @@ const handleClick = () => {
         departureUtcOffset: trip.departureUtcOffset,
         arrivalUtcOffset: trip.arrivalUtcOffset,
         departureAirport: trip.departureAirportCode,
-        arrivalAirport: trip.arrivalAirportCode
+        arrivalAirport: trip.arrivalAirportCode,
+        status: trip.status
     }
     });
 };
