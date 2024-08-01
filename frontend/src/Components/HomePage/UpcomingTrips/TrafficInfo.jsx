@@ -1,15 +1,39 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import { API_BASE_URL } from '../../../config';
 
 
-function TrafficInfo({ departureAirport, departureTime, userLocation }) {
+function TrafficInfo({ departureAirport, departureTime }) {
 const [airportLocation, setAirportLocation] = useState(null);
 const [trafficData, setTrafficData] = useState(null);
 const [recommendedLeaveTime, setRecommendedLeaveTime] = useState(null);
 const [error, setError] = useState(null);
+const [isLoading, setIsLoading] = useState(false);
+const [showTrafficInfo, setShowTrafficInfo] = useState(false);
+const [userLocation, setUserLocation] = useState(null)
 
+// Get user's current location
+const getUserLocation = useCallback(() => {
+    return new Promise((resolve, reject) => {
+    if (!navigator.geolocation) {
+        reject(new Error('Geolocation is not supported by this browser.'));
+        return;
+    }
+    navigator.geolocation.getCurrentPosition(
+        (position) => {
+            resolve({
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+            });
+        },
+        (error) => {
+            reject(error);
+        },
+        { enableHighAccuracy: true, timeout: 30000, maximumAge: 0 }
+    );
+    });
+}, []);
 
 // Fetch airport location data
 const fetchAirportLocation = useCallback(async (code) => {
@@ -28,13 +52,32 @@ const fetchAirportLocation = useCallback(async (code) => {
 
 useEffect(() => {
     if (departureAirport) {
-    fetchAirportLocation(departureAirport);
+        fetchAirportLocation(departureAirport);
     }
 }, [departureAirport, fetchAirportLocation]);
 
 
+// handle button click
+const handleCalculateTrafficInfo = async () => {
+    setIsLoading(true);
+    setShowTrafficInfo(true);
+    if (!userLocation) {
+        try {
+            const location = await getUserLocation();
+            setUserLocation(location);
+            await calculateRoute(location);
+        } catch (error) {
+            setError('Error getting user location. Please try again.');
+            setIsLoading(false);
+        }
+    } else {
+        await calculateRoute(userLocation);
+    }
+};
+
+
 // Calculate route and traffic information
-const calculateRoute = useCallback(async () => {
+const calculateRoute = useCallback(async (userLocation) => {
     if (!userLocation || !airportLocation) {
     setError('Missing location data for route calculation');
     return;
@@ -71,31 +114,36 @@ const calculateRoute = useCallback(async () => {
     }
     } catch (error) {
     setError(error.message || 'Error calculating route. Please try again later.');
+    } finally {
+        setIsLoading(false);
     }
-}, [userLocation, airportLocation, departureTime]);
+}, [airportLocation, departureTime]);
 
 
 useEffect(() => {
-    if (userLocation && airportLocation) {
-    calculateRoute();
+    if (userLocation && showTrafficInfo) {
+        calculateRoute(userLocation);
     }
-}, [userLocation, airportLocation, calculateRoute]);
+}, [userLocation, showTrafficInfo, calculateRoute]);
 
 
 return (
     <div className="traffic-info-container">
     <div className="trip-timeline">
         <div className="timeline-item">
-        <h3>Leave for Airport</h3>
-        {error ? (
+        {!showTrafficInfo ? (
+            <button onClick={handleCalculateTrafficInfo} disabled={isLoading}>
+                {isLoading ? 'Calculating...' : 'When to Leave for Airport'}
+            </button>
+        ) : error ? (
             <p className="error-message">{error}</p>
         ) : trafficData ? (
             <div className="traffic-info">
-            <p><strong>Distance to airport:</strong> {trafficData.distance}</p>
-            <p><strong>Estimated travel time:</strong> {trafficData.duration}</p>
-            {recommendedLeaveTime && (
-                <p><strong>Recommended leave time:</strong> {recommendedLeaveTime.toLocaleTimeString()}</p>
-            )}
+                <p><strong>Distance to airport:</strong> {trafficData.distance}</p>
+                <p><strong>Estimated travel time:</strong> {trafficData.duration}</p>
+                {recommendedLeaveTime && (
+                    <p><strong>Recommended leave time:</strong> {recommendedLeaveTime.toLocaleTimeString()}</p>
+                )}
             </div>
         ) : (
             <p className="loading-message">Calculating route information...</p>
@@ -117,11 +165,7 @@ return (
 
 TrafficInfo.propTypes = {
 departureAirport: PropTypes.string.isRequired,
-departureTime: PropTypes.instanceOf(Date).isRequired,
-userLocation: PropTypes.shape({
-    lat: PropTypes.number.isRequired,
-    lng: PropTypes.number.isRequired,
-}).isRequired,
+departureTime: PropTypes.instanceOf(Date).isRequired
 };
 
 

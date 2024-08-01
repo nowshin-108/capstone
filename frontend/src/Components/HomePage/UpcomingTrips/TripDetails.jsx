@@ -1,7 +1,7 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-import { IoAirplane } from "react-icons/io5";
+import { IoAirplane, IoRefresh } from "react-icons/io5";
 import { API_BASE_URL } from '../../../config';
 import { getCityName } from '../../../assets/data/airportCityMap';
 import TrafficInfo from './TrafficInfo';
@@ -17,9 +17,7 @@ const [trip, setTrip] = useState(null);
 const [flightStatus, setFlightStatus] = useState(null);
 const [flightData, setFlightData] = useState(null);
 const [airlineName, setAirlineName] = useState('');
-const [userLocation, setUserLocation] = useState(null);
 const [isLoading, setIsLoading] = useState(true);
-const [isLocationLoading, setIsLocationLoading] = useState(true);
 const [error, setError] = useState(null);
 const { tripId } = useParams();
 const [isModalOpen, setIsModalOpen] = useState(false);
@@ -28,76 +26,63 @@ const [isAlternativeFlightsLoading, setIsAlternativeFlightsLoading] = useState(f
 const [modalError, setModalError] = useState(null);
 const [isSeatBidsExpanded, setIsSeatBidsExpanded] = useState(false);
 
-
-// Get user's current location
-const getUserLocation = useCallback(() => {
-    return new Promise((resolve, reject) => {
-    if (!navigator.geolocation) {
-        reject(new Error('Geolocation is not supported by this browser.'));
-        return;
-    }
-
-
-    navigator.geolocation.getCurrentPosition(
-        (position) => {
-        resolve({
-            lat: position.coords.latitude,
-            lng: position.coords.longitude
+// Get flight status
+const fetchFlightStatus = async (carrierCode, flightNumber, scheduledDepartureDate) => {
+    try {
+        const statusResponse = await axios.get(`${API_BASE_URL}/flight-status`, {
+            params: { carrierCode, flightNumber, scheduledDepartureDate },
+            withCredentials: true
         });
-        },
-        (error) => {
-        reject(error);
-        },
-        { enableHighAccuracy: true, timeout: 30000, maximumAge: 0 }
-    );
-    });
-}, []);
+        setFlightData(statusResponse.data.data.data[0]);
+        setFlightStatus(statusResponse.data.status.status);
+    } catch (error) {
+        console.error('Error fetching flight status:', error);
+    }
+};
 
+// Refresh trip status
+const refreshFlightStatus = async () => {
+    if (trip) {
+        await fetchFlightStatus(trip.carrierCode, trip.flightNumber, trip.scheduledDepartureDate);
+    }
+};
+
+// Get airline name from carrier code
+const fetchAirlineInfo = async (carrierCode) => {
+    try {
+        const airlineResponse = await axios.get(`${API_BASE_URL}/airline-info/${carrierCode}`, { withCredentials: true });
+        setAirlineName(airlineResponse.data.name);
+    } catch (error) {
+        console.error('Error fetching airline info:', error);
+    }
+};
 
 useEffect(() => {
     const fetchAllData = async () => {
     try {
         setIsLoading(true);
-        setIsLocationLoading(true);
         
         // Fetch trip data
         const tripResponse = await axios.get(`${API_BASE_URL}/trips/${tripId}`, { withCredentials: true });
         const tripData = tripResponse.data;
 
         setTrip(tripData);
+        setFlightStatus(tripData.status)
 
-        // Fetch flight status
-        const { carrierCode, flightNumber, scheduledDepartureDate } = tripResponse.data;
-        const statusResponse = await axios.get(`${API_BASE_URL}/flight-status`, {
-        params: { carrierCode, flightNumber, scheduledDepartureDate },
-        withCredentials: true
-        });
-        
-        setFlightData(statusResponse.data.data.data[0]);
-        setFlightStatus(statusResponse.data.status.status)
-
-
-        // Fetch airline info
-        const airlineResponse = await axios.get(`${API_BASE_URL}/airline-info/${carrierCode}`, { withCredentials: true });
-        setAirlineName(airlineResponse.data.name);
-
-
-        // Get user location
-        const location = await getUserLocation();
-        setUserLocation(location);
-
+        // Fetch additional data after setting trip
+        await fetchFlightStatus(tripData.carrierCode, tripData.flightNumber, tripData.scheduledDepartureDate);
+        await fetchAirlineInfo(tripData.carrierCode);
 
     } catch (error) {
         setError(error.message || 'An error occurred while loading the page. Please try again.');
     } finally {
         setIsLoading(false);
-        setIsLocationLoading(false);
     }
     };
 
 
     fetchAllData();
-}, [tripId, getUserLocation]);
+}, [tripId]);
 
 
 const handleBiddingCompleted = async () => {
@@ -255,6 +240,9 @@ return (
                 ? calculateTimeRemaining()
                 : "Unable to retrieve flight status"}
             </span>
+            <button onClick={refreshFlightStatus} className="refresh-button">
+                <IoRefresh />
+            </button>
         </div>
         </div>
         <p>{formatDate(departurePoint.departure.timings[0].value)}</p>
@@ -307,15 +295,10 @@ return (
         flights={alternativeFlights}
     />
     <div className="map">
-        {!isLocationLoading && userLocation ? (
         <TrafficInfo
             departureAirport={trip.departureAirportCode}
             departureTime={new Date(departurePoint.departure.timings[0].value)}
-            userLocation={userLocation}
         />
-        ) : (
-        <div>Loading map...</div>
-        )}
     </div>
     <h2>Manage</h2>
     <div className="manage-section">

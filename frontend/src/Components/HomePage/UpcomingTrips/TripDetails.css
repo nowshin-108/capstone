@@ -305,3 +305,7 @@ p {
     display: flex;
     justify-content: center;
 }
+
+.refresh-button {
+    background-color: #e6f4ea;
+}
