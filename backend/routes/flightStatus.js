@@ -206,6 +206,44 @@ try {
 }
 });
 
+// Fetch past trips for the authenticated user
+router.get('/trips/past', authenticateUser, async (req, res) => {
+    try {
+        const userId = req.session.user.userId;
+        const currentDateTime = new Date().toISOString();
+
+        const pastTrips = await prisma.trip.findMany({
+            where: {
+                userId,
+                scheduledDepartureTime: { lt: currentDateTime }
+            },
+            include: { segments: true },
+            orderBy: { scheduledDepartureDate: 'desc' },
+        });
+
+        const tripsData = pastTrips.map(trip => ({
+            tripId: trip.tripId,
+            carrierCode: trip.carrierCode,
+            flightNumber: trip.flightNumber,
+            departureAirportCode: trip.departureAirportCode,
+            arrivalAirportCode: trip.arrivalAirportCode,
+            scheduledDepartureDate: trip.scheduledDepartureDate,
+            scheduledDepartureTime: trip.scheduledDepartureTime,
+            scheduledArrivalTime: trip.scheduledArrivalTime,
+            segments: trip.segments.map(segment => ({
+                boardPointCode: segment.boardPointCode,
+                scheduledSegmentDepartureTime: segment.scheduledSegmentDuration,
+            })),
+            status: 'Completed'
+        }));
+
+        res.json(tripsData);
+    } catch (error) {
+        console.error('Error fetching past trips:', error);
+        res.status(500).json({ error: 'Failed to fetch past trips' });
+    }
+});
+
 // Delete trip endpoint
 router.delete('/trips/:tripId', authenticateUser, async (req, res) => {
 try {
