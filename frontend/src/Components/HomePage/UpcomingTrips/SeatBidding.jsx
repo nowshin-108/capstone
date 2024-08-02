@@ -207,68 +207,84 @@ const SeatBidding = ({ trip, flightId, onBiddingCompleted }) => {
 
     return (
         <div className="seat-bidding">
-            <h2>Seat Bidding</h2>            
-            {!activeBiddings.some(bidding => bidding.passengerId === trip.userId) ? (
-                <button onClick={startBidding}>Bid Your Seat</button>
-            ) : (
-                <div>
-                    <p>You are bidding your seat: {trip.seatNumber}</p>
-                    <button onClick={() => cancelBidding(activeBiddings.find(b => b.passengerId === trip.userId).biddingId)}>
-                        Cancel Your Seat Bid
-                    </button>
-                    <h3>Offers:</h3>
-                    {activeBiddings
-                        .filter(bidding => bidding.passengerId === trip.userId)
-                        .flatMap(bidding => bidding.bids)
-                        .length === 0 ? (
-                        <p>No offers so far.</p>
+            <h2>Seat Bidding</h2>
+            <div className="bidding-container">
+                <div className="user-seat">
+                    {!activeBiddings.some(bidding => bidding.passengerId === trip.userId) ? (
+                        <button className="bid-seat-button" onClick={startBidding}>Bid Your Seat</button>
                     ) : (
-                        activeBiddings
-                        .filter(bidding => bidding.passengerId === trip.userId)
-                        .map((bidding, index) => (
-                            <div key={`${bidding.biddingId}-${index}`}>
-                                {bidding.bids.map((bid) => (
-                                    <div key={bid.bidId}>
-                                        <p>Seat {bid.bidderSeatNumber}: ${bid.amount}</p>
-                                        <button onClick={() => acceptBid(bidding.biddingId, bid.bidId)}>Accept</button>
-                                    </div>
-                                ))}
-                            </div>
-                        ))
+                        <>
+                            <p>You are bidding your seat: {trip.seatNumber}</p> <br />
+                            <button className="cancel-bid-button" onClick={() => cancelBidding(activeBiddings.find(b => b.passengerId === trip.userId).biddingId)}>
+                                Cancel Your Seat Bid
+                            </button>
+                        </>
                     )}
                 </div>
-            )}
-            
-            <h3>Active Bids in This Flight</h3>
-            {activeBiddings.filter(bidding => bidding.passengerId !== trip.userId && new Date(bidding.expirationTime) > new Date()).length > 0 ? (
-                activeBiddings
-                    .filter(bidding => bidding.passengerId !== trip.userId)
-                    .map((bidding, index) => (
-                        <form 
-                            key={`${bidding.biddingId}-${index}`}
-                            onSubmit={(e) => {
-                                e.preventDefault();
-                                placeBid(bidding.biddingId, bidding.seatNumber);
-                            }}
-                        >
-                            <p>Seat {bidding.seatNumber} is available for bidding</p>
-                            <input
-                                type="number"
-                                value={bidAmounts[bidding.biddingId] || ''}
-                                onChange={(e) => setBidAmounts({...bidAmounts, [bidding.biddingId]: e.target.value})}
-                                placeholder="Enter bid amount"
-                                required
-                                min="0"
-                            />
-                            <button type="submit">Place Bid</button>
-                        </form>        
-                    ))
-            ) : (
-                <p>No active bids at the moment.</p>
-            )}
+                
+                <div className="offers-section">
+                    <h3>Offers:</h3>
+                    <div className="bid-cards">
+                        {activeBiddings
+                            .filter(bidding => bidding.passengerId === trip.userId)
+                            .flatMap(bidding => bidding.bids)
+                            .length === 0 ? (
+                            <p>No offers so far.</p>
+                        ) : (
+                            activeBiddings
+                            .filter(bidding => bidding.passengerId === trip.userId)
+                            .map((bidding, index) => (
+                                <div key={`${bidding.biddingId}-${index}`} className="bid-card">
+                                    {bidding.bids.map((bid) => (
+                                        <div key={bid.bidId} className="bid-info">
+                                            <p className="seat-number">Seat {bid.bidderSeatNumber}</p>
+                                            <p className="bid-amount">${bid.amount}</p>
+                                            <button className="accept-button" onClick={() => acceptBid(bidding.biddingId, bid.bidId)}>Accept</button>
+                                        </div>
+                                    ))}
+                                </div>
+                            ))
+                        )}
+                    </div>
+                </div>
+                
+                <div className="active-bids-section">
+                    <h3>Seats Available for Bidding</h3>
+                    <div className="bid-cards">
+                        {activeBiddings.filter(bidding => bidding.passengerId !== trip.userId && new Date(bidding.expirationTime) > new Date()).length > 0 ? (
+                            activeBiddings
+                                .filter(bidding => bidding.passengerId !== trip.userId)
+                                .map((bidding, index) => (
+                                    <div key={`${bidding.biddingId}-${index}`} className="bid-card">
+                                        <p className="seat-number">Seat {bidding.seatNumber}</p>
+                                        <form 
+                                            onSubmit={(e) => {
+                                                e.preventDefault();
+                                                placeBid(bidding.biddingId, bidding.seatNumber);
+                                            }}
+                                            className="bid-form"
+                                        >
+                                            <input
+                                                type="number"
+                                                value={bidAmounts[bidding.biddingId] || ''}
+                                                onChange={(e) => setBidAmounts({...bidAmounts, [bidding.biddingId]: e.target.value})}
+                                                placeholder="Enter bid amount"
+                                                required
+                                                min="0"
+                                            />
+                                            <button type="submit" className="place-bid-button">Place Bid</button>
+                                        </form>
+                                    </div>
+                                ))
+                        ) : (
+                            <p>No active bids at the moment.</p>
+                        )}
+                    </div>
+                </div>
+            </div>
             {message && <p className="message">{message}</p>}
         </div>
-    );
+    );    
 };
 
 SeatBidding.propTypes = {

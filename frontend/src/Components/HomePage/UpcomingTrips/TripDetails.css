@@ -11,7 +11,6 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
 }
 
 .header-info {
@@ -88,7 +87,6 @@ header {
 .flight-info {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 30px;
 }
 
 .departure, .arrival {
