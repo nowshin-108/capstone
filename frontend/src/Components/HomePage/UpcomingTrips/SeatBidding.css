@@ -1,119 +1,141 @@
+:root {
+    --primary-color: #4CAF50;
+    --background-color: #f9f9f9;
+    --card-background: #ffffff;
+    --text-color: #333;
+    --border-color: #e0e0e0;
+    --shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
 .seat-bidding {
-    background-color: #ffffff;
-    border-radius: 10px;
-    padding: 15px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background-color: var(--background-color);
+    border-radius: 8px;
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.seat-bidding-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
+.seat-bidding h2 {
+    margin-bottom: 20px;
+    color: var(--text-color);
+    font-size: 24px;
 }
 
-.new-bids-available {
-    color: #4CAF50;
-    font-size: 0.8em;
+.bidding-container {
+    background-color: var(--card-background);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow);
 }
 
-.your-seat {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
+.user-seat {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--border-color);
 }
 
-.bid-seat-button {
-    background-color: #4CAF50;
+.user-seat p {
+    font-weight: bold;
+    color: var(--text-color);
+    font-size: 16px;
+    margin: 0;
+}
+
+.bid-seat-button, .cancel-bid-button, .accept-button, .place-bid-button {
+    background-color: var(--primary-color);
     color: white;
     border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
+    padding: 10px 20px;
+    border-radius: 4px;
     cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
 }
 
-.bids-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+.bid-seat-button:hover, .cancel-bid-button:hover, .accept-button:hover, .place-bid-button:hover {
+    background-color: #45a049;
+}
+
+.offers-section, .active-bids-section {
+    margin-top: 30px;
+}
+
+.offers-section h3, .active-bids-section h3 {
+    margin-bottom: 15px;
+    color: var(--text-color);
+    font-size: 20px;
+}
+
+.bid-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
 }
 
 .bid-card {
-    background-color: #f0f0f0;
-    border-radius: 5px;
-    padding: 10px;
-    width: calc(33.33% - 10px);
-    box-sizing: border-box;
+    background-color: var(--card-background);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+}
+
+.seat-number {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: var(--text-color);
+    font-size: 18px;
 }
 
 .bid-info {
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 5px;
-}
-
-.bid-amount {
-    font-weight: bold;
-}
-
-.accept-button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    width: 100%;
-    cursor: pointer;
-}
-
-.place-bid {
-    margin-top: 15px;
-    display: flex;
+    flex-direction: column;
     gap: 10px;
 }
 
-.place-bid input {
-    flex-grow: 1;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+.bid-amount {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--primary-color);
 }
 
-.place-bid button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.start-bidding-button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
+.bid-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     margin-top: 10px;
 }
 
+.bid-form input {
+    padding: 8px 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.message {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #e7f3fe;
+    border-left: 5px solid #2196F3;
+    color: var(--text-color);
+    font-size: 14px;
+}
+
 .loader {
-    border: 5px solid #f3f3f3;
-    border-top: 5px solid #3498db;
+    border: 4px solid var(--border-color);
+    border-top: 4px solid var(--primary-color);
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     animation: spin 1s linear infinite;
     margin: 20px auto;
 }
 
-.message {
-    padding: 10px;
-    margin: 10px 0;
-    background-color: #e7f3fe;
-    border-left: 6px solid #2196F3;
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 

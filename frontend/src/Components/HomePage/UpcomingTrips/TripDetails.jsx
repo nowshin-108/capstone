@@ -10,6 +10,7 @@ import AltFlightModal from './AltFlightModal';
 import { format } from 'date-fns';
 import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
 import SeatBidding from './SeatBidding';
+import TravelChecklist from './TravelChecklist';
 
 
 const TripDetails = () => {
@@ -25,6 +26,7 @@ const [alternativeFlights, setAlternativeFlights] = useState(null);
 const [isAlternativeFlightsLoading, setIsAlternativeFlightsLoading] = useState(false);
 const [modalError, setModalError] = useState(null);
 const [isSeatBidsExpanded, setIsSeatBidsExpanded] = useState(false);
+const [isChecklistExpanded, setIsChecklistExpanded] = useState(false);
 
 // Get flight status
 const fetchFlightStatus = async (carrierCode, flightNumber, scheduledDepartureDate) => {
@@ -324,33 +326,24 @@ return (
                 />
             </li>
         )}
-        <li>
-            <div className="item-info">
-            <span className="item-title">Travel Docs</span>
-            <span className="item-subtitle">Check List Completed</span>
-            </div>
-            <div className="icons">
-            <span className="check">✓</span>
-            <span className="edit">✎</span>
-            </div>
+        <li onClick={() => setIsChecklistExpanded(!isChecklistExpanded)}>
+                <div className="item-info">
+                    <span className="item-title">Checklist</span>
+                    <span className="item-subtitle">Manage your travel items</span>
+                </div>
+                <div className="icons">
+                    {isChecklistExpanded ? <IoIosArrowUp /> : <IoIosArrowDown />}
+                </div>
         </li>
-        <li>
-            <div className="item-info">
-            <span className="item-title">Boarding Pass</span>
-            <span className="item-subtitle">Boarding Pass Added</span>
-            </div>
-            <div className="icons">
-            <span className="check">✓</span>
-            <span className="edit">✎</span>
-            </div>
-        </li>
+        {isChecklistExpanded && (
+            <li className="checklist-content">
+                <TravelChecklist tripId={tripId.toString()} />
+            </li>
+        )}
         <li>
             <div className="item-info">
             <span className="item-title">Airline</span>
             <span className="item-subtitle">{airlineName}</span>
-            </div>
-            <div className="icons">
-            <span className="edit">✎</span>
             </div>
         </li>
         </ul>
