@@ -1,70 +1,98 @@
-# Capstone project plan
+## Meta University Capstone - Flight Management App "Halim"
+
+## Project plan
 
 https://docs.google.com/document/d/1uOiigUbGpuDIhEeIQhBmXryvGWx1BgjDvI0aT22d5TE/edit?usp=sharing
 
 
-# Wireframe
+## Wireframe
 
 https://excalidraw.com/#json=4K56539uyJ3a_koNy8d4_,gbaqGStjmNZTIGcYq-nFtw
 
 
-# Week 3 Progress:
+<img width="960" alt="a" src="https://github.com/user-attachments/assets/9e25e848-c4f4-4aa7-b43b-27bcf0c792a9">
 
-    - Day 1: Met Alan and Abe, finalized Project Plan
-    - Day 2: Created Basic Homepage frontend, dived into user authentication, met Abe, talked about technical challenges and moving 
-             forward with  the project
-    - Day 3: Implemented login, signup and logout functionalities, worked on data flow, Met Alan, Murray & Abe, dsicussed handling 
-             local storage & loading state and other relevant stuff
-    - Day 4: Fixed logout bug, worked on self-review, improved UI of homepage, added floating animation on hover
-    - Day 5: Cleaned up code, working on Add trip, AviationStack API integration and workplace post about progress
+<img width="960" alt="c" src="https://github.com/user-attachments/assets/b55320cf-9567-4c61-8c79-9ae637e7fefb">
 
-# Week 4 Progress:
+<img width="960" alt="d" src="https://github.com/user-attachments/assets/80759153-b2ab-4f02-b3ea-d6bdd772594b">
 
-        - Day 1 
-                - Met Alan, worked on add trip functionality
-        - Day 2 
-                - Met Maddy, completed add trip functionality
-                - Added Amadeus API integration in backend
-                - Developed flight search and result display in frontend
-                - Stored flight search results in session storage for better user experience
-                - Implemented trip addition to database
-                - Enhanced error handling with single error state
-                - Added loading states to all components
-                - Refactored for improved code quality and maintainability
+<img width="960" alt="e" src="https://github.com/user-attachments/assets/24cf3371-8393-46c9-bf07-87045d1dbf68">
 
-              BREAKING CHANGE: New API endpoints for flight search and trip addition
-              
-        - Day 3 
-                - Met Alan, Maddy, Abe, Murray made the following changes:
-                - Backend middleware:
-                        - Added authenticateUser function to check session validity
-                        - Protecting API routes by verifying user session before allowing access
-                        - Returning 401 status if session is invalid or missing
-                - Session-based auth:
-                        - Storing user info in server-side sessions
-                        - Using secure, HTTP-only cookies to maintain session across requests
-                - API protection:
-                        - Each protected route first passes through authenticateUser middleware
-                        - Ensures only authenticated users can access sensitive endpoints
-                - Frontend integration:
-                        - Sends credentials with each request using withCredentials: true
-                        - Handles 401 responses by redirecting to login page
-        - Day 5
-                - Met with Alan and his manager Yinuo, Maddy, Abe, and Murray to discuss feedback from the previous pull request.
-                - Implemented updates based on feedback:
-                        - Removed frontend authentication verification and centralized it in the backend for improved security and maintainability.
-                        - Implemented redirect to login page if authentication fails, ensuring seamless user experience.
-                        - Replaced session storage for add trip functionality with useContext to manage state, improving code organization and scalability.
-                        - Created a new route to retrieve user data, laying the groundwork for future features.
+## Tech Stack
 
+- Frontend: React
+- Backend: Node.js, Express
+- Database: PostgreSQL
+- ORM: Prisma
 
-# Week 5 Progress:
+## Features
 
-        Day 1
-                - Completed Upcoming Trips list and Individual Trip page:
-                        - Fetched trips from the database and listed them on the Upcoming Trips page, providing users with a clear view of their upcoming travel plans.
-                        - Enhanced each trip list view by adding formatted date, time, departure city, and destination city, making the list more interactive and informative.
-                        - Developed a timeline for each trip, showcasing detailed flight information and a dynamic flight progress bar, keeping users informed about their journey.
-                        - Implemented a feature to recommend when to leave for the airport based on the user's geolocation, airport location, traffic info, and TSA recommendations, ensuring users arrive at the airport on time.
-                        - Added various smaller functionalities to display detailed flight information, further enhancing the user experience.
+- User Authentication: Secure login and registration system
+- Trip Management:
+  - Add new trips with flight details
+  - View and manage upcoming trips
+  - Access past trip information
+- Real-time Flight Updates: Get live updates on flight status
+- Personal Checklists: Create and manage trip-specific checklists
+- Interactive Dashboard: Centralized view of all travel information
 
+## Technical Challenges
+
+1. Seat Switching Real-time Bidding
+   - Implement a real-time auction system for seat switching
+   - Use WebSockets for live updates without page refreshes
+   - Ensure data consistency between live updates and permanent storage
+   - Handle edge cases to prevent double bookings
+
+2. Similar Flights Recommendation
+   - Develop an algorithm to recommend alternative flights based on specific criteria
+   - Calculate and optimize connected flights with up to 4 stops
+   - Implement dynamic pricing discounts based on flight distance and idle time
+   - Create a ranking system based on time, price, and airline preference
+
+## Setup
+
+1. Clone the repository:
+   ```
+   git clone https://github.com/nowshin-108/capstone.git
+   cd capstone
+   ```
+
+2. Set up the backend:
+   ```
+   cd backend
+   npm install
+   ```
+
+3. Set up the frontend:
+   ```
+   cd ../frontend
+   npm install
+   ```
+
+4. Set up your PostgreSQL database and update the connection string in `backend/.env`:
+   ```
+   DATABASE_URL="postgresql://username:password@localhost:5432/database_name"
+   ```
+
+5. Run Prisma migrations:
+   ```
+   cd ../backend
+   npx prisma migrate dev
+   ```
+
+## Running the Application
+
+1. Start the backend server:
+   ```
+   cd backend
+   node index.js
+   ```
+
+2. In a new terminal, start the frontend development server:
+   ```
+   cd frontend
+   npm run dev
+   ```
+
+The application should now be running on `http://localhost:3000` (or whichever port you've configured for the frontend).
